@@ -1,0 +1,14 @@
+version: '3'
+services:
+  euromould-demo:
+    build: .
+    container_name: euromould-demo
+    ports:
+      - "8085:80"
+    environment:
+      - APP_URL=http://localhost:8085
+      - APP_ENV=local
+      - APP_DEBUG=true
+      - DB_CONNECTION=sqlite
+      # Laravel'in loglarını stdout'a basması için
+      - LOG_CHANNEL=stderr
