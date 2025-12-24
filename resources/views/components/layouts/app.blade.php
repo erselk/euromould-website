@@ -34,45 +34,81 @@
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
+        [x-cloak] { display: none !important; }
     </style>
 </head>
 <body class="font-sans antialiased text-slate-800 bg-white selection:bg-primary selection:text-white">
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 transition-all duration-300 glass-nav" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-24">
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="{{ route('home') }}" class="flex items-center gap-3">
-                         @if(isset($settings) && $settings->logo)
-                            <img class="h-20 w-auto" src="{{ asset($settings->logo) }}" alt="EuroMould">
-                        @else
-                            <span class="text-3xl font-black tracking-tighter text-slate-900">EURO<span class="text-primary">MOULD</span></span>
-                        @endif
-                    </a>
+    <!-- Navigation Wrapper -->
+    <div x-data="{ mobileMenuOpen: false }">
+        <!-- Navigation -->
+        <nav class="fixed w-full z-50 transition-all duration-300 glass-nav" id="navbar">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-24">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="{{ route('home') }}" class="flex items-center gap-3">
+                             @if(isset($settings) && $settings->logo)
+                                <img class="h-20 w-auto" src="{{ asset($settings->logo) }}" alt="EuroMould">
+                            @else
+                                <span class="text-3xl font-black tracking-tighter text-slate-900">EURO<span class="text-primary">MOULD</span></span>
+                            @endif
+                        </a>
+                    </div>
+                    <!-- Desktop Menu -->
+                    <div class="hidden md:flex items-center space-x-10">
+                        <a href="{{ route('home') }}" class="text-sm font-bold text-slate-900 hover:text-primary transition-colors uppercase tracking-widest">Anasayfa</a>
+                        <a href="{{ url('/hakkimizda') }}" class="text-sm font-bold text-slate-900 hover:text-primary transition-colors uppercase tracking-widest">Hakkımızda</a>
+                        <a href="{{ url('/hizmetler') }}" class="text-sm font-bold text-slate-900 hover:text-primary transition-colors uppercase tracking-widest">Hizmetler</a>
+                        <a href="{{ url('/galeri') }}" class="text-sm font-bold text-slate-900 hover:text-primary transition-colors uppercase tracking-widest">Galeri</a>
+                        <a href="{{ url('/iletisim') }}" class="text-sm font-bold text-slate-900 hover:text-primary transition-colors uppercase tracking-widest">İletişim</a>
+                        
+                        <a href="{{ route('offer.form') }}" class="bg-primary hover:bg-slate-900 text-white px-8 py-3 font-bold transition-colors text-xs tracking-widest uppercase rounded-none">
+                            Teklif Al
+                        </a>
+                    </div>
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden flex items-center">
+                        <button @click="mobileMenuOpen = true" class="text-slate-900 hover:text-primary focus:outline-none">
+                             <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
-                <div class="hidden md:flex items-center space-x-10">
-                    <a href="{{ route('home') }}" class="text-sm font-bold text-slate-900 hover:text-primary transition-colors uppercase tracking-widest">Anasayfa</a>
-                    <a href="{{ url('/hakkimizda') }}" class="text-sm font-bold text-slate-900 hover:text-primary transition-colors uppercase tracking-widest">Hakkımızda</a>
-                    <a href="{{ url('/hizmetler') }}" class="text-sm font-bold text-slate-900 hover:text-primary transition-colors uppercase tracking-widest">Hizmetler</a>
-                    <a href="{{ url('/galeri') }}" class="text-sm font-bold text-slate-900 hover:text-primary transition-colors uppercase tracking-widest">Galeri</a>
-                    <a href="{{ url('/iletisim') }}" class="text-sm font-bold text-slate-900 hover:text-primary transition-colors uppercase tracking-widest">İletişim</a>
-                    
-                    <a href="{{ route('offer.form') }}" class="bg-primary hover:bg-slate-900 text-white px-8 py-3 font-bold transition-colors text-xs tracking-widest uppercase rounded-none">
-                        Teklif Al
-                    </a>
-                </div>
-                <!-- Mobile menu button -->
-                <div class="md:hidden flex items-center">
-                    <button class="text-slate-900 hover:text-primary focus:outline-none">
-                         <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </div>
+        </nav>
+        
+        <!-- Mobile Menu Overlay -->
+        <div x-show="mobileMenuOpen" x-cloak @click="mobileMenuOpen = false" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="md:hidden fixed inset-0 bg-black/50 z-[60]"></div>
+        
+        <!-- Mobile Menu Panel (Slide from Right) -->
+        <div x-show="mobileMenuOpen" x-cloak x-transition:enter="transition transform ease-out duration-500" x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transition transform ease-in duration-300" x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full" class="md:hidden fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl z-[70]">
+            <div class="flex flex-col h-full">
+                <!-- Header with Close Button (same height as nav) -->
+                <div class="h-24 flex items-center justify-end px-4">
+                    <button @click="mobileMenuOpen = false" class="text-slate-900 hover:text-primary focus:outline-none">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </button>
                 </div>
+                <!-- Menu Items -->
+                <div class="px-8 py-4 space-y-6 flex-1">
+                    <a href="{{ route('home') }}" class="block text-slate-700 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest">Anasayfa</a>
+                    <a href="{{ url('/hakkimizda') }}" class="block text-slate-700 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest">Hakkımızda</a>
+                    <a href="{{ url('/hizmetler') }}" class="block text-slate-700 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest">Hizmetler</a>
+                    <a href="{{ url('/galeri') }}" class="block text-slate-700 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest">Galeri</a>
+                    <a href="{{ url('/iletisim') }}" class="block text-slate-700 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest">İletişim</a>
+                </div>
+                <!-- CTA Button -->
+                <div class="p-8 border-t border-slate-100">
+                    <a href="{{ route('offer.form') }}" class="block bg-primary text-white text-center py-4 font-medium uppercase tracking-widest text-sm hover:bg-slate-900 transition-colors">
+                        Teklif Al
+                    </a>
+                </div>
             </div>
         </div>
-    </nav>
+    </div>
 
     <!-- Main Content -->
     <main class="pt-24 min-h-screen">
