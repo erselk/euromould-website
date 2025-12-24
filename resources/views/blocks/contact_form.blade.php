@@ -17,10 +17,7 @@
                         </div>
                         <div>
                              <h3 class="text-lg font-bold text-slate-900 mb-1">Adresimiz</h3>
-                             <p class="text-slate-600 leading-relaxed max-w-sm mb-2">{!! nl2br(e($settings->address ?? '')) !!}</p>
-                             <a href="https://www.google.com/maps/dir//EuroMould,+Beylikd%C3%BCz%C3%BC+OSB,+3.+Cd.+Birlik+sanayi+sitesi+No:71,+34524+Beylikd%C3%BCz%C3%BC%2F%C4%B0stanbul" target="_blank" class="text-primary font-bold text-sm hover:underline inline-flex items-center">
-                                Yol Tarifi Al <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                             </a>
+                             <a href="https://www.google.com/maps/dir//EuroMould,+Beylikd%C3%BCz%C3%BC+OSB" target="_blank" class="text-slate-600 leading-relaxed hover:text-primary transition-colors">{!! nl2br(e($settings->address ?? '')) !!}</a>
                         </div>
                     </div>
 
@@ -30,7 +27,7 @@
                         </div>
                         <div>
                              <h3 class="text-lg font-bold text-slate-900 mb-1">Telefon</h3>
-                             <p class="text-slate-600"><a href="tel:{{ $settings->contact_phone }}" class="hover:text-primary transition-colors">{{ $settings->contact_phone }}</a></p>
+                             <a href="tel:{{ $settings->contact_phone }}" class="text-slate-600 hover:text-primary transition-colors">{{ $settings->contact_phone }}</a>
                         </div>
                     </div>
 
@@ -40,7 +37,7 @@
                         </div>
                         <div>
                              <h3 class="text-lg font-bold text-slate-900 mb-1">E-Posta</h3>
-                             <p class="text-slate-600"><a href="mailto:{{ $settings->contact_email }}" class="hover:text-primary transition-colors">{{ $settings->contact_email }}</a></p>
+                             <a href="mailto:{{ $settings->contact_email }}" class="text-slate-600 hover:text-primary transition-colors">{{ $settings->contact_email }}</a>
                         </div>
                     </div>
                 </div>

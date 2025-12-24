@@ -80,8 +80,7 @@
     </main>
 
     <!-- Footer -->
-    <!-- Footer -->
-    <footer class="bg-slate-900 border-t border-white/5 pt-20 pb-10">
+    <footer class="bg-gradient-to-b from-slate-900 to-[#0B1120] pt-20 pb-10">
         <div class="max-w-7xl mx-auto px-6">
             <!-- Top Section -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16 text-center md:text-left">
@@ -122,27 +121,27 @@
                     </ul>
                 </div>
 
-                <!-- Contact -->
-                <div class="flex flex-col items-center md:items-start">
+                <!-- Contact - With Icons -->
+                <div>
                     <h4 class="text-white font-bold uppercase tracking-widest text-sm mb-6">Bize Ulaşın</h4>
-                    <ul class="space-y-4 w-full">
-                        <li class="flex items-start justify-center md:justify-start gap-4 group">
-                            <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-colors">
-                                <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                            </div>
-                            <span class="text-slate-400 text-sm group-hover:text-white transition-colors text-left">{{ isset($settings) ? $settings->address : 'Beylikdüzü OSB, İstanbul' }}</span>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 flex items-center justify-center rounded-full bg-white/5 text-primary flex-shrink-0 mt-0.5">
+                                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            </span>
+                            <a href="https://www.google.com/maps/dir//EuroMould,+Beylikd%C3%BCz%C3%BC+OSB" target="_blank" class="text-slate-400 hover:text-white transition-colors text-sm leading-relaxed">Beylikdüzü OSB, 3. Cd. Birlik sanayi sitesi No:71 34524 Beylikdüzü/İstanbul</a>
                         </li>
-                        <li class="flex items-center justify-center md:justify-start gap-4 group">
-                            <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-colors">
-                                <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                            </div>
-                            <a href="tel:{{ isset($settings) ? $settings->contact_phone : '#' }}" class="text-white text-sm font-medium hover:text-primary transition-colors">{{ isset($settings) ? $settings->contact_phone : '+90 212 000 00 00' }}</a>
+                        <li class="flex items-center gap-3">
+                            <span class="w-6 h-6 flex items-center justify-center rounded-full bg-white/5 text-primary flex-shrink-0">
+                                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                            </span>
+                            <a href="tel:02128790016" class="text-slate-400 hover:text-white transition-colors text-sm">(0212) 879 00 16</a>
                         </li>
-                        <li class="flex items-center justify-center md:justify-start gap-4 group">
-                            <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-colors">
-                                <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-                            </div>
-                            <a href="mailto:{{ isset($settings) ? $settings->contact_email : '#' }}" class="text-white text-sm font-medium hover:text-primary transition-colors">{{ isset($settings) ? $settings->contact_email : 'info@euromould.com.tr' }}</a>
+                        <li class="flex items-center gap-3">
+                            <span class="w-6 h-6 flex items-center justify-center rounded-full bg-white/5 text-primary flex-shrink-0">
+                                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                            </span>
+                            <a href="mailto:info@euromould.com.tr" class="text-slate-400 hover:text-white transition-colors text-sm">info@euromould.com.tr</a>
                         </li>
                     </ul>
                 </div>
@@ -150,7 +149,7 @@
             </div>
 
             <!-- Copyright -->
-            <div class="border-t border-white/5 pt-8 text-center">
+            <div class="border-t border-white/10 pt-8 text-center">
                 <p class="text-slate-500 text-xs">
                     &copy; {{ date('Y') }} <span class="text-white font-bold">EuroMould</span> Kalıp San. ve Tic. Ltd. Şti. Tüm hakları saklıdır.
                 </p>
