@@ -3,7 +3,7 @@
     <section class="bg-slate-900 text-white py-24 md:py-32 relative overflow-hidden">
         @if($service->image)
             <div class="absolute inset-0 z-0 opacity-40">
-                <img src="{{ Storage::url($service->image) }}" alt="{{ $service->title }}" class="w-full h-full object-cover">
+                <img src="{{ asset($service->image) }}" alt="{{ $service->title }}" class="w-full h-full object-cover">
             </div>
             <div class="absolute inset-0 z-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
         @endif

@@ -3,7 +3,7 @@
     <!-- Background Image -->
     <div class="absolute inset-0 z-0 select-none">
         @if(isset($data['bg_image']))
-            <img src="{{ Storage::url($data['bg_image']) }}" alt="{{ $data['title'] ?? '' }}" class="w-full h-full object-cover opacity-60">
+            <img src="{{ asset($data['bg_image']) }}" alt="{{ $data['title'] ?? '' }}" class="w-full h-full object-cover opacity-60">
         @else
             <div class="w-full h-full bg-slate-800"></div>
         @endif

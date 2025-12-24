@@ -45,7 +45,7 @@
                 <div class="flex-shrink-0 flex items-center">
                     <a href="{{ route('home') }}" class="flex items-center gap-3">
                          @if(isset($settings) && $settings->logo)
-                            <img class="h-20 w-auto" src="{{ Storage::url($settings->logo) }}" alt="EuroMould">
+                            <img class="h-20 w-auto" src="{{ asset($settings->logo) }}" alt="EuroMould">
                         @else
                             <span class="text-3xl font-black tracking-tighter text-slate-900">EURO<span class="text-primary">MOULD</span></span>
                         @endif
@@ -89,7 +89,7 @@
                 <div class="col-span-1 md:col-span-2 lg:col-span-1 flex flex-col items-center md:items-start lg:items-center">
                      <div class="mb-6">
                          @if(isset($settings) && $settings->logo)
-                             <img class="h-24 w-auto" src="{{ Storage::url($settings->logo) }}" alt="EuroMould">
+                             <img class="h-24 w-auto" src="{{ asset($settings->logo) }}" alt="EuroMould">
                         @else
                              <span class="text-3xl font-black tracking-tight text-white block">EURO<span class="text-primary">MOULD</span></span>
                         @endif
@@ -151,7 +151,7 @@
             <!-- Copyright -->
             <div class="border-t border-white/10 pt-8 text-center">
                 <p class="text-slate-500 text-xs">
-                    &copy; {{ date('Y') }} <span class="text-white font-bold">EuroMould</span> Kalıp San. ve Tic. Ltd. Şti. Tüm hakları saklıdır.
+                    &copy; {{ date('Y') }} <span class="text-white font-bold">EuroMould</span>
                 </p>
             </div>
         </div>

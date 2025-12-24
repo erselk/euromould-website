@@ -44,12 +44,6 @@ ENV APP_KEY=base64:6XY1lFZ2twPTGv13Hz8XmdJg2kxpwKKRFoQDPn5tOVY=
 # Migration ve Seed (Build aşamasında)
 RUN php artisan migrate:fresh --seed --force
 
-# Storage link oluştur
-RUN php artisan storage:link
-
-# Görselleri doğrudan public klasörüne de kopyala (symlink sorunu için yedek)
-RUN cp -r storage/app/public/images public/storage/ 2>/dev/null || true
-
 # Apache Konfigürasyonu
 ENV APACHE_DOCUMENT_ROOT /var/www/html/public
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
