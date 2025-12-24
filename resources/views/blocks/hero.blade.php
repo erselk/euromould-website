@@ -22,7 +22,7 @@
             @endif
             
             @if(isset($data['title']) && $data['title'])
-                <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-10 leading-[1.1] tracking-tight drop-shadow-xl">
+                <h1 class="text-4xl md:text-7xl lg:text-8xl font-black text-white mb-10 leading-[1.1] tracking-tight drop-shadow-xl">
                     {!! nl2br(e($data['title'])) !!}
                 </h1>
             @endif

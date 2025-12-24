@@ -49,4 +49,19 @@ class PageController extends Controller
 
         return back()->with('success', 'Teklif talebiniz başarıyla alındı. En kısa sürede size dönüş yapacağız.');
     }
+
+    public function submitContact(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'phone' => 'nullable|string|max:20',
+            'subject' => 'nullable|string|max:255',
+            'message' => 'required|string',
+        ]);
+
+        \App\Models\Contact::create($validated);
+
+        return back()->with('success', 'Mesajınız başarıyla iletildi. Teşekkür ederiz.');
+    }
 }

@@ -7,4 +7,5 @@ Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/teklif-al', [PageController::class, 'offerForm'])->name('offer.form');
 Route::post('/teklif-al', [PageController::class, 'submitOffer'])->name('offer.submit');
 Route::get('/hizmet/{slug}', [PageController::class, 'serviceDetail'])->name('service.show');
+Route::post('/iletisim-gonder', [PageController::class, 'submitContact'])->name('contact.submit');
 Route::get('/{slug}', [PageController::class, 'show'])->name('page.show');

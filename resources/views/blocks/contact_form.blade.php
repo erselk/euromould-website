@@ -1,79 +1,101 @@
 @props(['data'])
-@php
-    $settings = \App\Models\GeneralSetting::first();
-@endphp
-<section class="py-24 bg-slate-50 border-t border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+<section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
             <!-- Contact Info -->
             <div>
-                 <h2 class="text-4xl font-black text-slate-900 mb-8">{{ $data['title'] ?? 'İletişim' }}</h2>
-                 <p class="text-slate-600 mb-10 text-lg leading-relaxed">Projeleriniz ve sorularınız için bizimle iletişime geçmekten çekinmeyin.</p>
-                 
-                 <div class="space-y-8">
-                    <div class="flex items-start gap-6 group">
-                        <div class="w-14 h-14 bg-white rounded-2xl shadow-lg shadow-slate-200 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300 flex-shrink-0">
-                            <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                <span class="text-primary font-bold tracking-widest uppercase text-sm mb-4 block">Bize Ulaşın</span>
+                <h2 class="text-4xl md:text-5xl font-black text-slate-900 mb-8 tracking-tight">{{ $data['title'] ?? 'İletişim Bilgileri' }}</h2>
+                <div class="space-y-8">
+                     @php
+                        $settings = \App\Models\GeneralSetting::first();
+                    @endphp
+                    
+                    <div class="flex items-start gap-5">
+                        <div class="w-12 h-12 bg-slate-50 border border-slate-100 flex items-center justify-center text-primary flex-shrink-0">
+                             <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                         </div>
                         <div>
-                            <h4 class="text-lg font-bold text-slate-900 mb-2">Adres</h4>
-                            <p class="text-slate-600 leading-relaxed">{!! nl2br(e($settings->address ?? 'Beylikdüzü OSB, 3. Cd. Birlik sanayi sitesi No:71, 34524 Beylikdüzü/İstanbul')) !!}</p>
+                             <h3 class="text-lg font-bold text-slate-900 mb-1">Adresimiz</h3>
+                             <p class="text-slate-600 leading-relaxed max-w-sm mb-2">{!! nl2br(e($settings->address ?? '')) !!}</p>
+                             <a href="https://www.google.com/maps/dir//EuroMould,+Beylikd%C3%BCz%C3%BC+OSB,+3.+Cd.+Birlik+sanayi+sitesi+No:71,+34524+Beylikd%C3%BCz%C3%BC%2F%C4%B0stanbul" target="_blank" class="text-primary font-bold text-sm hover:underline inline-flex items-center">
+                                Yol Tarifi Al <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                             </a>
                         </div>
                     </div>
 
-                    <div class="flex items-start gap-6 group">
-                         <div class="w-14 h-14 bg-white rounded-2xl shadow-lg shadow-slate-200 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300 flex-shrink-0">
-                            <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                    <div class="flex items-start gap-5">
+                        <div class="w-12 h-12 bg-slate-50 border border-slate-100 flex items-center justify-center text-primary flex-shrink-0">
+                             <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
                         </div>
                         <div>
-                            <h4 class="text-lg font-bold text-slate-900 mb-2">Telefon</h4>
-                            <p class="text-slate-600 font-medium text-lg">{{ $settings->contact_phone ?? '(0212) 879 00 16' }}</p>
+                             <h3 class="text-lg font-bold text-slate-900 mb-1">Telefon</h3>
+                             <p class="text-slate-600"><a href="tel:{{ $settings->contact_phone }}" class="hover:text-primary transition-colors">{{ $settings->contact_phone }}</a></p>
                         </div>
                     </div>
 
-                    <div class="flex items-start gap-6 group">
-                         <div class="w-14 h-14 bg-white rounded-2xl shadow-lg shadow-slate-200 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300 flex-shrink-0">
-                            <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                    <div class="flex items-start gap-5">
+                         <div class="w-12 h-12 bg-slate-50 border border-slate-100 flex items-center justify-center text-primary flex-shrink-0">
+                             <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                         </div>
                         <div>
-                            <h4 class="text-lg font-bold text-slate-900 mb-2">E-posta</h4>
-                            <p class="text-slate-600 font-medium text-lg">{{ $settings->contact_email ?? 'herkes@euromould.com.tr' }}</p>
+                             <h3 class="text-lg font-bold text-slate-900 mb-1">E-Posta</h3>
+                             <p class="text-slate-600"><a href="mailto:{{ $settings->contact_email }}" class="hover:text-primary transition-colors">{{ $settings->contact_email }}</a></p>
                         </div>
                     </div>
                 </div>
-
-                @if(isset($settings->google_maps) && $settings->google_maps)
-                <div class="mt-12 rounded-3xl overflow-hidden shadow-2xl shadow-slate-200/50 h-80 grayscale hover:grayscale-0 transition-all duration-700">
-                    {!! $settings->google_maps !!}
-                </div>
-                @endif
             </div>
 
-            <!-- Form -->
-            <div class="bg-white rounded-3xl shadow-2xl shadow-slate-200/50 p-10 lg:p-12 border border-slate-100">
-                <form action="#" method="POST" class="space-y-6">
+            <!-- Contact Form -->
+            <div class="bg-slate-50 p-8 md:p-10 rounded-xl border border-slate-100">
+                <h3 class="text-2xl font-bold text-slate-900 mb-6">Bize Yazın</h3>
+                
+                @if(session('success'))
+                    <div class="bg-green-100 border border-green-200 text-green-700 px-4 py-3 rounded mb-6 text-sm">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
+                <form action="{{ route('contact.submit') }}" method="POST" class="space-y-5">
                     @csrf
-                    <div>
-                        <label for="name" class="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Adınız Soyadınız</label>
-                        <input type="text" id="name" name="name" class="w-full px-5 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none font-medium" placeholder="Adınız Soyadınız">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Adınız Soyadınız</label>
+                            <input type="text" name="name" required class="w-full px-4 py-3 bg-white border border-slate-200 rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" placeholder="Adınız">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2">E-Posta Adresiniz</label>
+                            <input type="email" name="email" required class="w-full px-4 py-3 bg-white border border-slate-200 rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" placeholder="ornek@mail.com">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Telefon (Opsiyonel)</label>
+                            <input type="tel" name="phone" class="w-full px-4 py-3 bg-white border border-slate-200 rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" placeholder="0555...">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Konu</label>
+                            <input type="text" name="subject" class="w-full px-4 py-3 bg-white border border-slate-200 rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" placeholder="Mesajınızın konusu">
+                        </div>
                     </div>
                     <div>
-                        <label for="email" class="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">E-posta Adresi</label>
-                        <input type="email" id="email" name="email" class="w-full px-5 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none font-medium" placeholder="ornek@sirket.com">
+                        <label class="block text-sm font-medium text-slate-700 mb-2">Mesajınız</label>
+                        <textarea name="message" rows="4" required class="w-full px-4 py-3 bg-white border border-slate-200 rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors resize-none" placeholder="Talebinizi buraya yazın..."></textarea>
                     </div>
-                    <div>
-                        <label for="subject" class="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Konu</label>
-                        <input type="text" id="subject" name="subject" class="w-full px-5 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none font-medium" placeholder="Mesajınızın konusu">
-                    </div>
-                    <div>
-                        <label for="message" class="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Mesajınız</label>
-                        <textarea id="message" name="message" rows="4" class="w-full px-5 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none font-medium resize-none" placeholder="Mesajınızı buraya yazınız..."></textarea>
-                    </div>
-                    <button type="button" class="w-full bg-slate-900 text-white font-bold py-5 rounded-xl hover:bg-primary transition-colors duration-300 shadow-xl shadow-slate-900/10 text-lg tracking-wide">
-                        Gönder
+                    <button type="submit" class="w-full bg-slate-900 text-white font-bold py-4 rounded-lg hover:bg-primary transition-colors duration-300 uppercase tracking-widest text-sm">
+                        GÖNDER
                     </button>
                 </form>
             </div>
+        </div>
+
+        <!-- Google Maps (Full Width Below) -->
+        <div class="mt-24 h-[500px] w-full bg-slate-100 border border-slate-200 rounded-xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
+             @if($settings->google_maps)
+                {!! $settings->google_maps !!}
+            @else
+                <div class="w-full h-full flex items-center justify-center text-slate-400">Harita Yüklenemedi</div>
+            @endif
         </div>
     </div>
 </section>
