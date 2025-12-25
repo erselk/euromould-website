@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
             'contact_email' => 'info@euromould.com.tr',
             'logo' => 'images/logoyatay.png',
             'contact_phone' => '(0212) 879 00 16',
-            'address' => "Beylikdüzü OSB, 3. Cd. Birlik sanayi sitesi No:71\n34524 Beylikdüzü/İstanbul",
+            'address' => "Beylikdüzü OSB, 3. Cd. Birlik Sanayi Sitesi No:71\n34524 Beylikdüzü/İstanbul",
             'google_maps' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3011.0814740080796!2d28.659471099999998!3d41.0015899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b55f9b6e737abd%3A0x6e9cb191a35a758b!2sEuroMould!5e0!3m2!1str!2str!4v1766611042380!5m2!1str!2str" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>',
         ]);
 

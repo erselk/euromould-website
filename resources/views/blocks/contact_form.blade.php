@@ -87,7 +87,7 @@
         </div>
 
         <!-- Google Maps (Full Width Below) -->
-        <div class="mt-24 h-[500px] w-full bg-slate-100 border border-slate-200 rounded-xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
+        <div class="mt-24 h-[400px] md:h-[500px] w-full bg-slate-100 border border-slate-200 rounded-xl overflow-hidden [&>iframe]:w-full [&>iframe]:h-full">
              @if($settings->google_maps)
                 {!! $settings->google_maps !!}
             @else

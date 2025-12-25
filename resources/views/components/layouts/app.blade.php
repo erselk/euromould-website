@@ -124,11 +124,7 @@
                 <!-- Brand (Full width on mobile) -->
                 <div class="col-span-2 md:col-span-2 lg:col-span-1 flex flex-col items-center md:items-start lg:items-center text-center md:text-left">
                      <div class="mb-6">
-                         @if(isset($settings) && $settings->logo)
-                             <img class="h-24 w-auto" src="{{ asset($settings->logo) }}" alt="EuroMould">
-                        @else
-                             <span class="text-3xl font-black tracking-tight text-white block">EURO<span class="text-primary">MOULD</span></span>
-                        @endif
+                         <img class="h-24 w-auto" src="{{ asset('images/logo.png') }}" alt="EuroMould">
                      </div>
                      <p class="text-slate-400 text-sm leading-relaxed mb-6">
                          Plastik enjeksiyon kalıp imalatında 20 yıllık tecrübe, ileri teknoloji ve mühendislik tutkusuyla endüstriyel çözümler sunuyoruz.
@@ -165,7 +161,7 @@
                             <span class="w-6 h-6 flex items-center justify-center rounded-full bg-white/5 text-primary flex-shrink-0 mt-0.5">
                                 <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                             </span>
-                            <a href="https://www.google.com/maps/dir//EuroMould,+Beylikd%C3%BCz%C3%BC+OSB" target="_blank" class="text-slate-400 hover:text-white transition-colors text-sm leading-relaxed">Beylikdüzü OSB, 3. Cd. Birlik sanayi sitesi No:71 34524 Beylikdüzü/İstanbul</a>
+                            <a href="https://www.google.com/maps/dir//EuroMould,+Beylikd%C3%BCz%C3%BC+OSB" target="_blank" class="text-slate-400 hover:text-white transition-colors text-sm leading-relaxed">Beylikdüzü OSB, 3. Cd. Birlik Sanayi Sitesi No:71 34524 Beylikdüzü/İstanbul</a>
                         </li>
                         <li class="flex items-center gap-3">
                             <span class="w-6 h-6 flex items-center justify-center rounded-full bg-white/5 text-primary flex-shrink-0">
