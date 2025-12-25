@@ -35,6 +35,22 @@
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
         [x-cloak] { display: none !important; }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f8fafc; /* slate-50 */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; /* slate-300 */
+            border-radius: 6px;
+            border: 3px solid #f8fafc; /* border to create padding effect */
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ef4444; /* primary */
+        }
     </style>
 </head>
 <body class="font-sans antialiased text-slate-800 bg-white selection:bg-primary selection:text-white">
