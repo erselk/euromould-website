@@ -8,21 +8,77 @@
                 
                 <!-- Video Logic -->
                 @if(isset($data['video_embed_code']) && $data['video_embed_code'])
-                    <div x-data="{ playing: false }" class="relative w-full aspect-video shadow-2xl border border-slate-200 bg-slate-900 rounded-lg overflow-hidden group">
+                    <div x-data="{ 
+                            playing: false, 
+                            mouseX: 0, 
+                            mouseY: 0, 
+                            currentX: 0, 
+                            currentY: 0,
+                            scale: 1,
+                            isHovering: false, 
+                            containerRect: null,
+                            init() {
+                                this.containerRect = this.$el.getBoundingClientRect();
+                                this.currentX = this.containerRect.width / 2;
+                                this.currentY = this.containerRect.height / 2;
+                                this.mouseX = this.currentX;
+                                this.mouseY = this.currentY;
+
+                                const loop = () => {
+                                    let targetX, targetY;
+                                    
+                                    if (this.isHovering) {
+                                        targetX = this.mouseX;
+                                        targetY = this.mouseY;
+                                    } else {
+                                        targetX = this.containerRect.width / 2;
+                                        targetY = this.containerRect.height / 2;
+                                    }
+
+                                    // Mesafe hesapla
+                                    const dx = targetX - this.currentX;
+                                    const dy = targetY - this.currentY;
+                                    const distance = Math.sqrt(dx*dx + dy*dy);
+
+                                    // Hareket için Lerp
+                                    this.currentX += dx * 0.08;
+                                    this.currentY += dy * 0.08;
+
+                                    // Scale hesapla: Yaklaştıkça büyür
+                                    // Max scale: 1.1 (mesafe 0 iken)
+                                    // Min scale: 0.9 (hızlı hareket ederken)
+                                    // Sakin durumda (hover yoksa): 0.85
+                                    if (this.isHovering) {
+                                        // Mesafe 0 -> 1.1, Mesafe çok -> 0.8'e kadar düşsün
+                                        let targetScale = 1.1 - Math.min(distance / 500, 0.3); 
+                                        this.scale = targetScale;
+                                    } else {
+                                        this.scale = 0.8;
+                                    }
+
+                                    requestAnimationFrame(loop);
+                                };
+                                loop();
+                            }
+                         }" 
+                         @mouseenter="containerRect = $el.getBoundingClientRect(); isHovering = true"
+                         @mousemove="mouseX = $event.clientX - containerRect.left; mouseY = $event.clientY - containerRect.top" 
+                         @mouseleave="isHovering = false"
+                         @click="playing = true"
+                         class="relative w-full aspect-video shadow-2xl border border-slate-200 bg-slate-900 rounded-lg overflow-hidden group cursor-pointer">
                         
                         <!-- Cover Image & Play Button -->
-                        <div x-show="!playing" class="absolute inset-0 z-10">
+                        <div x-show="!playing" class="absolute inset-0 z-10 pointer-events-none">
                             <!-- Cover Image -->
-                            <img src="{{ asset('images/video_cover.png') }}" alt="Video Cover" class="w-full h-full object-cover opacity-80 group-hover:opacity-60 transition-opacity duration-500">
+                            <img src="{{ asset('images/video_cover.png') }}" alt="Video Cover" class="w-full h-full object-cover opacity-80 group-hover:opacity-70 transition-opacity duration-500">
                             
                             <!-- Overlay Gradient -->
                             <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
 
-                            <!-- Play Button -->
-                            <div class="absolute inset-0 flex items-center justify-center">
-                                <button @click="playing = true" class="w-20 h-20 md:w-24 md:h-24 bg-primary text-white rounded-full flex items-center justify-center transform group-hover:scale-110 transition-all duration-300 shadow-lg group-hover:shadow-primary/50">
-                                    <svg class="w-8 h-8 md:w-10 md:h-10 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                                </button>
+                            <!-- Play Button (Follows Mouse with Physics & Dynamic Scale) -->
+                            <div class="absolute z-50 w-20 h-20 bg-primary/80 backdrop-blur-sm text-white rounded-full flex items-center justify-center shadow-lg transition-transform duration-75"
+                                 :style="`top: ${currentY}px; left: ${currentX}px; transform: translate(-54%, -50%) scale(${scale});`">
+                                <svg class="w-8 h-8 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                             </div>
 
                             <!-- Text Overlay -->

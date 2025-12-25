@@ -39,10 +39,9 @@
             @endforeach
         </div>
         
-        <div class="mt-16 text-center">
-            <a href="{{ url('/hizmetler') }}" class="inline-flex items-center gap-3 px-8 py-4 bg-white border-2 border-slate-900 text-slate-900 font-bold uppercase tracking-widest text-sm hover:bg-slate-900 hover:text-white transition-all duration-300">
-                Tüm Hizmetlerimizi İnceleyin
-                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+        <div class="mt-12 flex justify-end">
+            <a href="{{ url('/hizmetler') }}" class="text-slate-900 font-bold border-b-2 border-slate-200 pb-1 hover:border-primary hover:text-primary transition-colors flex items-center gap-2">
+                Tüm Hizmetlerimizi İnceleyin <span class="text-xl">&rarr;</span>
             </a>
         </div>
         @else 

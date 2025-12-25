@@ -44,11 +44,11 @@
         <!-- Navigation -->
         <nav class="fixed w-full z-50 transition-all duration-300 glass-nav" id="navbar">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between items-center h-24">
+                <div class="flex justify-between items-center h-20">
                     <div class="flex-shrink-0 flex items-center">
                         <a href="{{ route('home') }}" class="flex items-center gap-3">
                              @if(isset($settings) && $settings->logo)
-                                <img class="h-20 w-auto" src="{{ asset($settings->logo) }}" alt="EuroMould">
+                                <img class="h-12 w-auto" src="{{ asset($settings->logo) }}" alt="EuroMould">
                             @else
                                 <span class="text-3xl font-black tracking-tighter text-slate-900">EURO<span class="text-primary">MOULD</span></span>
                             @endif
@@ -85,7 +85,7 @@
         <div x-show="mobileMenuOpen" x-cloak x-transition:enter="transition transform ease-out duration-500" x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transition transform ease-in duration-300" x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full" class="md:hidden fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl z-[70]">
             <div class="flex flex-col h-full">
                 <!-- Header with Close Button (same height as nav) -->
-                <div class="h-24 flex items-center justify-end px-4">
+                <div class="h-20 flex items-center justify-end px-4">
                     <button @click="mobileMenuOpen = false" class="text-slate-900 hover:text-primary focus:outline-none">
                         <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -111,7 +111,7 @@
     </div>
 
     <!-- Main Content -->
-    <main class="pt-24 min-h-screen">
+    <main class="pt-20 min-h-screen">
         {{ $slot }}
     </main>
 
@@ -119,10 +119,10 @@
     <footer class="bg-gradient-to-b from-slate-900 to-[#0B1120] pt-20 pb-10">
         <div class="max-w-7xl mx-auto px-6">
             <!-- Top Section -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16 text-center md:text-left">
+            <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 mb-16">
                 
-                <!-- Brand -->
-                <div class="col-span-1 md:col-span-2 lg:col-span-1 flex flex-col items-center md:items-start lg:items-center">
+                <!-- Brand (Full width on mobile) -->
+                <div class="col-span-2 md:col-span-2 lg:col-span-1 flex flex-col items-center md:items-start lg:items-center text-center md:text-left">
                      <div class="mb-6">
                          @if(isset($settings) && $settings->logo)
                              <img class="h-24 w-auto" src="{{ asset($settings->logo) }}" alt="EuroMould">
@@ -130,12 +130,12 @@
                              <span class="text-3xl font-black tracking-tight text-white block">EURO<span class="text-primary">MOULD</span></span>
                         @endif
                      </div>
-                     <p class="text-slate-400 text-sm leading-relaxed mb-6 text-center">
+                     <p class="text-slate-400 text-sm leading-relaxed mb-6">
                          Plastik enjeksiyon kalıp imalatında 20 yıllık tecrübe, ileri teknoloji ve mühendislik tutkusuyla endüstriyel çözümler sunuyoruz.
                      </p>
                 </div>
 
-                <!-- Quick Links -->
+                <!-- Quick Links (Half width on mobile) -->
                 <div class="md:pl-10">
                     <h4 class="text-white font-bold uppercase tracking-widest text-sm mb-6">Kurumsal</h4>
                     <ul class="space-y-3">
@@ -146,7 +146,7 @@
                     </ul>
                 </div>
 
-                <!-- Services -->
+                <!-- Services (Half width on mobile) -->
                 <div>
                     <h4 class="text-white font-bold uppercase tracking-widest text-sm mb-6">Hizmetler</h4>
                     <ul class="space-y-3">
@@ -157,8 +157,8 @@
                     </ul>
                 </div>
 
-                <!-- Contact - With Icons -->
-                <div>
+                <!-- Contact (Full width on mobile) -->
+                <div class="col-span-2 md:col-span-1 lg:col-span-1">
                     <h4 class="text-white font-bold uppercase tracking-widest text-sm mb-6">Bize Ulaşın</h4>
                     <ul class="space-y-4">
                         <li class="flex items-start gap-3">
@@ -187,7 +187,7 @@
             <!-- Copyright -->
             <div class="border-t border-white/10 pt-8">
                 <p class="text-slate-500 text-xs">
-                    &copy; {{ date('Y') }} <span class="text-white font-bold">EuroMould</span>
+                    &copy; {{ date('Y') }} EuroMould
                 </p>
             </div>
         </div>
