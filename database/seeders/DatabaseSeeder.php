@@ -110,6 +110,138 @@ Sonuç olarak, deneme baskılarında ("try-out") oluşabilecek sürprizleri sıf
                 'image' => 'images/mold-maintenance.webp',
                 'sort' => 3
             ],
+            [
+                'title' => 'Çift Bileşenli (2K) Kalıp Teknolojileri',
+                'slug' => 'cift-bilesenli-2k-kalip-teknolojileri',
+                'description' => 'Farklı malzeme veya renklerin tek bir kalıpta birleştirildiği, montaj maliyetlerini düşüren ve ürün kalitesini artıran ileri mühendislik çözümleri.',
+                'long_description' => '
+<p class="mb-6">Çift bileşenli (2K) enjeksiyon teknolojisi, iki farklı plastiğin aynı kalıp içinde ardışık veya eş zamanlı olarak enjekte edilmesi prensibine dayanır. Bu teknoloji, sızdırmazlık contalı kapaklar, yumuşak dokulu (soft-touch) tutamaklar veya çok renkli butonlar gibi parçaların üretiminde devrim yaratmıştır.</p>
+
+<h3 class="text-2xl font-bold mb-4 text-slate-800">2K Kalıpların Avantajları</h3>
+<ul class="list-disc pl-6 mb-6 space-y-2">
+    <li><strong>Montaj Maliyetinin Sıfırlanması:</strong> İki ayrı parçayı üretip montajlamak yerine, tek operasyonda bitmiş ürün elde edilir.</li>
+    <li><strong>Mükemmel Sızdırmazlık:</strong> Kimyasal veya mekanik bağ sayesinde, contanın gövdeye yapışması kusursuz olur ve sıvı/gaz kaçağı riskini ortadan kaldırır.</li>
+    <li><strong>Estetik ve Ergonomi:</strong> Sert gövde üzerine yumuşak TPE/TPU kaplama yapılarak ürünün tutuş konforu (grip) ve görsel değeri artırılır.</li>
+</ul>
+
+<h3 class="text-2xl font-bold mb-4 text-slate-800">Döner Tablalı ve Core-Back Sistemler</h3>
+<p>2K kalıp projelerinizde, makine parkurunuza ve parça geometrisine en uygun yöntemi seçiyoruz. Döner tablalı (rotary table) sistemlerle yüksek adetli üretimler için hızlı çözümler sunarken, Core-Back (maça geri çekmeli) sistemlerle standart tek kovanlı makinelerde bile 2K üretim yapabilmenize olanak tanıyoruz. Tasarımlarımızda, iki malzemenin birbirine karışmasını önleyen hassas kapama yüzeyleri ve özel yolluk sistemleri kullanıyoruz.</p>',
+                'image' => 'images/mold-design-engineering.png',
+                'sort' => 4
+            ],
+            [
+                'title' => 'Gaz Enjeksiyon (Gas Assist) Sistemleri',
+                'slug' => 'gaz-enjeksiyon-gas-assist-sistemleri',
+                'description' => 'Daha hafif, daha mukavemetli ve görsel kusursuzluğu hedefleyen parçalar için azot gazı destekli kalıp imalatı ve proses danışmanlığı.',
+                'long_description' => '
+<p class="mb-6">Gaz enjeksiyon teknolojisi (GAIM), eriyik plastiğin içine basınçlı azot gazı enjekte edilerek parçanın içinin boşaltılmasını sağlayan özel bir yöntemdir. Bu teknoloji, özellikle otomotiv kapı kolları, beyaz eşya tutamakları ve kalın kesitli mobilya ayakları gibi parçalarda vazgeçilmezdir.</p>
+
+<h3 class="text-2xl font-bold mb-4 text-slate-800">Neden Gaz Enjeksiyon?</h3>
+<ul class="list-disc pl-6 mb-6 space-y-2">
+    <li><strong>Çökme İzlerinin Giderilmesi:</strong> Kalın kesitli bölgelerdeki plastik çekmesini (sink mark) içeriden gaz basıncıyla engelleyerek kusursuz yüzeyler elde edilir.</li>
+    <li><strong>Hammadde Tasarrufu:</strong> Parçanın içi boşaltıldığı için %30\'a varan hammadde tasarrufu sağlanır.</li>
+    <li><strong>Daha Kısa Çevrim Süresi:</strong> İçi boşalan parçanın soğuma süresi dramatik bir şekilde azalır.</li>
+</ul>
+
+<h3 class="text-2xl font-bold mb-4 text-slate-800">Proses Dizaynı ve Simülasyonu</h3>
+<p>Gaz kanallarının tasarımı, bu teknolojinin en kritik noktasıdır. Yanlış tasarlanmış bir gaz kanalı, gazın istenmeyen bölgelere kaçmasına (fingering effect) veya parçanın patlamasına neden olabilir. Uzman ekibimiz, kalıp tasarım aşamasında gazın izleyeceği yolu simüle ederek en verimli gaz kanalı geometrisini ve taşma kuyularını (overflow wells) belirler.</p>',
+                'image' => 'images/factory-overview.webp',
+                'sort' => 5
+            ],
+            [
+                'title' => 'IML (Kalıp İçi Etiketleme) Çözümleri',
+                'slug' => 'iml-kalip-ici-etiketleme-cozumleri',
+                'description' => 'Gıda ambalajları ve ev gereçleri için, etiket ve ürünün bütünleştiği, yüksek görsel kalitede IML kalıp sistemleri tasarımı ve üretimi.',
+                'long_description' => '
+<p class="mb-6">IML (In-Mold Labeling), önceden basılmış polipropilen (PP) etiketin robot yardımıyla kalıp içine yerleştirilmesi ve enjeksiyon sırasında plastikle kaynaşması işlemidir. Gıda ambalajlarında hijyen, dayanıklılık ve raf albenisi için standart haline gelen bu teknoloji, hassas kalıpçılık gerektirir.</p>
+
+<h3 class="text-2xl font-bold mb-4 text-slate-800">IML Kalıpçılığında Hassasiyet</h3>
+<p>IML kalıplarında başarı, etiketin kalıp içinde sabit durması ve plastiğin etiketi kaydırmadan veya buruşturmadan (wash-out) doldurmasına bağlıdır. Euro Mould olarak şunlara dikkat ediyoruz:
+<ul class="list-disc pl-6 mb-6 space-y-2">
+    <li><strong>Vakum ve Statik Sistemleri:</strong> Etiketin kalıp yüzeyine mükemmel tutunması için optimize edilmiş vakum kanalları veya statik yükleme noktaları tasarlıyoruz.</li>
+    <li><strong>Keskin Köşe Tasarımı:</strong> Etiketin tam olarak oturması için dişi gövdede (cavity) mikron hassasiyetinde işleme yapıyoruz. Balık sırtı veya radyuslu bölgelerde etiketin katlanmasını önleyecek geometrik düzenlemeler uyguluyoruz.</li>
+</ul>
+</p>
+
+<h3 class="text-2xl font-bold mb-4 text-slate-800">Hızlı Çevrim Ambalaj Kalıpları</h3>
+<p>IML projeleri genellikle ince cidarlı (thin-wall) ambalajlardır. Bu nedenle kalıplarımızı, yüksek hıza ve basınca dayanacak şekilde sertleştirilmiş paslanmaz çeliklerden üretiyor, berilyum bakır alaşımları ile soğutma performansını maksimize ediyoruz.</p>',
+                'image' => 'images/cnc-production-line.webp',
+                'sort' => 6
+            ],
+            [
+                'title' => 'Hızlı Prototipleme ve 3D Baskı',
+                'slug' => 'hizli-prototipleme-ve-3d-baski',
+                'description' => 'Seri üretime girmeden önce, tasarımlarınızı doğrulamanız için SLA, SLS ve FDM teknolojileriyle fonksiyonel prototipler üretiyoruz.',
+                'long_description' => '
+<p class="mb-6">Kalıp yatırımı yapmadan önce ürününüzü fiziksel olarak test etmek, olası tasarım hatalarını erken aşamada fark etmenizi sağlar. Euro Mould, bünyesindeki endüstriyel 3D yazıcılar ile tasarımlarınızı saatler içinde elle tutulur parçalara dönüştürür.</p>
+
+<h3 class="text-2xl font-bold mb-4 text-slate-800">Prototip Teknolojilerimiz</h3>
+<ul class="list-disc pl-6 mb-6 space-y-2">
+    <li><strong>SLA (Stereolitografi):</strong> Yüksek yüzey kalitesi ve detay hassasiyeti gerektiren görsel maketler için sıvı reçine teknolojisi.</li>
+    <li><strong>SLS (Seçici Lazer Sinterleme):</strong> Montajı yapılacak, tırnaklı, esnek veya işlevsel testlere tabi tutulacak parçalar için poliamid (PA12) toz sinterleme teknolojisi.</li>
+    <li><strong>Silikon Kalıplama (Vacuum Casting):</strong> 10-50 adetlik az sayılı üretimler için, 3D baskı model üzerinden alınan silikon kalıplarla poliüretan döküm hizmeti.</li>
+</ul>
+
+<h3 class="text-2xl font-bold mb-4 text-slate-800">Tasarımdan Doğrulamaya</h3>
+<p>Sadece baskı hizmeti vermiyoruz; prototip üzerinde yaptığımız montaj ve fonksiyon testleri sonucunda, seri üretimde karşılaşabileceğiniz sorunları raporluyoruz. Böylece kalıp çeliği kesilmeden önce nihai ürününüzün mükemmelliğinden emin oluyorsunuz.</p>',
+                'image' => 'images/mold-design-engineering.png',
+                'sort' => 7
+            ],
+            [
+                'title' => 'Silikon ve Kauçuk Kalıp İmalatı',
+                'slug' => 'silikon-ve-kaucuk-kalip-imalati',
+                'description' => 'Sıvı Silikon Enjeksiyon (LSR) ve kompresyon kauçuk kalıplarında medikal ve sızdırmazlık sektörüne özel çözümler.',
+                'long_description' => '
+<p class="mb-6">Elastomer malzemelerin (Silikon, EPDM, NBR) kalıplanması, termoplastiklerden tamamen farklı bir uzmanlık gerektirir. Euro Mould, özellikle medikal sektörünün ihtiyacı olan LSR (Liquid Silicone Rubber) ve otomotiv sektörünün ihtiyacı olan kauçuk sızdırmazlık elemanları için yüksek hassasiyetli kalıplar üretmektedir.</p>
+
+<h3 class="text-2xl font-bold mb-4 text-slate-800">LSR (Sıvı Silikon) Kalıpçılığı</h3>
+<p class="mb-6">LSR kalıplarında sıcak yolluk sistemleri (cold deck) ve vakum teknolojisi kritik öneme sahiptir. Silikonun çok düşük viskozitesi (akışkanlığı) nedeniyle, kalıp alıştırmalarının 0.005mm\'den daha hassas yapılması gerekir; aksi takdirde en ufak boşlukta çapak oluşur. Biz, ileri teknoloji CNC ve erezyon tezgahlarımızla bu hassasiyeti standart olarak sunuyoruz.</p>
+
+<h3 class="text-2xl font-bold mb-4 text-slate-800">Kauçuk Kompresyon ve Transfer Kalıpları</h3>
+<p>O-ring, conta, körük ve titreşim takozları gibi parçalar için çok gözlü kompresyon veya transfer kalıpları tasarlıyoruz. Kalıp tasarımında, kauçuğun vulkanizasyon sonrası çekme paylarını ve parçanın kalıptan çıkarılma (demolding) kolaylığını titizlikle hesaplıyor; operatör dostu, uzun ömürlü kalıplar üretiyoruz.</p>',
+                'image' => 'images/mold-maintenance.webp',
+                'sort' => 8
+            ],
+            [
+                'title' => 'Metal Enjeksiyon (Zamak & Alüminyum)',
+                'slug' => 'metal-enjeksiyon-zamak-aluminyum',
+                'description' => 'Yüksek basınçlı döküm (HPDC) yöntemiyle üretilecek alüminyum ve zamak parçalar için, ısı şokuna dayanıklı uzun ömürlü kalıplar.',
+                'long_description' => '
+<p class="mb-6">Metal enjeksiyon kalıpları, plastik kalıplarına göre çok daha zorlu koşullarda (yüksek sıcaklık ve termal şok) çalışır. Bu nedenle, metal enjeksiyon kalıpçılığında malzeme bilgisi ve ısıl işlem kalitesi hayati önem taşır. Euro Mould, beyaz eşya menteşelerinden otomotiv motor parçalarına kadar geniş bir yelpazede metal kalıp çözümleri sunar.</p>
+
+<h3 class="text-2xl font-bold mb-4 text-slate-800">Isıl Şok Direnci ve Çelik Seçimi</h3>
+<p class="mb-6">Alüminyum ve zamak kalıplarında, erimiş metalin yarattığı ısıl şoklar zamanla kalıp yüzeyinde çatlamalara (heat checking) neden olur. Bunu geciktirmek için:
+<ul class="list-disc pl-6 mb-6 space-y-2">
+    <li>Böhler, Uddeholm gibi sertifikalı tedarikçilerden <strong>1.2344 (H13)</strong> veya <strong>Dievar</strong> gibi yüksek tokluğa sahip sıcak iş çelikleri kullanıyoruz.</li>
+    <li>Vakum altında sertleştirme ve çoklu menevişleme işlemleriyle çeliğin mikroyapısını optimize ediyoruz.</li>
+</ul>
+</p>
+
+<h3 class="text-2xl font-bold mb-4 text-slate-800">Yolluk ve Taşma Tasarımı</h3>
+<p>Metalin kalıp içine türbülanssız ve atomize bir şekilde dolması, parçanın iç yapısındaki hava boşluklarını (porozite) önler. Gelişmiş döküm simülasyonları ile yolluk girişlerini, hava ceplerini ve taşma (overflow) kuyu yerleşimlerini optimize ederek, sızdırmazlık ve mekanik dayanım gerektiren parçalarda üstün sonuçlar elde ediyoruz.</p>',
+                'image' => 'images/factory-overview.webp',
+                'sort' => 9
+            ],
+            [
+                'title' => 'Tersine Mühendislik ve 3D Tarama',
+                'slug' => 'tersine-muhendislik-ve-3d-tarama',
+                'description' => 'Teknik çizimi olmayan fiziksel parçalarınızı 3D lazer tarama ile dijital ortama aktarıyor, CAD datalarını oluşturup üretime hazır hale getiriyoruz.',
+                'long_description' => '
+<p class="mb-6">Yedek parça ihtiyacı olan ancak teknik resmi kaybolmuş makine parçaları, numune üzerinden geliştirilecek yeni ürünler veya rakip ürün analizleri için Tersine Mühendislik (Reverse Engineering) hizmeti sunuyoruz. Fiziksel dünyayı dijital hassasiyetle buluşturuyoruz.</p>
+
+<h3 class="text-2xl font-bold mb-4 text-slate-800">3D Lazer Tarama Teknolojisi</h3>
+<p class="mb-6">Taşınabilir 3D lazer tarama cihazlarımızla (mavi lazer teknolojisi), parçanızı mikron hassasiyetinde (.stl formunda) dijitalleştiriyoruz. Parlak, siyah veya şeffaf yüzeyleri özel spreylerle tarayabiliyor, en karmaşık serbest formlu yüzeyleri bile hatasız bir şekilde bilgisayar ortamına aktarıyoruz.</p>
+
+<h3 class="text-2xl font-bold mb-4 text-slate-800">Nokta Bulutundan Katı Modele (CAD)</h3>
+<p>Sadece tarama yapmak yetmez; tarama verisini işlenebilir bir katı modele dönüştürmek uzmanlık ister.
+<ul class="list-disc pl-6 mb-6 space-y-2">
+    <li><strong>Parametrik Modelleme:</strong> Taranan veriyi referans alarak, SolidWorks veya NX üzerinde ağaç yapısı olan, ölçüleri değiştirilebilir "akıllı" modeller çiziyoruz.</li>
+    <li><strong>Yüzey İyileştirme:</strong> Numunedeki aşınmaları, üretim hatalarını veya deformasyonları düzelterek, parçanın "olması gereken" ideal geometrisini oluşturuyoruz.</li>
+</ul>
+Elde edilen datalar, doğrudan CNC tezgahına gönderilebilir veya kalıp tasarımında altlık olarak kullanılabilir.</p>',
+                'image' => 'images/cnc-production-line.webp',
+                'sort' => 10
+            ],
         ];
 
         foreach ($services as $service) {

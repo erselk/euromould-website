@@ -185,7 +185,7 @@
             </div>
 
             <!-- Copyright -->
-            <div class="border-t border-white/10 pt-8 text-center">
+            <div class="border-t border-white/10 pt-8">
                 <p class="text-slate-500 text-xs">
                     &copy; {{ date('Y') }} <span class="text-white font-bold">EuroMould</span>
                 </p>

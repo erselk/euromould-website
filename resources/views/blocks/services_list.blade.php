@@ -5,14 +5,9 @@
 @endphp
 <section class="py-24 bg-white">
     <div class="max-w-7xl mx-auto px-6">
-        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-            <div>
-                 <span class="text-primary font-bold tracking-wider uppercase text-sm mb-2 block">{{ $data['subtitle'] ?? 'Hizmetlerimiz' }}</span>
-                <h2 class="text-4xl md:text-5xl font-black text-slate-900 tracking-normal">{{ $data['title'] ?? 'Uzmanlık Alanlarımız' }}</h2>
-            </div>
-            <a href="{{ url('/hizmetler') }}" class="text-slate-900 font-bold border-b-2 border-slate-200 pb-1 hover:border-primary hover:text-primary transition-colors flex items-center gap-2">
-                Tümünü Görüntüle <span class="text-xl">&rarr;</span>
-            </a>
+        <div class="mb-16">
+             <span class="text-primary font-bold tracking-wider uppercase text-sm mb-2 block">{{ $data['subtitle'] ?? 'Hizmetlerimiz' }}</span>
+            <h2 class="text-4xl md:text-5xl font-black text-slate-900 tracking-normal max-w-2xl">{{ $data['title'] ?? 'Uzmanlık Alanlarımız' }}</h2>
         </div>
 
         @if($services->count() > 0)
@@ -42,6 +37,13 @@
                     </div>
                 </a>
             @endforeach
+        </div>
+        
+        <div class="mt-16 text-center">
+            <a href="{{ url('/hizmetler') }}" class="inline-flex items-center gap-3 px-8 py-4 bg-white border-2 border-slate-900 text-slate-900 font-bold uppercase tracking-widest text-sm hover:bg-slate-900 hover:text-white transition-all duration-300">
+                Tüm Hizmetlerimizi İnceleyin
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+            </a>
         </div>
         @else 
              <div class="p-12 bg-slate-50 text-center border border-dashed border-slate-300 rounded-lg">
