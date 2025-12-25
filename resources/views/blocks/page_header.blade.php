@@ -1,5 +1,5 @@
 @props(['data'])
-<section class="relative bg-slate-900 text-white py-20 overflow-hidden">
+<section class="relative bg-slate-900 text-white py-16 md:py-20 overflow-hidden">
     <!-- Background -->
     @if(isset($data['bg_image']))
         <div class="absolute inset-0 z-0">
@@ -17,7 +17,7 @@
             @endif
             
             @if(isset($data['title']) && $data['title'])
-                <h1 class="text-4xl md:text-5xl font-black text-white leading-tight tracking-tight">
+                <h1 class="text-3xl md:text-5xl font-black text-white leading-tight tracking-tight">
                     {!! nl2br(e($data['title'])) !!}
                 </h1>
             @endif

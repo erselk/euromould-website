@@ -1,7 +1,7 @@
 @props(['data'])
-<section class="py-24 {{ isset($data['bg_slate']) && $data['bg_slate'] ? 'bg-slate-50' : 'bg-white' }}">
+<section class="py-16 md:py-24 {{ isset($data['bg_slate']) && $data['bg_slate'] ? 'bg-slate-50' : 'bg-white' }}">
     <div class="max-w-7xl mx-auto px-6">
-        <div class="flex flex-col lg:flex-row items-center gap-16 md:gap-24">
+        <div class="flex flex-col lg:flex-row items-center gap-10 md:gap-16 lg:gap-24">
             
             <!-- Image / Video Section -->
             <div class="w-full lg:w-1/2 {{ isset($data['image_position']) && $data['image_position'] == 'right' ? 'lg:order-last' : '' }}">
@@ -98,7 +98,7 @@
                     </div>
                 @else
                     <!-- Standard Image Mode -->
-                    <div class="relative h-[400px] md:h-[500px] w-full shadow-lg border border-slate-100 rounded-lg overflow-hidden">
+                    <div class="relative h-[300px] md:h-[500px] w-full shadow-lg border border-slate-100 rounded-lg overflow-hidden">
                         @if(isset($data['image']))
                             <img src="{{ asset($data['image']) }}" alt="{{ $data['title'] ?? '' }}" class="w-full h-full object-cover">
                         @else
@@ -111,7 +111,7 @@
             </div>
 
             <!-- Content Section -->
-            <div class="w-full lg:w-1/2">
+            <div class="w-full lg:w-1/2 text-center lg:text-left">
                 @if(isset($data['subtitle']) && $data['subtitle'])
                     <span class="text-primary font-bold tracking-widest uppercase text-sm mb-4 block">{{ $data['subtitle'] }}</span>
                 @endif

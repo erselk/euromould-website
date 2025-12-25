@@ -1,11 +1,11 @@
 @props(['data'])
-<section class="py-24 bg-white">
+<section class="py-16 md:py-24 bg-white">
     <div class="max-w-7xl mx-auto px-6">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 lg:gap-24">
             <!-- Contact Info -->
             <div>
                 <span class="text-primary font-bold tracking-widest uppercase text-sm mb-4 block">Bize Ulaşın</span>
-                <h2 class="text-4xl md:text-5xl font-black text-slate-900 mb-8 tracking-tight">{{ $data['title'] ?? 'İletişim Bilgileri' }}</h2>
+                <h2 class="text-3xl md:text-5xl font-black text-slate-900 mb-8 tracking-tight">{{ $data['title'] ?? 'İletişim Bilgileri' }}</h2>
                 <div class="space-y-8">
                      @php
                         $settings = \App\Models\GeneralSetting::first();
@@ -44,7 +44,7 @@
             </div>
 
             <!-- Contact Form -->
-            <div class="bg-slate-50 p-8 md:p-10 rounded-xl border border-slate-100">
+            <div class="bg-slate-50 p-6 md:p-10 rounded-xl border border-slate-100">
                 <h3 class="text-2xl font-bold text-slate-900 mb-6">Bize Yazın</h3>
                 
                 @if(session('success'))
@@ -87,7 +87,7 @@
         </div>
 
         <!-- Google Maps (Full Width Below) -->
-        <div class="mt-24 h-[400px] md:h-[500px] w-full bg-slate-100 border border-slate-200 rounded-xl overflow-hidden [&>iframe]:w-full [&>iframe]:h-full">
+        <div class="mt-16 md:mt-24 h-[300px] md:h-[500px] w-full bg-slate-100 border border-slate-200 rounded-xl overflow-hidden [&>iframe]:w-full [&>iframe]:h-full">
              @if($settings->google_maps)
                 {!! $settings->google_maps !!}
             @else

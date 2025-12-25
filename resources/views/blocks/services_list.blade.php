@@ -3,15 +3,15 @@
     $count = $data['count'] ?? 3;
     $services = \App\Models\Service::orderBy('sort')->take($count)->get();
 @endphp
-<section class="py-24 bg-white">
+<section class="py-16 md:py-24 bg-white">
     <div class="max-w-7xl mx-auto px-6">
         <div class="mb-16">
              <span class="text-primary font-bold tracking-wider uppercase text-sm mb-2 block">{{ $data['subtitle'] ?? 'Hizmetlerimiz' }}</span>
-            <h2 class="text-4xl md:text-5xl font-black text-slate-900 tracking-normal max-w-2xl">{{ $data['title'] ?? 'Uzmanlık Alanlarımız' }}</h2>
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 tracking-normal max-w-2xl">{{ $data['title'] ?? 'Uzmanlık Alanlarımız' }}</h2>
         </div>
 
         @if($services->count() > 0)
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             @foreach($services as $service)
                 <a href="{{ route('service.show', $service->slug) }}" class="group flex flex-col h-full bg-slate-50 border border-slate-100 hover:border-slate-300 transition-all duration-300">
                     <div class="relative h-64 overflow-hidden flex-shrink-0">
@@ -24,7 +24,7 @@
                         @endif
                          <div class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/10 transition-colors duration-300"></div>
                     </div>
-                    <div class="p-8 flex flex-col flex-grow">
+                    <div class="p-6 md:p-8 flex flex-col flex-grow">
                         <h3 class="text-2xl font-bold text-slate-900 mb-4 group-hover:text-primary transition-colors">{{ $service->title }}</h3>
                         <p class="text-slate-600 leading-relaxed text-sm mb-6 line-clamp-3">{{ $service->description }}</p>
                         
@@ -39,7 +39,7 @@
             @endforeach
         </div>
         
-        <div class="mt-12 flex justify-end">
+        <div class="mt-8 lg:mt-8 flex justify-end">
             <a href="{{ url('/hizmetler') }}" class="text-slate-900 font-bold border-b-2 border-slate-200 pb-1 hover:border-primary hover:text-primary transition-colors flex items-center gap-2">
                 Tüm Hizmetlerimizi İnceleyin <span class="text-xl">&rarr;</span>
             </a>

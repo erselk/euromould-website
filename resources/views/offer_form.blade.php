@@ -1,10 +1,10 @@
 <x-layouts.app title="Teklif Al">
-    <div class="bg-white py-24 md:py-32">
+    <div class="bg-white py-16 md:py-32">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-24">
                 <!-- Info Section -->
                 <div>
-                    <h1 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-6">Projeniz için Teklif Alın</h1>
+                    <h1 class="text-3xl md:text-5xl font-black text-slate-900 tracking-tight mb-6">Projeniz için Teklif Alın</h1>
                     <p class="text-lg text-slate-600 mb-10 leading-relaxed">
                         Euro Mould olarak, plastik enjeksiyon kalıp projelerinizde en doğru çözümü sunmak için buradayız. Formu doldurarak projeniz hakkında bize bilgi verin, uzman mühendislerimiz en kısa sürede teknik analiz ve fiyatlandırma ile size dönüş yapsın.
                     </p>
@@ -33,7 +33,7 @@
                 </div>
 
                 <!-- Form Section -->
-                <div class="bg-slate-50 p-8 md:p-12 border border-slate-200">
+                <div class="bg-slate-50 p-6 md:p-12 border border-slate-200">
                     @if(session('success'))
                         <div class="bg-green-50 border border-green-200 text-green-800 p-4 mb-8">
                             {{ session('success') }}

@@ -2,15 +2,15 @@
 @php
     $items = \App\Models\GalleryItem::orderBy('sort')->get();
 @endphp
-<section class="py-24 bg-white">
+<section class="py-16 md:py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight">{{ $data['title'] ?? 'Galeri' }}</h2>
+            <h2 class="text-3xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight">{{ $data['title'] ?? 'Galeri' }}</h2>
             <div class="w-24 h-1.5 bg-primary mx-auto rounded-full"></div>
         </div>
 
         @if($items->count() > 0)
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
             @foreach($items as $item)
                 <div class="relative aspect-square group overflow-hidden rounded-2xl cursor-pointer shadow-lg shadow-slate-200/50">
                     <img src="{{ asset($item->image) }}" alt="{{ $item->title ?? '' }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ease-in-out">

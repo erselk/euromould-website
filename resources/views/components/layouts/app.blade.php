@@ -119,7 +119,7 @@
     <footer class="bg-gradient-to-b from-slate-900 to-[#0B1120] pt-20 pb-10">
         <div class="max-w-7xl mx-auto px-6">
             <!-- Top Section -->
-            <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 mb-16">
+            <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-8 md:gap-y-12 mb-16">
                 
                 <!-- Brand (Full width on mobile) -->
                 <div class="col-span-2 md:col-span-2 lg:col-span-1 flex flex-col items-center md:items-start lg:items-center text-center md:text-left">
@@ -154,7 +154,7 @@
                 </div>
 
                 <!-- Contact (Full width on mobile) -->
-                <div class="col-span-2 md:col-span-1 lg:col-span-1">
+                <div class="col-span-2 md:col-span-2 lg:col-span-1">
                     <h4 class="text-white font-bold uppercase tracking-widest text-sm mb-6">Bize Ulaşın</h4>
                     <ul class="space-y-4">
                         <li class="flex items-start gap-3">

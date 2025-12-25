@@ -1,5 +1,5 @@
 @props(['data'])
-<section class="relative h-[80vh] min-h-[600px] flex items-center overflow-hidden bg-slate-900">
+<section class="relative h-auto min-h-[500px] md:h-[80vh] md:min-h-[600px] flex items-center overflow-hidden bg-slate-900 py-20 md:py-0">
     <!-- Background Image -->
     <div class="absolute inset-0 z-0 select-none">
         @if(isset($data['bg_image']))
@@ -22,17 +22,17 @@
             @endif
             
             @if(isset($data['title']) && $data['title'])
-                <h1 class="text-4xl md:text-7xl lg:text-8xl font-black text-white mb-10 leading-[1.1] tracking-tight drop-shadow-xl">
+                <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-6 md:mb-10 leading-[1.1] tracking-tight drop-shadow-xl">
                     {!! nl2br(e($data['title'])) !!}
                 </h1>
             @endif
             
-            <div class="flex flex-col sm:flex-row gap-5 mt-12">
-                <a href="{{ url('/teklif-al') }}" class="px-10 py-5 bg-white text-slate-900 font-bold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors duration-300">
+            <div class="flex flex-col sm:flex-row gap-4 sm:gap-5 mt-8 md:mt-12">
+                <a href="{{ url('/teklif-al') }}" class="px-6 py-4 md:px-10 md:py-5 bg-white text-slate-900 font-bold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors duration-300 text-center text-sm md:text-base">
                     Teklif Alın
                 </a>
                 
-                <a href="{{ url('/hizmetler') }}" class="px-10 py-5 border border-white/30 text-white font-bold uppercase tracking-wider hover:bg-white hover:text-slate-900 transition-all duration-300">
+                <a href="{{ url('/hizmetler') }}" class="px-6 py-4 md:px-10 md:py-5 border border-white/30 text-white font-bold uppercase tracking-wider hover:bg-white hover:text-slate-900 transition-all duration-300 text-center text-sm md:text-base">
                     Hizmetlerimiz
                 </a>
             </div>
