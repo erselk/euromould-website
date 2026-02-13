@@ -39,7 +39,7 @@ RUN chmod 775 database/database.sqlite
 # Ortam Değişkenleri
 ENV DB_CONNECTION=sqlite
 ENV DB_DATABASE=/var/www/html/database/database.sqlite
-ENV APP_KEY=base64:6XY1lFZ2twPTGv13Hz8XmdJg2kxpwKKRFoQDPn5tOVY=
+
 
 # Migration ve Seed (Build aşamasında)
 RUN php artisan migrate:fresh --seed --force
