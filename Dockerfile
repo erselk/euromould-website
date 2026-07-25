@@ -1,4 +1,4 @@
-FROM php:8.3-apache
+FROM php:8.4-apache
 
 # Sistem paketlerini güncelle ve kur
 RUN apt-get update && apt-get install -y \
@@ -9,7 +9,12 @@ RUN apt-get update && apt-get install -y \
     libsqlite3-dev \
     libicu-dev \
     git \
+    curl \
     && docker-php-ext-install pdo_mysql pdo_sqlite gd zip intl
+
+# Node.js ve npm kurulumu (Vite frontend asset derlemesi için)
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+    && apt-get install -y nodejs
 
 # Apache rewrite modülünü aç
 RUN a2enmod rewrite
@@ -24,8 +29,13 @@ COPY . .
 
 # Composer kurulumu
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-# Lock dosyasını görmezden gelip mevcut PHP 8.3 sürümüne uygun paketleri güncelle
-RUN composer update --no-interaction --optimize-autoloader --no-dev
+
+# Composer paketlerini kur (composer.lock kullanarak)
+RUN composer install --no-interaction --optimize-autoloader --no-dev --ignore-platform-reqs
+
+# Frontend Vite stillerini ve JS dosyalarını derle
+RUN npm ci || npm install
+RUN npm run build
 
 # İzinler
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
@@ -39,7 +49,6 @@ RUN chmod 775 database/database.sqlite
 # Ortam Değişkenleri
 ENV DB_CONNECTION=sqlite
 ENV DB_DATABASE=/var/www/html/database/database.sqlite
-
 
 # Migration ve Seed (Build aşamasında)
 RUN php artisan migrate:fresh --seed --force
@@ -57,3 +66,4 @@ RUN echo "<Directory /var/www/html/public>" >> /etc/apache2/apache2.conf && \
     echo "</Directory>" >> /etc/apache2/apache2.conf
 
 EXPOSE 80
+
