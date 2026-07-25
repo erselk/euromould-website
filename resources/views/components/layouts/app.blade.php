@@ -154,6 +154,7 @@
                         <li><a href="/" class="text-slate-400 hover:text-white transition-colors text-sm">Anasayfa</a></li>
                         <li><a href="/hakkimizda" class="text-slate-400 hover:text-white transition-colors text-sm">Hakkımızda</a></li>
                         <li><a href="/hizmetler" class="text-slate-400 hover:text-white transition-colors text-sm">Hizmetlerimiz</a></li>
+                        <li><a href="/galeri" class="text-slate-400 hover:text-white transition-colors text-sm">Galeri</a></li>
                         <li><a href="/iletisim" class="text-slate-400 hover:text-white transition-colors text-sm">İletişim</a></li>
                     </ul>
                 </div>
@@ -162,9 +163,9 @@
                 <div>
                     <h4 class="text-white font-bold uppercase tracking-widest text-sm mb-6">Hizmetler</h4>
                     <ul class="space-y-3">
-                        <li><a href="/hizmet/plastik-enjeksiyon-kalip-imalati" class="text-slate-400 hover:text-white transition-colors text-sm">Kalıp İmalatı</a></li>
-                        <li><a href="/hizmet/urun-gelistirme-ve-kalip-tasarimi" class="text-slate-400 hover:text-white transition-colors text-sm">Ürün Geliştirme</a></li>
-                        <li><a href="/hizmet/kalip-bakim-ve-revizyon" class="text-slate-400 hover:text-white transition-colors text-sm">Bakım & Onarım</a></li>
+                        <li><a href="/iletisim" class="text-slate-400 hover:text-white transition-colors text-sm">Kalıp İmalatı</a></li>
+                        <li><a href="/iletisim" class="text-slate-400 hover:text-white transition-colors text-sm">Ürün Geliştirme</a></li>
+                        <li><a href="/iletisim" class="text-slate-400 hover:text-white transition-colors text-sm">Bakım & Onarım</a></li>
                         <li><a href="/teklif-al" class="text-primary hover:text-white transition-colors text-sm font-bold">Teklif Alın</a></li>
                     </ul>
                 </div>

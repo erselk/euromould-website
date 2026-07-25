@@ -32,9 +32,6 @@ class ServiceResource extends Resource
                 Forms\Components\Textarea::make('description')
                     ->label('Kısa Açıklama')
                     ->columnSpanFull(),
-                Forms\Components\RichEditor::make('long_description')
-                    ->label('Detaylı İçerik')
-                    ->columnSpanFull(),
                 Forms\Components\FileUpload::make('image')
                     ->image()
                     ->directory('services')

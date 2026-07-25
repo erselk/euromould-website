@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Page;
 use App\Models\Service;
 use App\Models\GeneralSetting;
+use App\Models\GalleryItem;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -28,7 +29,7 @@ class DatabaseSeeder extends Seeder
             'google_maps' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3011.0814740080796!2d28.659471099999998!3d41.0015899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b55f9b6e737abd%3A0x6e9cb191a35a758b!2sEuroMould!5e0!3m2!1str!2str!4v1766611042380!5m2!1str!2str" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>',
         ]);
 
-        // Services (Updated Long Descriptions)
+        // Services (Updated Unique Images for All 10 Services)
         $services = [
             [
                 'title' => 'Plastik Enjeksiyon Kalıp İmalatı',
@@ -38,7 +39,7 @@ class DatabaseSeeder extends Seeder
 <p class="mb-6">Euro Mould, plastik enjeksiyon kalıp imalatında 20 yılı aşkın süredir edindiği derin tecrübeyi, en son teknoloji ile harmanlayarak müşterilerine sunmaktadır. Kalıp imalatı sürecimiz, sadece plastiğe şekil vermek değil, müşterimizin üretim verimliliğini, ürün kalitesini ve parça başına düşen maliyetini optimize eden stratejik bir mühendislik sürecidir.</p>
 
 <h3 class="text-2xl font-bold mb-4 text-slate-800">Teknolojik Altyapımız ve Üretim Gücümüz</h3>
-<p class="mb-6">Üretim parkurumuzda bulunan <strong>Yüksek Devirli (HSM) CNC İşleme Merkezleri</strong>, en karmaşık 3D yüzeyleri bile mikron mertebesinde hassasiyetle işleyebilmemizi sağlar. 42.000 devir/dakika hıza ulaşabilen iş milleri sayesinde, sertleştirilmiş çeliklerin (50-52 HRC üstü) işlenmesi sırasında bile mükemmel yüzey kalitesi (Ra 0.4 ve altı) elde edilir. Bu durum, kalıbın son parlatma süresini kısaltarak teslim sürelerini ciddi oranda düşürür.</p>
+<p class="mb-6">Üretim parkurumuzda bulunan <strong>CNC İşleme Merkezleri</strong>, en karmaşık 3D yüzeyleri bile hassasiyetle işleyebilmemizi sağlar. Sertleştirilmiş çeliklerin (50-52 HRC üstü) işlenmesi sırasında bile mükemmel yüzey kalitesi elde edilir. Bu durum, kalıbın son parlatma süresini kısaltarak teslim sürelerini ciddi oranda düşürür.</p>
 
 <p class="mb-6">Dalma Erezyon (EDM) ve Tel Erezyon tezgahlarımızla, takımın giremediği keskin köşeler, derin feder yapıları ve hassas itici yuvaları ±0.005mm toleransla işlenir. Kullandığımız grafit elektrot teknolojisi sayesinde elektrot aşınması minimize edilirken, işleme hızı ve yüzey kalitesi maksimize edilir.</p>
 
@@ -53,7 +54,7 @@ Doğru çelik seçimi ve doğru ısıl işlem prosesi, kalıbınızın milyonlar
 
 <h3 class="text-2xl font-bold mb-4 text-slate-800">Soğutma Sistemleri ve Çevrim Süresi Optimizasyonu</h3>
 <p>Kalıpçılıkta "zaman nakittir". Enjeksiyon döngüsünün en uzun kısmı soğuma süresidir. Mühendislerimiz, konformal soğutma kanalları (conformal cooling) ve optimize edilmiş su yolları tasarlayarak kalıp yüzeyindeki sıcaklık dağılımını homojen hale getirir. Bu yaklaşım, sadece parça çarpılmalarını önlemekle kalmaz, aynı zamanda çevrim süresini %20-%30 oranında kısaltarak üretim kapasitenizi artırır.</p>',
-                'image' => 'images/cnc-production-line.webp',
+                'image' => 'images/service_plastic_injection.png',
                 'sort' => 1
             ],
             [
@@ -107,7 +108,7 @@ Sonuç olarak, deneme baskılarında ("try-out") oluşabilecek sürprizleri sıf
 
 <h3 class="text-2xl font-bold mb-4 text-slate-800">Kalıp Revizyonu ve Modifikasyon</h3>
 <p>Ürün tasarımında yapılan değişikliklerin kalıba yansıtılması (ECO - Engineering Change Order), hassas bir süreçtir. Mevcut çelik yapının elverdiği ölçüde, kaynak dolgu veya insert (lokma) değişimi yöntemleriyle revizyonlar gerçekleştirilir. Eski ve verimsiz çalışan kalıplarınızın soğutma sistemleri iyileştirilerek veya yolluk sistemleri modernize edilerek (soğuk yolluktan sıcak yolluğa geçiş vb.) çevrim süreleri iyileştirilebilir.</p>',
-                'image' => 'images/mold-maintenance.webp',
+                'image' => 'images/service_mold_maintenance.png',
                 'sort' => 3
             ],
             [
@@ -126,7 +127,7 @@ Sonuç olarak, deneme baskılarında ("try-out") oluşabilecek sürprizleri sıf
 
 <h3 class="text-2xl font-bold mb-4 text-slate-800">Döner Tablalı ve Core-Back Sistemler</h3>
 <p>2K kalıp projelerinizde, makine parkurunuza ve parça geometrisine en uygun yöntemi seçiyoruz. Döner tablalı (rotary table) sistemlerle yüksek adetli üretimler için hızlı çözümler sunarken, Core-Back (maça geri çekmeli) sistemlerle standart tek kovanlı makinelerde bile 2K üretim yapabilmenize olanak tanıyoruz. Tasarımlarımızda, iki malzemenin birbirine karışmasını önleyen hassas kapama yüzeyleri ve özel yolluk sistemleri kullanıyoruz.</p>',
-                'image' => 'images/mold-design-engineering.png',
+                'image' => 'images/service_2k_mould.png',
                 'sort' => 4
             ],
             [
@@ -145,7 +146,7 @@ Sonuç olarak, deneme baskılarında ("try-out") oluşabilecek sürprizleri sıf
 
 <h3 class="text-2xl font-bold mb-4 text-slate-800">Proses Dizaynı ve Simülasyonu</h3>
 <p>Gaz kanallarının tasarımı, bu teknolojinin en kritik noktasıdır. Yanlış tasarlanmış bir gaz kanalı, gazın istenmeyen bölgelere kaçmasına (fingering effect) veya parçanın patlamasına neden olabilir. Uzman ekibimiz, kalıp tasarım aşamasında gazın izleyeceği yolu simüle ederek en verimli gaz kanalı geometrisini ve taşma kuyularını (overflow wells) belirler.</p>',
-                'image' => 'images/factory-overview.webp',
+                'image' => 'images/service_gas_assist.png',
                 'sort' => 5
             ],
             [
@@ -165,7 +166,7 @@ Sonuç olarak, deneme baskılarında ("try-out") oluşabilecek sürprizleri sıf
 
 <h3 class="text-2xl font-bold mb-4 text-slate-800">Hızlı Çevrim Ambalaj Kalıpları</h3>
 <p>IML projeleri genellikle ince cidarlı (thin-wall) ambalajlardır. Bu nedenle kalıplarımızı, yüksek hıza ve basınca dayanacak şekilde sertleştirilmiş paslanmaz çeliklerden üretiyor, berilyum bakır alaşımları ile soğutma performansını maksimize ediyoruz.</p>',
-                'image' => 'images/cnc-production-line.webp',
+                'image' => 'images/service_iml.png',
                 'sort' => 6
             ],
             [
@@ -184,7 +185,7 @@ Sonuç olarak, deneme baskılarında ("try-out") oluşabilecek sürprizleri sıf
 
 <h3 class="text-2xl font-bold mb-4 text-slate-800">Tasarımdan Doğrulamaya</h3>
 <p>Sadece baskı hizmeti vermiyoruz; prototip üzerinde yaptığımız montaj ve fonksiyon testleri sonucunda, seri üretimde karşılaşabileceğiniz sorunları raporluyoruz. Böylece kalıp çeliği kesilmeden önce nihai ürününüzün mükemmelliğinden emin oluyorsunuz.</p>',
-                'image' => 'images/mold-design-engineering.png',
+                'image' => 'images/service_3d_prototype.png',
                 'sort' => 7
             ],
             [
@@ -199,7 +200,7 @@ Sonuç olarak, deneme baskılarında ("try-out") oluşabilecek sürprizleri sıf
 
 <h3 class="text-2xl font-bold mb-4 text-slate-800">Kauçuk Kompresyon ve Transfer Kalıpları</h3>
 <p>O-ring, conta, körük ve titreşim takozları gibi parçalar için çok gözlü kompresyon veya transfer kalıpları tasarlıyoruz. Kalıp tasarımında, kauçuğun vulkanizasyon sonrası çekme paylarını ve parçanın kalıptan çıkarılma (demolding) kolaylığını titizlikle hesaplıyor; operatör dostu, uzun ömürlü kalıplar üretiyoruz.</p>',
-                'image' => 'images/mold-maintenance.webp',
+                'image' => 'images/service_silicone_rubber.png',
                 'sort' => 8
             ],
             [
@@ -219,7 +220,7 @@ Sonuç olarak, deneme baskılarında ("try-out") oluşabilecek sürprizleri sıf
 
 <h3 class="text-2xl font-bold mb-4 text-slate-800">Yolluk ve Taşma Tasarımı</h3>
 <p>Metalin kalıp içine türbülanssız ve atomize bir şekilde dolması, parçanın iç yapısındaki hava boşluklarını (porozite) önler. Gelişmiş döküm simülasyonları ile yolluk girişlerini, hava ceplerini ve taşma (overflow) kuyu yerleşimlerini optimize ederek, sızdırmazlık ve mekanik dayanım gerektiren parçalarda üstün sonuçlar elde ediyoruz.</p>',
-                'image' => 'images/factory-overview.webp',
+                'image' => 'images/service_metal_diecasting.png',
                 'sort' => 9
             ],
             [
@@ -236,10 +237,10 @@ Sonuç olarak, deneme baskılarında ("try-out") oluşabilecek sürprizleri sıf
 <p>Sadece tarama yapmak yetmez; tarama verisini işlenebilir bir katı modele dönüştürmek uzmanlık ister.
 <ul class="list-disc pl-6 mb-6 space-y-2">
     <li><strong>Parametrik Modelleme:</strong> Taranan veriyi referans alarak, SolidWorks veya NX üzerinde ağaç yapısı olan, ölçüleri değiştirilebilir "akıllı" modeller çiziyoruz.</li>
-    <li><strong>Yüzey İyileştirme:</strong> Numunedeki aşınmaları, üretim hatalarını veya deformasyonları düzelterek, parçanın "olması gereken" ideal geometrisini oluşturuyoruz.</li>
+    <li><strong>Yüzey İyileştirme:</strong> Numunedeki aşınmaları, üretim hatalarını veya deformasyonları düzelterek, parçanın "olması gereken" ideal geometrisini oluşturıyoruz.</li>
 </ul>
 Elde edilen datalar, doğrudan CNC tezgahına gönderilebilir veya kalıp tasarımında altlık olarak kullanılabilir.</p>',
-                'image' => 'images/cnc-production-line.webp',
+                'image' => 'images/service_3d_scanning.png',
                 'sort' => 10
             ],
         ];
@@ -260,7 +261,7 @@ Elde edilen datalar, doğrudan CNC tezgahına gönderilebilir veya kalıp tasar�
                     'data' => [
                         'title' => "MÜHENDİSLİK TUTKUSUYLA\nKUSURSUZ İMALAT",
                         'subtitle' => 'EUROMOULD KALIP TEKNOLOJİLERİ',
-                        'bg_image' => 'images/hero-main.webp',
+                        'bg_image' => 'images/hero-main.png',
                     ]
                 ],
                 [
@@ -271,7 +272,7 @@ Elde edilen datalar, doğrudan CNC tezgahına gönderilebilir veya kalıp tasar�
                         'features' => [
                             ['title' => 'Mikron Hassasiyet', 'description' => '±0.005mm işleme toleransı ile en kritik ve hassas parçalarda bile mükemmel sonuçlar elde ediyoruz. Kalite kontrol süreçlerimizle hataya yer bırakmıyoruz.'],
                             ['title' => 'Zamanında Teslimat', 'description' => 'Zamanın sizin için nakit olduğunu biliyoruz. Dijital proje yönetimi sistemimizle kalıplarınızı söz verdiğimiz tarihte, T1 baskısına hazır şekilde teslim ediyoruz.'],
-                            ['title' => 'İleri Teknoloji', 'description' => 'Yüksek hızlı 5 eksen CNC tezgahlar, robotik otomasyon sistemleri ve güncel CAD/CAM yazılımlarıyla donatılmış modern üretim tesisimizle hizmetinizdeyiz.'],
+                            ['title' => 'İleri Teknoloji', 'description' => 'CNC tezgahlarımız ve güncel CAD/CAM yazılımlarımızla donatılmış modern üretim tesisimizle hizmetinizdeyiz.'],
                         ]
                     ]
                 ],
@@ -308,7 +309,7 @@ Elde edilen datalar, doğrudan CNC tezgahına gönderilebilir veya kalıp tasar�
             ]
         ]);
 
-        // 2. About Us
+        // 2. About Us Page
         Page::updateOrCreate(['slug' => 'hakkimizda'], [
             'title' => 'Hakkımızda',
             'is_published' => true,
@@ -318,7 +319,7 @@ Elde edilen datalar, doğrudan CNC tezgahına gönderilebilir veya kalıp tasar�
                     'data' => [
                         'title' => 'ÇÖZÜM ODAKLI YAKLAŞIM',
                         'subtitle' => 'KURUMSAL KİMLİĞİMİZ',
-                        'bg_image' => 'images/IMG_1956.webp',
+                        'bg_image' => 'images/unnamed (3).webp',
                     ]
                 ],
                 [
@@ -345,20 +346,20 @@ Elde edilen datalar, doğrudan CNC tezgahına gönderilebilir veya kalıp tasar�
                     'type' => 'stats',
                     'data' => [
                         'stats' => [
-                            ['value' => '20+', 'label' => 'Yıllık Sektör Tecrübesi'],
+                            ['value' => '15+', 'label' => 'Yıllık Sektör Tecrübesi'],
                             ['value' => '1000+', 'label' => 'Başarıyla Teslim Edilen Kalıp'],
-                            ['value' => '3500m2', 'label' => 'Kapalı Üretim Alanı'],
+                            ['value' => '400m2', 'label' => 'Kapalı Üretim Alanı'],
                             ['value' => '15+', 'label' => 'İhracat Yapılan Ülke'],
                         ]
                     ]
                 ],
-                 [
+                [
                     'type' => 'content_with_image',
                     'data' => [
                         'subtitle' => 'ÜRETİM TESİSİMİZ',
-                        'title' => 'Modern Makine Parkuru',
-                        'content' => '<p class="mb-4">Üretim kalitemizin temelinde, sürekli güncellediğimiz ve bakımını aksatmadığımız güçlü makine parkurumuz yatar. Yüksek hızlı CNC işleme merkezleri, hassas dalma erezyon tezgahları ve kalite kontrol laboratuvarımızla, en zorlu toleransları bile standart bir süreç haline getiriyoruz.</p>',
-                        'image' => 'images/cnc-production-line.webp',
+                        'title' => 'Beylikdüzü OSB Tesisimiz & Makine Parkuru',
+                        'content' => '<p class="mb-4">Üretim kalitemizin temelinde, sürekli güncellediğimiz ve bakımını aksatmadığımız güçlü makine parkurumuz yatar. Yüksek hızlı CNC işleme merkezleri, hassas dalma erezyon tezgahlarımızla en zorlu toleransları bile standart bir süreç haline getiriyoruz.</p>',
+                        'image' => 'images/unnamed (4).webp',
                         'image_position' => 'left',
                     ]
                 ],
@@ -375,10 +376,10 @@ Elde edilen datalar, doğrudan CNC tezgahına gönderilebilir veya kalıp tasar�
                     'data' => [
                         'title' => 'ENDÜSTRİYEL KALIP ÇÖZÜMLERİ',
                         'subtitle' => 'FAALİYET ALANLARIMIZ',
-                         'bg_image' => 'images/IMG_1951.webp',
+                        'bg_image' => 'images/WhatsApp Image 2026-07-25 at 16.23.43 (1).jpeg',
                     ]
                 ],
-                 [
+                [
                     'type' => 'services_list',
                     'data' => [
                         'title' => 'Tüm Hizmetlerimiz',
@@ -404,11 +405,11 @@ Elde edilen datalar, doğrudan CNC tezgahına gönderilebilir veya kalıp tasar�
             'is_published' => true,
             'content' => [
                 [
-                     'type' => 'page_header',
+                    'type' => 'page_header',
                     'data' => [
                         'title' => 'BİZE ULAŞIN',
                         'subtitle' => 'MERKEZ OFİS & FABRİKA',
-                         'bg_image' => 'images/IMG_1953.webp',
+                        'bg_image' => 'images/unnamed (4).webp',
                     ]
                 ],
                 [
@@ -420,7 +421,8 @@ Elde edilen datalar, doğrudan CNC tezgahına gönderilebilir veya kalıp tasar�
             ]
         ]);
         
-         Page::updateOrCreate(['slug' => 'galeri'], [
+        // 5. Gallery Page
+        Page::updateOrCreate(['slug' => 'galeri'], [
              'title' => 'Galeri',
              'is_published' => true,
              'content' => [
@@ -429,7 +431,7 @@ Elde edilen datalar, doğrudan CNC tezgahına gönderilebilir veya kalıp tasar�
                     'data' => [
                         'title' => 'ÜRETİM TESİSİMİZ',
                         'subtitle' => 'FOTOĞRAF GALERİSİ',
-                         'bg_image' => 'images/hero-main.webp',
+                        'bg_image' => 'images/WhatsApp Image 2026-07-25 at 16.23.42.jpeg',
                     ]
                 ],
                 [
@@ -437,7 +439,7 @@ Elde edilen datalar, doğrudan CNC tezgahına gönderilebilir veya kalıp tasar�
                      'data' => [
                          'title' => 'CNC İşleme Hattı',
                          'content' => '<p>Firmamız bünyesindeki son teknoloji CNC işleme merkezleri, 7/24 kesintisiz üretim kapasitesine sahiptir. Operatör hatalarını minimize eden otomasyon sistemleri ve hassas takım ölçme problarıyla donatılmış tezgahlarımızda, kalıp çekirdekleri ve hamilleri, tek bağlamada bitmiş yüzey kalitesine ulaştırılmaktadır.</p>',
-                         'image' => 'images/cnc-production-line.webp',
+                         'image' => 'images/unnamed.webp',
                          'image_position' => 'right'
                      ]
                 ],
@@ -455,11 +457,31 @@ Elde edilen datalar, doğrudan CNC tezgahına gönderilebilir veya kalıp tasar�
                      'data' => [
                          'title' => 'Montaj ve Alıştırma Bölümü',
                          'content' => '<p>İşlenen tüm kalıp bileşenleri, tecrübeli kalıp ustalarımız tarafından titizlikle montaj hattına alınır. Mavi macun alıştırması (blue matching) yapılarak kalıp ayırma yüzeylerinin mükemmel öpüşmesi sağlanır. Bu aşama, kalıbın çapaksız baskı yapabilmesi için üretim sürecinin en kritik manuel işlemidir.</p>',
-                         'image' => 'images/factory-overview.webp',
+                         'image' => 'images/unnamed (3).webp',
                          'image_position' => 'right'
                      ]
                 ]
              ]
         ]);
+
+        // 6. Gallery Items Seed (Real Factory & Product Photos)
+        $galleryItems = [
+            ['title' => 'Fabrika Bina Dış Görünüşü', 'image' => 'images/unnamed (4).webp', 'sort' => 1],
+            ['title' => 'Kalıphane Atölye Kuşbakışı Görünüm', 'image' => 'images/WhatsApp Image 2026-07-25 at 16.23.42.jpeg', 'sort' => 2],
+            ['title' => 'Atölye Genel Bakış ve Vinç Hattı', 'image' => 'images/WhatsApp Image 2026-07-25 at 16.23.43 (1).jpeg', 'sort' => 3],
+            ['title' => 'Montaj ve Kalıp Alıştırma Alanı', 'image' => 'images/unnamed (3).webp', 'sort' => 4],
+            ['title' => 'AWEA Yüksek Hızlı CNC İşleme Merkezi', 'image' => 'images/unnamed.webp', 'sort' => 5],
+            ['title' => 'Finetech SMV-1060 CNC Dik İşleme Tezgahı', 'image' => 'images/IMG_1947.webp', 'sort' => 6],
+            ['title' => 'Tesviye ve Radyal Matkap Tezgahları', 'image' => 'images/IMG_1953.webp', 'sort' => 7],
+            ['title' => 'YUDO Sıcak Yolluklu Enjeksiyon Kalıbı', 'image' => 'images/unnamed (5).webp', 'sort' => 8],
+            ['title' => 'Hidrolik Maçalı Hassas Enjeksiyon Kalıbı', 'image' => 'images/unnamed (1).webp', 'sort' => 9],
+            ['title' => 'Tamamlanan Plastik Enjeksiyon Kalıp Seti', 'image' => 'images/unnamed (2).webp', 'sort' => 10],
+            ['title' => 'CNC Talaşlı İmalat Parkuru', 'image' => 'images/IMG_1951.webp', 'sort' => 11],
+            ['title' => 'Kalıp Montaj ve Bakım Tezgahı', 'image' => 'images/IMG_1955.webp', 'sort' => 12],
+        ];
+
+        foreach ($galleryItems as $item) {
+            GalleryItem::updateOrCreate(['image' => $item['image']], $item);
+        }
     }
 }

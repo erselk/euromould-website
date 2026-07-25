@@ -23,13 +23,6 @@ class PageController extends Controller
         return view('page', compact('page'));
     }
 
-    public function serviceDetail($slug)
-    {
-        $service = Service::where('slug', $slug)->firstOrFail();
-        
-        return view('service_detail', compact('service'));
-    }
-
     public function offerForm()
     {
         return view('offer_form');
