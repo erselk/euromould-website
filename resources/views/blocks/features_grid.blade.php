@@ -3,10 +3,10 @@
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center max-w-3xl mx-auto mb-16">
             @if(isset($data['title']) && $data['title'])
-                <h2 class="text-2xl md:text-4xl font-black text-slate-900 mb-6 tracking-tight">{{ $data['title'] }}</h2>
+                <h2 class="text-2xl md:text-4xl font-black text-slate-900 mb-6 tracking-tight">{{ __($data['title']) }}</h2>
             @endif
             @if(isset($data['description']) && $data['description'])
-                <p class="text-lg text-slate-600 leading-relaxed">{{ $data['description'] }}</p>
+                <p class="text-lg text-slate-600 leading-relaxed">{{ __($data['description']) }}</p>
             @endif
         </div>
 
@@ -18,8 +18,8 @@
                              <!-- Dynamic Icon based on index or title could be added here, using a generic consistent one for now -->
                              <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                         </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-4">{{ $feature['title'] }}</h3>
-                        <p class="text-slate-600 leading-relaxed">{{ $feature['description'] }}</p>
+                        <h3 class="text-xl font-bold text-slate-900 mb-4">{{ __($feature['title']) }}</h3>
+                        <p class="text-slate-600 leading-relaxed">{{ __($feature['description']) }}</p>
                     </div>
                 @endforeach
             </div>

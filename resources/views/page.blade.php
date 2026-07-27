@@ -1,11 +1,11 @@
-<x-layouts.app :title="$page->title ?? 'EuroMould'">
+<x-layouts.app :title="__($page->title ?? 'EuroMould')">
     @if($page && $page->content)
         @foreach($page->content as $block)
             @include('blocks.' . $block['type'], ['data' => $block['data']])
         @endforeach
     @else
         <div class="py-20 text-center">
-            <h1 class="text-3xl font-bold">Sayfa İçeriği Eklenmemiş</h1>
+            <h1 class="text-3xl font-bold">{{ __('Sayfa İçeriği Eklenmemiş') }}</h1>
         </div>
     @endif
 </x-layouts.app>

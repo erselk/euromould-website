@@ -35,21 +35,14 @@
                                         targetY = this.containerRect.height / 2;
                                     }
 
-                                    // Mesafe hesapla
                                     const dx = targetX - this.currentX;
                                     const dy = targetY - this.currentY;
                                     const distance = Math.sqrt(dx*dx + dy*dy);
 
-                                    // Hareket için Lerp
                                     this.currentX += dx * 0.08;
                                     this.currentY += dy * 0.08;
 
-                                    // Scale hesapla: Yaklaştıkça büyür
-                                    // Max scale: 1.1 (mesafe 0 iken)
-                                    // Min scale: 0.9 (hızlı hareket ederken)
-                                    // Sakin durumda (hover yoksa): 0.85
                                     if (this.isHovering) {
-                                        // Mesafe 0 -> 1.1, Mesafe çok -> 0.8'e kadar düşsün
                                         let targetScale = 1.1 - Math.min(distance / 500, 0.3); 
                                         this.scale = targetScale;
                                     } else {
@@ -64,8 +57,9 @@
                          @mouseenter="containerRect = $el.getBoundingClientRect(); isHovering = true"
                          @mousemove="mouseX = $event.clientX - containerRect.left; mouseY = $event.clientY - containerRect.top" 
                          @mouseleave="isHovering = false"
-                         @click="playing = true"
-                         class="relative w-full aspect-video shadow-2xl border border-slate-200 bg-slate-900 rounded-lg overflow-hidden group cursor-pointer">
+                         @click="if (!playing) playing = true"
+                         :class="{ 'cursor-pointer': !playing }"
+                         class="relative w-full aspect-video shadow-2xl border border-slate-200 bg-slate-900 rounded-lg overflow-hidden group">
                         
                         <!-- Cover Image & Play Button -->
                         <div x-show="!playing" class="absolute inset-0 z-10 pointer-events-none">
@@ -75,7 +69,7 @@
                             <!-- Overlay Gradient -->
                             <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
 
-                            <!-- Play Button (Follows Mouse with Physics & Dynamic Scale) -->
+                            <!-- Play Button -->
                             <div class="absolute z-50 w-20 h-20 bg-primary/80 backdrop-blur-sm text-white rounded-full flex items-center justify-center shadow-lg transition-transform duration-75"
                                  :style="`top: ${currentY}px; left: ${currentX}px; transform: translate(-54%, -50%) scale(${scale});`">
                                 <svg class="w-8 h-8 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
@@ -83,15 +77,25 @@
 
                             <!-- Text Overlay -->
                             <div class="absolute bottom-6 left-6 md:bottom-8 md:left-8">
-                                <span class="bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-white mb-2 inline-block">Tanıtım Filmi</span>
-                                <h3 class="text-white font-bold text-lg md:text-xl">Üretim Tesisimizi Keşfedin</h3>
+                                <span class="bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-white mb-2 inline-block">{{ __('Tanıtım Filmi') }}</span>
+                                <h3 class="text-white font-bold text-lg md:text-xl">{{ __('Üretim Tesisimizi Keşfedin') }}</h3>
                             </div>
                         </div>
 
-                        <!-- Video Iframe (Loads on Click) -->
+                        <!-- Video Container (Loads on Click with Sound & Seeking support) -->
                         <template x-if="playing">
-                            <div class="w-full h-full">
-                                {!! $data['video_embed_code'] !!}
+                            <div class="w-full h-full relative z-30">
+                                @if(isset($data['video_file']) && $data['video_file'])
+                                    <video controls autoplay preload="auto" playsinline class="w-full h-full object-cover">
+                                        <source src="{{ route('video.stream', basename($data['video_file'])) }}" type="video/mp4">
+                                    </video>
+                                @elseif(isset($data['video_embed_code']) && str_contains($data['video_embed_code'], '.mp4'))
+                                    <video controls autoplay preload="auto" playsinline class="w-full h-full object-cover">
+                                        <source src="{{ route('video.stream', basename($data['video_embed_code'])) }}" type="video/mp4">
+                                    </video>
+                                @else
+                                    {!! $data['video_embed_code'] !!}
+                                @endif
                             </div>
                         </template>
 
@@ -100,7 +104,7 @@
                     <!-- Standard Image Mode -->
                     <div class="relative h-[300px] md:h-[500px] w-full shadow-lg border border-slate-100 rounded-lg overflow-hidden">
                         @if(isset($data['image']))
-                            <img src="{{ asset($data['image']) }}" alt="{{ $data['title'] ?? '' }}" class="w-full h-full object-cover">
+                            <img src="{{ asset($data['image']) }}" alt="{{ __($data['title'] ?? '') }}" class="w-full h-full object-cover">
                         @else
                             <div class="w-full h-full bg-slate-200 flex items-center justify-center text-slate-400">
                                 <svg class="w-16 h-16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
@@ -113,22 +117,22 @@
             <!-- Content Section -->
             <div class="w-full lg:w-1/2 text-center lg:text-left">
                 @if(isset($data['subtitle']) && $data['subtitle'])
-                    <span class="text-primary font-bold tracking-widest uppercase text-sm mb-4 block">{{ $data['subtitle'] }}</span>
+                    <span class="text-primary font-bold tracking-widest uppercase text-sm mb-4 block">{{ __($data['subtitle']) }}</span>
                 @endif
                 
                 @if(isset($data['title']) && $data['title'])
                     <h2 class="text-3xl md:text-5xl font-black text-slate-900 mb-8 leading-tight tracking-normal">
-                        {!! nl2br(e($data['title'])) !!}
+                        {!! nl2br(e(__($data['title']))) !!}
                     </h2>
                 @endif
                 
                 <div class="prose prose-lg prose-slate max-w-none mb-10 text-slate-600">
-                    {!! $data['content'] ?? '' !!}
+                    {!! __($data['content'] ?? '') !!}
                 </div>
 
                 @if(isset($data['button_text']) && $data['button_text'])
                     <a href="{{ $data['button_url'] ?? '#' }}" class="inline-block bg-slate-900 text-white px-8 py-4 font-bold uppercase tracking-widest hover:bg-primary transition-colors text-sm">
-                        {{ $data['button_text'] }}
+                        {{ __($data['button_text']) }}
                     </a>
                 @endif
             </div>

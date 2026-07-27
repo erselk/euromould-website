@@ -16,6 +16,15 @@ class PageController extends Controller
         return view('page', compact('page'));
     }
 
+    public function switchLanguage($locale)
+    {
+        if (in_array($locale, ['tr', 'en'])) {
+            session(['locale' => $locale]);
+        }
+
+        return back();
+    }
+
     public function show($slug)
     {
         $page = Page::where('slug', $slug)->where('is_published', true)->firstOrFail();
@@ -56,5 +65,59 @@ class PageController extends Controller
         \App\Models\Contact::create($validated);
 
         return back()->with('success', 'Mesajınız başarıyla iletildi. Teşekkür ederiz.');
+    }
+
+    public function streamVideo($filename)
+    {
+        $path = public_path('images/' . $filename);
+        if (!file_exists($path)) {
+            abort(404);
+        }
+
+        $size = filesize($path);
+        $file = fopen($path, 'rb');
+
+        $start = 0;
+        $end = $size - 1;
+        $length = $size;
+
+        $headers = [
+            'Content-Type' => 'video/mp4',
+            'Accept-Ranges' => 'bytes',
+        ];
+
+        if (request()->hasHeader('Range')) {
+            $range = request()->header('Range');
+            if (preg_match('/bytes=(\d+)-(\d+)?/', $range, $matches)) {
+                $start = intval($matches[1]);
+                if (isset($matches[2]) && $matches[2] !== '') {
+                    $end = intval($matches[2]);
+                }
+                $length = $end - $start + 1;
+                
+                $headers['Content-Range'] = "bytes {$start}-{$end}/{$size}";
+                $headers['Content-Length'] = $length;
+
+                fseek($file, $start);
+                return response()->stream(function () use ($file, $length) {
+                    $bufferSize = 1024 * 64;
+                    $bytesSent = 0;
+                    while (!feof($file) && $bytesSent < $length) {
+                        $readSize = min($bufferSize, $length - $bytesSent);
+                        $buffer = fread($file, $readSize);
+                        echo $buffer;
+                        flush();
+                        $bytesSent += strlen($buffer);
+                    }
+                    fclose($file);
+                }, 206, $headers);
+            }
+        }
+
+        $headers['Content-Length'] = $size;
+        return response()->stream(function () use ($file) {
+            fpassthru($file);
+            fclose($file);
+        }, 200, $headers);
     }
 }

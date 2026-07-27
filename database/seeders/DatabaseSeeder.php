@@ -291,7 +291,8 @@ Elde edilen datalar, doğrudan CNC tezgahına gönderilebilir veya kalıp tasar�
                         'subtitle' => 'KURUMSAL',
                         'title' => 'Tecrübe ve Teknolojinin Buluşma Noktası',
                         'content' => '<p class="mb-6">Euro Mould, kurulduğu günden bu yana plastik enjeksiyon kalıp sektöründe kalite, güven ve inovasyonun simgesi olmuştur. Beylikdüzü Organize Sanayi Bölgesi\'ndeki modern tesisimizde, deneyimli mühendis kadromuz ve güçlü teknolojik altyapımızla ulusal ve uluslararası pazara hizmet veriyoruz.</p>',
-                        'video_embed_code' => '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/b1U9W4iNDiQ?si=Yx1j8Q6nO__9v9X_&autoplay=1" title="Plastic Injection Molding" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+                        'video_file' => 'images/tanitim.mp4',
+                        'video_embed_code' => 'images/tanitim.mp4',
                         'image_position' => 'right',
                         'button_text' => 'Bizi Daha Yakından Tanıyın',
                         'button_url' => '/hakkimizda',
@@ -360,7 +361,7 @@ Elde edilen datalar, doğrudan CNC tezgahına gönderilebilir veya kalıp tasar�
                         'subtitle' => 'ÜRETİM TESİSİMİZ',
                         'title' => 'Beylikdüzü OSB Tesisimiz & Makine Parkuru',
                         'content' => '<p class="mb-4">Üretim kalitemizin temelinde, sürekli güncellediğimiz ve bakımını aksatmadığımız güçlü makine parkurumuz yatar. Yüksek hızlı CNC işleme merkezleri, hassas dalma erezyon tezgahlarımızla en zorlu toleransları bile standart bir süreç haline getiriyoruz.</p>',
-                        'image' => 'images/unnamed (4).webp',
+                        'image' => 'images/about-factory-shutter.png',
                         'image_position' => 'left',
                     ]
                 ],

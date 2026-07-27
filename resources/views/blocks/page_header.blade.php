@@ -13,12 +13,12 @@
     <div class="relative z-10 container mx-auto px-6 max-w-7xl">
         <div class="text-center max-w-3xl mx-auto">
             @if(isset($data['subtitle']) && $data['subtitle'])
-                <p class="text-primary font-bold tracking-[0.2em] uppercase text-sm mb-4 animate-fade-in-up">{{ $data['subtitle'] }}</p>
+                <p class="text-primary font-bold tracking-[0.2em] uppercase text-sm mb-4 animate-fade-in-up">{{ __($data['subtitle']) }}</p>
             @endif
             
             @if(isset($data['title']) && $data['title'])
                 <h1 class="text-3xl md:text-5xl font-black text-white leading-tight tracking-tight">
-                    {!! nl2br(e($data['title'])) !!}
+                    {!! nl2br(e(__($data['title']))) !!}
                 </h1>
             @endif
         </div>
