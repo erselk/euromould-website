@@ -2,7 +2,11 @@
 <section class="relative h-auto min-h-[500px] md:h-[80vh] md:min-h-[600px] flex items-center overflow-hidden bg-slate-900 py-20 md:py-0">
     <!-- Background Image -->
     <div class="absolute inset-0 z-0 select-none">
-        @if(isset($data['bg_image']))
+        @if(isset($data['bg_video']))
+            <video autoplay loop muted playsinline class="w-full h-full object-cover opacity-60">
+                <source src="{{ asset($data['bg_video']) }}" type="video/mp4">
+            </video>
+        @elseif(isset($data['bg_image']))
             <img src="{{ asset($data['bg_image']) }}" alt="{{ $data['title'] ?? '' }}" class="w-full h-full object-cover opacity-60">
         @else
             <div class="w-full h-full bg-slate-800"></div>

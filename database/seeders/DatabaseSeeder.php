@@ -90,7 +90,7 @@ Sonuç olarak, deneme baskılarında ("try-out") oluşabilecek sürprizleri sıf
             [
                 'title' => 'Kalıp Bakım, Onarım ve Revizyon',
                 'slug' => 'kalip-bakim-ve-revizyon',
-                'description' => 'Üretim hattınızın durmaması için 7/24 acil müdahale, periyodik bakım hizmetleri ve ürün değişikliklerine adaptasyon için hassas revizyon çözümleri.',
+                'description' => 'Üretim hattınızın durmaması için 7/24 acil müdahale, periyodik bakım hizmetleri ve ürün değişikliklerine adaptasyon için hassas revizyon çözümleri sunuyoruz.',
                 'long_description' => '
 <p class="mb-6">Plastik enjeksiyon kalıpları, yüksek basınç ve sıcaklık altında çalışan, zamanla aşınan ve yorulan pahalı ekipmanlardır. Bir kalıbın plansız duruşu, üretim hattında ciddi maliyet kayıplarına yol açabilir. Euro Mould Servis Birimi, hem kendi ürettiğimiz kalıplar hem de diğer firmalara ait kalıplar için profesyonel bakım ve onarım hizmeti sunmaktadır.</p>
 
@@ -114,7 +114,7 @@ Sonuç olarak, deneme baskılarında ("try-out") oluşabilecek sürprizleri sıf
             [
                 'title' => 'Çift Bileşenli (2K) Kalıp Teknolojileri',
                 'slug' => 'cift-bilesenli-2k-kalip-teknolojileri',
-                'description' => 'Farklı malzeme veya renklerin tek bir kalıpta birleştirildiği, montaj maliyetlerini düşüren ve ürün kalitesini artıran ileri mühendislik çözümleri.',
+                'description' => 'Farklı malzeme veya renklerin tek bir kalıpta birleştirildiği, montaj maliyetlerini düşüren ve ürün kalitesini artıran ileri mühendislik çözümleri sunuyoruz.',
                 'long_description' => '
 <p class="mb-6">Çift bileşenli (2K) enjeksiyon teknolojisi, iki farklı plastiğin aynı kalıp içinde ardışık veya eş zamanlı olarak enjekte edilmesi prensibine dayanır. Bu teknoloji, sızdırmazlık contalı kapaklar, yumuşak dokulu (soft-touch) tutamaklar veya çok renkli butonlar gibi parçaların üretiminde devrim yaratmıştır.</p>
 
@@ -133,7 +133,7 @@ Sonuç olarak, deneme baskılarında ("try-out") oluşabilecek sürprizleri sıf
             [
                 'title' => 'Gaz Enjeksiyon (Gas Assist) Sistemleri',
                 'slug' => 'gaz-enjeksiyon-gas-assist-sistemleri',
-                'description' => 'Daha hafif, daha mukavemetli ve görsel kusursuzluğu hedefleyen parçalar için azot gazı destekli kalıp imalatı ve proses danışmanlığı.',
+                'description' => 'Daha hafif, daha mukavemetli ve görsel kusursuzluğu hedefleyen parçalar için azot gazı destekli kalıp imalatı ve proses danışmanlığı sunuyoruz.',
                 'long_description' => '
 <p class="mb-6">Gaz enjeksiyon teknolojisi (GAIM), eriyik plastiğin içine basınçlı azot gazı enjekte edilerek parçanın içinin boşaltılmasını sağlayan özel bir yöntemdir. Bu teknoloji, özellikle otomotiv kapı kolları, beyaz eşya tutamakları ve kalın kesitli mobilya ayakları gibi parçalarda vazgeçilmezdir.</p>
 
@@ -261,6 +261,7 @@ Elde edilen datalar, doğrudan CNC tezgahına gönderilebilir veya kalıp tasar�
                     'data' => [
                         'title' => "MÜHENDİSLİK TUTKUSUYLA\nKUSURSUZ İMALAT",
                         'subtitle' => 'EUROMOULD KALIP TEKNOLOJİLERİ',
+                        'bg_video' => 'images/tanitim.mp4',
                         'bg_image' => 'images/hero-main.png',
                     ]
                 ],
@@ -334,7 +335,7 @@ Elde edilen datalar, doğrudan CNC tezgahına gönderilebilir veya kalıp tasar�
         Kurulduğumuz günden bu yana, plastik kalıp sektöründeki teknolojik gelişmeleri yakından takip ederek makine parkurumuzu ve insan kaynağımızı sürekli geliştirdik. Bugün Beylikdüzü Organize Sanayi Bölgesi\'nde yer alan modern tesisimizde, otomotiv, medikal, beyaz eşya ve elektronik gibi yüksek beklentili sektörlere çözüm ortaklığı yapmaktayız.
     </p>
     <p>
-        Firmamız, sadece bir "imalatçı" değil, aynı zamanda müşterilerinin projelerine değer katan bir mühendislik partneridir. Projenin ilk aşamasından, ürünün rafa çıkacağı ana kadar tüm süreçlerde teknik destek, optimizasyon ve danışmanlık hizmeti sunuyoruz. Şefaflık, dürüstlük ve teknik mükemmeliyet, şirket kültürümüzün temel taşlarıdır.
+        Firmamız, sadece bir "imalatçı" değil, aynı zamanda müşterilerinin projelerine değer katan bir mühendislik partneridir. Projenin ilk aşamasından, ürünün rafa çıkacağı ana kadar tüm süreçlerde teknik destek, optimizasyon ve danışmanlık hizmeti sunuyoruz. Şeffaflık, dürüstlük ve teknik mükemmeliyet, şirket kültürümüzün temel taşlarıdır.
     </p>
     <p>
         Endüstri 4.0 vizyonumuz çerçevesinde, üretim süreçlerimizi dijitalleştiriyor, hatasız ve izlenebilir bir üretim yönetimi uyguluyoruz. Sürdürülebilirlik ilkelerimiz gereği, enerji verimliliği yüksek makineler kullanıyor ve üretim atıklarımızı minimize ediyoruz.

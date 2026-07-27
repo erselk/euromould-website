@@ -143,7 +143,7 @@
                          <img class="h-24 w-auto" src="{{ asset('images/logo.png') }}" alt="EuroMould">
                      </div>
                      <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                         Plastik enjeksiyon kalıp imalatında 20 yıllık tecrübe, ileri teknoloji ve mühendislik tutkusuyla endüstriyel çözümler sunuyoruz.
+                         Plastik enjeksiyon kalıp imalatında 15 yıllık tecrübe, ileri teknoloji ve mühendislik tutkusuyla endüstriyel çözümler sunuyoruz.
                      </p>
                 </div>
 

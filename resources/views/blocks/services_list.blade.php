@@ -26,7 +26,7 @@
                     </div>
                     <div class="p-6 md:p-8 flex flex-col flex-grow">
                         <h3 class="text-2xl font-bold text-slate-900 mb-4 group-hover:text-primary transition-colors">{{ $service->title }}</h3>
-                        <p class="text-slate-600 leading-relaxed text-sm mb-6 line-clamp-3">{{ $service->description }}</p>
+                        <p class="text-slate-600 leading-relaxed text-sm mb-6 line-clamp-4">{{ $service->description }}</p>
                         
                         <div class="mt-auto pt-6 border-t border-slate-200/60 flex items-center justify-between">
                             <span class="text-slate-900 font-bold text-sm uppercase tracking-wider group-hover:text-primary transition-colors">Detaylı Bilgi</span>
