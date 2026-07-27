@@ -14,7 +14,7 @@
         @if($services->count() > 0)
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             @foreach($services as $service)
-                <a href="{{ localized_url('/' . $service->slug) }}" class="group flex flex-col h-full bg-slate-50 border border-slate-100 hover:border-slate-300 transition-all duration-300">
+                <a href="{{ localized_url('/teklif-al') }}" class="group flex flex-col h-full bg-slate-50 border border-slate-100 hover:border-slate-300 transition-all duration-300">
                     <div class="relative h-64 overflow-hidden flex-shrink-0">
                         @if($service->image)
                             <img src="{{ asset($service->image) }}" alt="{{ __($service->getTranslated('title')) }}" class="w-full h-full object-cover">
@@ -30,7 +30,7 @@
                         <p class="text-slate-600 leading-relaxed text-sm mb-6 line-clamp-4">{{ __($service->getTranslated('description')) }}</p>
                         
                         <div class="mt-auto pt-6 border-t border-slate-200/60 flex items-center justify-between">
-                            <span class="text-slate-900 font-bold text-sm uppercase tracking-wider group-hover:text-primary transition-colors">{{ __('Detaylı Bilgi') }}</span>
+                            <span class="text-slate-900 font-bold text-sm uppercase tracking-wider group-hover:text-primary transition-colors">{{ __('Teklif Al') }}</span>
                             <span class="w-8 h-8 rounded-full bg-white flex items-center justify-center text-slate-400 group-hover:bg-primary group-hover:text-white transition-all">
                                 <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                             </span>
@@ -40,7 +40,7 @@
             @endforeach
         </div>
         
-        @if($totalServices > $limit)
+        @if(request()->routeIs('home') && $totalServices > $limit)
         <div class="mt-12 text-center">
             <a href="{{ localized_url('/hizmetler') }}" class="inline-flex items-center justify-center px-8 py-4 bg-primary text-white font-bold tracking-wider rounded transition-all hover:bg-slate-900">
                 {{ __('Tüm Hizmetlerimizi Görüntüleyin') }}
