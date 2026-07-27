@@ -41,7 +41,7 @@
         </div>
         
         @if(request()->routeIs('home') && $totalServices > $limit)
-        <div class="mt-12 text-center">
+        <div class="mt-12 text-right">
             <a href="{{ localized_url('/hizmetler') }}" class="inline-flex items-center justify-center px-8 py-4 bg-primary text-white font-bold tracking-wider rounded transition-all hover:bg-slate-900">
                 {{ __('Tüm Hizmetlerimizi Görüntüleyin') }}
             </a>
