@@ -1,6 +1,8 @@
 @props(['data'])
 @php
-    $services = \App\Models\Service::orderBy('sort')->get();
+    $limit = $data['count'] ?? 3;
+    $services = \App\Models\Service::orderBy('sort')->take($limit)->get();
+    $totalServices = \App\Models\Service::count();
 @endphp
 <section class="py-16 md:py-24 bg-white">
     <div class="max-w-7xl mx-auto px-6">
@@ -37,6 +39,15 @@
                 </a>
             @endforeach
         </div>
+        
+        @if($totalServices > $limit)
+        <div class="mt-12 text-center">
+            <a href="{{ localized_url('/hizmetler') }}" class="inline-flex items-center justify-center px-8 py-4 bg-primary text-white font-bold tracking-wider rounded transition-all hover:bg-slate-900">
+                {{ __('Tüm Hizmetlerimizi Görüntüleyin') }}
+            </a>
+        </div>
+        @endif
+        
         @else 
              <div class="p-12 bg-slate-50 text-center border border-dashed border-slate-300 rounded-lg">
                 <p class="text-slate-500 text-lg">Henüz hizmet eklenmemiş.</p>
