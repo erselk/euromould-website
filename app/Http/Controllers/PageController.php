@@ -6,6 +6,8 @@ use App\Models\Page;
 use App\Models\Service;
 use App\Models\Offer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Log;
 
 class PageController extends Controller
 {
@@ -75,7 +77,25 @@ class PageController extends Controller
             'message' => 'nullable|string',
         ]);
 
-        Offer::create($validated);
+        $offer = Offer::create($validated);
+
+        try {
+            $recipients = env('MAIL_GROUP_ADDRESSES') 
+                ? array_map('trim', explode(',', env('MAIL_GROUP_ADDRESSES'))) 
+                : ['info@euromould.com.tr'];
+
+            Mail::to($recipients)->send(new \App\Mail\QuoteFormMail([
+                'title' => 'Teklif Talebi',
+                'name' => $offer->name,
+                'email' => $offer->email,
+                'phone' => $offer->phone ?? '-',
+                'company' => $offer->company ?? '-',
+                'service' => 'Genel Teklif Talebi',
+                'details' => $offer->message ?? '-',
+            ]));
+        } catch (\Exception $e) {
+            Log::error('Offer Mail Dispatch Error: ' . $e->getMessage());
+        }
 
         return back()->with('success', 'Teklif talebiniz başarıyla alındı. En kısa sürede size dönüş yapacağız.');
     }
@@ -90,7 +110,24 @@ class PageController extends Controller
             'message' => 'required|string',
         ]);
 
-        \App\Models\Contact::create($validated);
+        $contact = \App\Models\Contact::create($validated);
+
+        try {
+            $recipients = env('MAIL_GROUP_ADDRESSES') 
+                ? array_map('trim', explode(',', env('MAIL_GROUP_ADDRESSES'))) 
+                : ['info@euromould.com.tr'];
+
+            Mail::to($recipients)->send(new \App\Mail\ContactFormMail([
+                'title' => 'İletişim Formu Mesajı',
+                'name' => $contact->name,
+                'email' => $contact->email,
+                'phone' => $contact->phone ?? '-',
+                'subject' => $contact->subject ?? 'İletişim Formu',
+                'message' => $contact->message ?? '-',
+            ]));
+        } catch (\Exception $e) {
+            Log::error('Contact Mail Dispatch Error: ' . $e->getMessage());
+        }
 
         return back()->with('success', 'Mesajınız başarıyla iletildi. Teşekkür ederiz.');
     }

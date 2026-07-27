@@ -1,4 +1,8 @@
 User-agent: *
-Disallow:
+Disallow: /admin/
+Disallow: /test-
+Disallow: /livewire/
+Disallow: /filament/
 
 Sitemap: https://euromould.com.tr/sitemap.xml
+

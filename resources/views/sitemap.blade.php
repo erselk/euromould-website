@@ -4,6 +4,7 @@
     {{-- Home Page --}}
     <url>
         <loc>{{ url('/') }}</loc>
+        <lastmod>{{ date('Y-m-d') }}</lastmod>
         <xhtml:link rel="alternate" hreflang="tr" href="{{ url('/') }}" />
         <xhtml:link rel="alternate" hreflang="en" href="{{ url('/en') }}" />
         <xhtml:link rel="alternate" hreflang="x-default" href="{{ url('/en') }}" />
@@ -12,6 +13,7 @@
     </url>
     <url>
         <loc>{{ url('/en') }}</loc>
+        <lastmod>{{ date('Y-m-d') }}</lastmod>
         <xhtml:link rel="alternate" hreflang="tr" href="{{ url('/') }}" />
         <xhtml:link rel="alternate" hreflang="en" href="{{ url('/en') }}" />
         <xhtml:link rel="alternate" hreflang="x-default" href="{{ url('/en') }}" />
@@ -25,9 +27,11 @@
             @php
                 $trUrl = localized_url('/' . $page->slug, 'tr');
                 $enUrl = localized_url('/' . $page->slug, 'en');
+                $pageModDate = $page->updated_at ? $page->updated_at->format('Y-m-d') : date('Y-m-d');
             @endphp
             <url>
                 <loc>{{ $trUrl }}</loc>
+                <lastmod>{{ $pageModDate }}</lastmod>
                 <xhtml:link rel="alternate" hreflang="tr" href="{{ $trUrl }}" />
                 <xhtml:link rel="alternate" hreflang="en" href="{{ $enUrl }}" />
                 <xhtml:link rel="alternate" hreflang="x-default" href="{{ $enUrl }}" />
@@ -36,6 +40,7 @@
             </url>
             <url>
                 <loc>{{ $enUrl }}</loc>
+                <lastmod>{{ $pageModDate }}</lastmod>
                 <xhtml:link rel="alternate" hreflang="tr" href="{{ $trUrl }}" />
                 <xhtml:link rel="alternate" hreflang="en" href="{{ $enUrl }}" />
                 <xhtml:link rel="alternate" hreflang="x-default" href="{{ $enUrl }}" />
@@ -50,9 +55,11 @@
         @php
             $trServiceUrl = localized_url('/' . $service->slug, 'tr');
             $enServiceUrl = localized_url('/' . $service->slug, 'en');
+            $serviceModDate = $service->updated_at ? $service->updated_at->format('Y-m-d') : date('Y-m-d');
         @endphp
         <url>
             <loc>{{ $trServiceUrl }}</loc>
+            <lastmod>{{ $serviceModDate }}</lastmod>
             <xhtml:link rel="alternate" hreflang="tr" href="{{ $trServiceUrl }}" />
             <xhtml:link rel="alternate" hreflang="en" href="{{ $enServiceUrl }}" />
             <xhtml:link rel="alternate" hreflang="x-default" href="{{ $enServiceUrl }}" />
@@ -61,6 +68,7 @@
         </url>
         <url>
             <loc>{{ $enServiceUrl }}</loc>
+            <lastmod>{{ $serviceModDate }}</lastmod>
             <xhtml:link rel="alternate" hreflang="tr" href="{{ $trServiceUrl }}" />
             <xhtml:link rel="alternate" hreflang="en" href="{{ $enServiceUrl }}" />
             <xhtml:link rel="alternate" hreflang="x-default" href="{{ $enServiceUrl }}" />
@@ -69,3 +77,4 @@
         </url>
     @endforeach
 </urlset>
+

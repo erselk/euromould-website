@@ -18,23 +18,69 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0f172a">
+    
     <title>{{ $title ?? ($currentLocale === 'en' ? 'EuroMould - Plastic Injection Moulding Technologies' : 'EuroMould - Plastik Enjeksiyon Kalıp Teknolojileri') }}</title>
+    <meta name="description" content="{{ $metaDescription ?? ($currentLocale === 'en' ? 'EuroMould provides high-precision plastic injection moulding, mould design, maintenance and engineering solutions with 15 years of industry experience.' : 'EuroMould, 15 yıllık tecrübesiyle yüksek hassasiyetli plastik enjeksiyon kalıp imalatı, kalıp tasarımı, bakım ve mühendislik çözümleri sunar.') }}">
+    <meta name="keywords" content="{{ $currentLocale === 'en' ? 'plastic injection moulding, mould design, 2k moulding, gas assist injection, iml moulding, reverse engineering, mould manufacturer turkey, istanbul' : 'plastik enjeksiyon kalıbı, kalıp imalatı, kalıp tasarımı, 2k kalıp, gaz enjeksiyon, iml kalıp, tersine mühendislik, beylikdüzü kalıp imalatçısı, istanbul' }}">
+    <meta name="author" content="EuroMould">
     
     <!-- SEO & Indexing Meta Tags -->
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="{{ $currentCanonical }}" />
     <link rel="alternate" hreflang="tr" href="{{ $trUrl }}" />
     <link rel="alternate" hreflang="en" href="{{ $enUrl }}" />
     <link rel="alternate" hreflang="x-default" href="{{ $enUrl }}" />
     
-    <!-- Open Graph -->
+    <!-- Open Graph / Facebook / WhatsApp -->
     <meta property="og:type" content="website">
     <meta property="og:locale" content="{{ $currentLocale === 'tr' ? 'tr_TR' : 'en_US' }}">
     <meta property="og:url" content="{{ $currentCanonical }}">
-    <meta property="og:title" content="{{ $title ?? 'EuroMould' }}">
+    <meta property="og:title" content="{{ $title ?? ($currentLocale === 'en' ? 'EuroMould - Plastic Injection Moulding Technologies' : 'EuroMould - Plastik Enjeksiyon Kalıp Teknolojileri') }}">
+    <meta property="og:description" content="{{ $metaDescription ?? ($currentLocale === 'en' ? 'EuroMould provides high-precision plastic injection moulding, mould design, maintenance and engineering solutions with 15 years of industry experience.' : 'EuroMould, 15 yıllık tecrübesiyle yüksek hassasiyetli plastik enjeksiyon kalıp imalatı, kalıp tasarımı, bakım ve mühendislik çözümleri sunar.') }}">
     <meta property="og:site_name" content="EuroMould">
+    <meta property="og:image" content="{{ asset('images/logo.png') }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
 
-    <!-- Fonts -->
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ $title ?? 'EuroMould' }}">
+    <meta name="twitter:description" content="{{ $metaDescription ?? ($currentLocale === 'en' ? 'High-precision plastic injection moulding & engineering solutions.' : 'Yüksek hassasiyetli plastik enjeksiyon kalıp imalatı ve mühendislik çözümleri.') }}">
+    <meta name="twitter:image" content="{{ asset('images/logo.png') }}">
+
+    <!-- Schema.org Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ManufacturingBusiness",
+      "name": "EuroMould",
+      "legalName": "EuroMould Plastik Enjeksiyon & Kalıp Teknolojileri",
+      "url": "https://euromould.com.tr",
+      "logo": "{{ asset('images/logo.png') }}",
+      "description": "{{ $currentLocale === 'en' ? 'High-precision plastic injection moulding, mould design and engineering solutions.' : 'Yüksek hassasiyetli plastik enjeksiyon kalıp imalatı, kalıp tasarımı ve mühendislik çözümleri.' }}",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Beylikdüzü OSB, 3. Cd. Birlik Sanayi Sitesi No:71",
+        "addressLocality": "Beylikdüzü",
+        "addressRegion": "İstanbul",
+        "postalCode": "34524",
+        "addressCountry": "TR"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+90-212-879-00-16",
+        "contactType": "customer service",
+        "email": "info@euromould.com.tr",
+        "availableLanguage": ["Turkish", "English"]
+      },
+      "sameAs": [
+        "https://euromould.com.tr"
+      ]
+    }
+    </script>
+
+    <!-- Fonts & Favicon -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
