@@ -48,6 +48,8 @@ class ServiceResource extends Resource
                 Forms\Components\Hidden::make('sort'),
                 Forms\Components\FileUpload::make('image')
                     ->image()
+                    ->optimize('webp')
+                    ->resize(1200, 1200)
                     ->disk('root_public')
                     ->directory('images')
                     ->label('Görsel')

@@ -58,6 +58,8 @@ class PageResource extends Resource
                                                 Forms\Components\FileUpload::make('bg_image')
                                                     ->label('Arkaplan Görseli')
                                                     ->image()
+                                                    ->optimize('webp')
+                                                    ->resize(1920, 1080)
                                                     ->disk('public')
                                                     ->directory('heroes'),
                                             ])->label('Ana Hero (Büyük)'),
@@ -70,6 +72,8 @@ class PageResource extends Resource
                                                 Forms\Components\FileUpload::make('bg_image')
                                                     ->label('Arkaplan Görseli (Opsiyonel)')
                                                     ->image()
+                                                    ->optimize('webp')
+                                                    ->resize(1920, 1080)
                                                     ->disk('public')
                                                     ->directory('headers'),
                                             ])->label('Sayfa Başlığı (Sade)'),
@@ -81,6 +85,8 @@ class PageResource extends Resource
                                                 Forms\Components\RichEditor::make('content')->label('İçerik'),
                                                 Forms\Components\FileUpload::make('image')
                                                     ->image()
+                                                    ->optimize('webp')
+                                                    ->resize(1200, 1200)
                                                     ->disk('public')
                                                     ->directory('content')
                                                     ->label('Görsel'),
