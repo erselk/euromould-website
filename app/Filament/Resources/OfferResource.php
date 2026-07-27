@@ -13,6 +13,7 @@ use Filament\Tables\Table;
 class OfferResource extends Resource
 {
     protected static ?string $model = Offer::class;
+    protected static bool $shouldRegisterNavigation = false;
 
     protected static ?string $navigationIcon = 'heroicon-o-inbox-arrow-down';
     protected static ?string $navigationLabel = 'Gelen Teklifler';

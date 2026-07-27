@@ -16,30 +16,42 @@ class ServiceResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-wrench-screwdriver';
     protected static ?string $navigationLabel = 'Hizmetler';
+    protected static ?string $modelLabel = 'Hizmet';
+    protected static ?string $pluralModelLabel = 'Hizmetler';
+    protected static ?int $navigationSort = 1;
+    protected static ?string $navigationGroup = 'Site Yönetimi';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('title')
-                    ->required()
-                    ->live(onBlur: true)
-                    ->afterStateUpdated(fn ($state, Forms\Set $set) => $set('slug', \Illuminate\Support\Str::slug($state)))
-                    ->label('Başlık'),
-                Forms\Components\TextInput::make('slug')
+                Forms\Components\Section::make('Hizmet Detayları (Türkçe)')->schema([
+                    Forms\Components\TextInput::make('title')
+                        ->required()
+                        ->live(onBlur: true)
+                        ->afterStateUpdated(fn ($state, Forms\Set $set) => $set('slug', \Illuminate\Support\Str::slug($state)))
+                        ->label('Başlık'),
+                    Forms\Components\Textarea::make('description')
+                        ->label('Kısa Açıklama')
+                        ->columnSpanFull(),
+                ]),
+                Forms\Components\Section::make('Hizmet Detayları (İngilizce)')->schema([
+                    Forms\Components\TextInput::make('title_en')
+                        ->label('Başlık (İngilizce)'),
+                    Forms\Components\Textarea::make('description_en')
+                        ->label('Kısa Açıklama (İngilizce)')
+                        ->columnSpanFull(),
+                ]),
+                Forms\Components\Hidden::make('slug')
                     ->required()
                     ->unique(ignoreRecord: true),
-                Forms\Components\Textarea::make('description')
-                    ->label('Kısa Açıklama')
-                    ->columnSpanFull(),
+                Forms\Components\Hidden::make('sort'),
                 Forms\Components\FileUpload::make('image')
                     ->image()
-                    ->directory('services')
-                    ->label('Görsel'),
-                Forms\Components\TextInput::make('sort')
-                    ->numeric()
-                    ->default(0)
-                    ->label('Sıralama'),
+                    ->disk('root_public')
+                    ->directory('images')
+                    ->label('Görsel')
+                    ->columnSpanFull(),
             ]);
     }
 
@@ -48,7 +60,7 @@ class ServiceResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\ImageColumn::make('image')
-                    ->disk('public')
+                    ->disk('root_public')
                     ->label('Görsel'),
                 Tables\Columns\TextColumn::make('title')->searchable()->label('Başlık'),
                 Tables\Columns\TextColumn::make('sort')->sortable()->label('Sıra'),
