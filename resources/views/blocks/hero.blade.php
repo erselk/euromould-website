@@ -32,11 +32,11 @@
             @endif
             
             <div class="flex flex-col sm:flex-row gap-4 sm:gap-5 mt-8 md:mt-12">
-                <a href="{{ url('/teklif-al') }}" class="px-6 py-4 md:px-10 md:py-5 bg-white text-slate-900 font-bold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors duration-300 text-center text-sm md:text-base">
+                <a href="{{ localized_url('/teklif-al') }}" class="px-6 py-4 md:px-10 md:py-5 bg-white text-slate-900 font-bold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors duration-300 text-center text-sm md:text-base">
                     {{ __('Teklif Alın') }}
                 </a>
                 
-                <a href="{{ url('/hizmetler') }}" class="px-6 py-4 md:px-10 md:py-5 border border-white/30 text-white font-bold uppercase tracking-wider hover:bg-white hover:text-slate-900 transition-all duration-300 text-center text-sm md:text-base">
+                <a href="{{ localized_url('/hizmetler') }}" class="px-6 py-4 md:px-10 md:py-5 border border-white/30 text-white font-bold uppercase tracking-wider hover:bg-white hover:text-slate-900 transition-all duration-300 text-center text-sm md:text-base">
                     {{ __('Hizmetlerimiz') }}
                 </a>
             </div>

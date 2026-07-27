@@ -1,10 +1,39 @@
+@php
+    $currentLocale = app()->getLocale();
+    $currentPath = request()->getPathInfo();
+    
+    // Base path without /en prefix
+    $basePath = preg_replace('/^\/en/', '', $currentPath);
+    if ($basePath === '') {
+        $basePath = '/';
+    }
+
+    $trUrl = url($basePath);
+    $enUrl = url('/en' . ($basePath === '/' ? '' : $basePath));
+    $currentCanonical = $currentLocale === 'en' ? $enUrl : $trUrl;
+    $langPrefix = $currentLocale === 'en' ? '/en' : '';
+@endphp
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ $currentLocale }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ $title ?? 'EuroMould - Plastik Enjeksiyon Kalıp Teknolojileri' }}</title>
+    <title>{{ $title ?? ($currentLocale === 'en' ? 'EuroMould - Plastic Injection Moulding Technologies' : 'EuroMould - Plastik Enjeksiyon Kalıp Teknolojileri') }}</title>
     
+    <!-- SEO & Indexing Meta Tags -->
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{{ $currentCanonical }}" />
+    <link rel="alternate" hreflang="tr" href="{{ $trUrl }}" />
+    <link rel="alternate" hreflang="en" href="{{ $enUrl }}" />
+    <link rel="alternate" hreflang="x-default" href="{{ $enUrl }}" />
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="{{ $currentLocale === 'tr' ? 'tr_TR' : 'en_US' }}">
+    <meta property="og:url" content="{{ $currentCanonical }}">
+    <meta property="og:title" content="{{ $title ?? 'EuroMould' }}">
+    <meta property="og:site_name" content="EuroMould">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -62,7 +91,7 @@
             <div class="max-w-7xl mx-auto pl-4 sm:pl-6 lg:pl-8 pr-0">
                 <div class="flex justify-between items-center h-20">
                     <div class="flex-shrink-0 flex items-center">
-                        <a href="{{ route('home') }}" class="flex items-center gap-3">
+                        <a href="{{ localized_url('/') }}" class="flex items-center gap-3">
                              @if(isset($settings) && $settings->logo)
                                 <img class="h-12 w-auto" src="{{ asset($settings->logo) }}" alt="EuroMould">
                             @else
@@ -72,20 +101,20 @@
                     </div>
                     <!-- Desktop Menu -->
                     <div class="hidden md:flex items-center space-x-8 lg:space-x-10 -mr-9">
-                        <a href="{{ route('home') }}" class="text-sm font-bold text-slate-900 hover:text-primary transition-colors uppercase tracking-widest">{{ __('Anasayfa') }}</a>
-                        <a href="{{ url('/hakkimizda') }}" class="text-sm font-bold text-slate-900 hover:text-primary transition-colors uppercase tracking-widest">{{ __('Hakkımızda') }}</a>
-                        <a href="{{ url('/hizmetler') }}" class="text-sm font-bold text-slate-900 hover:text-primary transition-colors uppercase tracking-widest">{{ __('Hizmetler') }}</a>
-                        <a href="{{ url('/galeri') }}" class="text-sm font-bold text-slate-900 hover:text-primary transition-colors uppercase tracking-widest">{{ __('Galeri') }}</a>
-                        <a href="{{ url('/iletisim') }}" class="text-sm font-bold text-slate-900 hover:text-primary transition-colors uppercase tracking-widest">{{ __('İletişim') }}</a>
+                        <a href="{{ localized_url('/') }}" class="text-sm font-bold text-slate-900 hover:text-primary transition-colors uppercase tracking-widest">{{ __('Anasayfa') }}</a>
+                        <a href="{{ localized_url('/hakkimizda') }}" class="text-sm font-bold text-slate-900 hover:text-primary transition-colors uppercase tracking-widest">{{ __('Hakkımızda') }}</a>
+                        <a href="{{ localized_url('/hizmetler') }}" class="text-sm font-bold text-slate-900 hover:text-primary transition-colors uppercase tracking-widest">{{ __('Hizmetler') }}</a>
+                        <a href="{{ localized_url('/galeri') }}" class="text-sm font-bold text-slate-900 hover:text-primary transition-colors uppercase tracking-widest">{{ __('Galeri') }}</a>
+                        <a href="{{ localized_url('/iletisim') }}" class="text-sm font-bold text-slate-900 hover:text-primary transition-colors uppercase tracking-widest">{{ __('İletişim') }}</a>
                         
-                        <a href="{{ route('offer.form') }}" class="bg-primary hover:bg-slate-900 text-white px-8 py-3 font-bold transition-colors text-xs tracking-widest uppercase rounded-none">
+                        <a href="{{ localized_url('/teklif-al') }}" class="bg-primary hover:bg-slate-900 text-white px-8 py-3 font-bold transition-colors text-xs tracking-widest uppercase rounded-none">
                             {{ __('Teklif Al') }}
                         </a>
 
                         @php $currentLocale = app()->getLocale(); @endphp
                         <a href="{{ route('lang.switch', $currentLocale === 'tr' ? 'en' : 'tr') }}" 
                            title="{{ $currentLocale === 'tr' ? 'Switch to English' : 'Türkçe\'ye Geç' }}"
-                           class="inline-flex items-center justify-center transition-transform hover:scale-110 focus:outline-none pl-1">
+                           class="inline-flex items-center justify-center focus:outline-none pl-1">
                             @if($currentLocale === 'tr')
                                 <!-- Turkey Flag -->
                                 <svg class="w-6 h-4 rounded-xs shadow-xs hover:opacity-90 transition-opacity" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
@@ -116,7 +145,7 @@
                     <div class="md:hidden flex items-center gap-4">
                         @php $currentLocale = app()->getLocale(); @endphp
                         <a href="{{ route('lang.switch', $currentLocale === 'tr' ? 'en' : 'tr') }}" 
-                           class="inline-flex items-center justify-center transition-transform hover:scale-110 focus:outline-none">
+                           class="inline-flex items-center justify-center focus:outline-none">
                             @if($currentLocale === 'tr')
                                 <svg class="w-6 h-4 rounded-xs shadow-xs" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
                                   <rect width="1200" height="800" fill="#E30A17"/>
@@ -162,15 +191,15 @@
                 </div>
                 <!-- Menu Items -->
                 <div class="px-8 py-6 space-y-6 flex-1">
-                    <a href="{{ route('home') }}" class="block text-slate-700 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest">{{ __('Anasayfa') }}</a>
-                    <a href="{{ url('/hakkimizda') }}" class="block text-slate-700 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest">{{ __('Hakkımızda') }}</a>
-                    <a href="{{ url('/hizmetler') }}" class="block text-slate-700 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest">{{ __('Hizmetler') }}</a>
-                    <a href="{{ url('/galeri') }}" class="block text-slate-700 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest">{{ __('Galeri') }}</a>
-                    <a href="{{ url('/iletisim') }}" class="block text-slate-700 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest">{{ __('İletişim') }}</a>
+                    <a href="{{ localized_url('/') }}" class="block text-slate-700 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest">{{ __('Anasayfa') }}</a>
+                    <a href="{{ localized_url('/hakkimizda') }}" class="block text-slate-700 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest">{{ __('Hakkımızda') }}</a>
+                    <a href="{{ localized_url('/hizmetler') }}" class="block text-slate-700 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest">{{ __('Hizmetler') }}</a>
+                    <a href="{{ localized_url('/galeri') }}" class="block text-slate-700 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest">{{ __('Galeri') }}</a>
+                    <a href="{{ localized_url('/iletisim') }}" class="block text-slate-700 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest">{{ __('İletişim') }}</a>
                 </div>
                 <!-- CTA Button -->
                 <div class="p-8 border-t border-slate-100 flex flex-col gap-3">
-                    <a href="{{ route('offer.form') }}" class="block bg-primary text-white text-center py-4 font-medium uppercase tracking-widest text-sm hover:bg-slate-900 transition-colors">
+                    <a href="{{ localized_url('/teklif-al') }}" class="block bg-primary text-white text-center py-4 font-medium uppercase tracking-widest text-sm hover:bg-slate-900 transition-colors">
                         {{ __('Teklif Al') }}
                     </a>
                 </div>
@@ -203,11 +232,11 @@
                 <div class="md:pl-10">
                     <h4 class="text-white font-bold uppercase tracking-widest text-sm mb-6">{{ __('Kurumsal') }}</h4>
                     <ul class="space-y-3">
-                        <li><a href="/" class="text-slate-400 hover:text-white transition-colors text-sm">{{ __('Anasayfa') }}</a></li>
-                        <li><a href="/hakkimizda" class="text-slate-400 hover:text-white transition-colors text-sm">{{ __('Hakkımızda') }}</a></li>
-                        <li><a href="/hizmetler" class="text-slate-400 hover:text-white transition-colors text-sm">{{ __('Hizmetlerimiz') }}</a></li>
-                        <li><a href="/galeri" class="text-slate-400 hover:text-white transition-colors text-sm">{{ __('Galeri') }}</a></li>
-                        <li><a href="/iletisim" class="text-slate-400 hover:text-white transition-colors text-sm">{{ __('İletişim') }}</a></li>
+                        <li><a href="{{ localized_url('/') }}" class="text-slate-400 hover:text-white transition-colors text-sm">{{ __('Anasayfa') }}</a></li>
+                        <li><a href="{{ localized_url('/hakkimizda') }}" class="text-slate-400 hover:text-white transition-colors text-sm">{{ __('Hakkımızda') }}</a></li>
+                        <li><a href="{{ localized_url('/hizmetler') }}" class="text-slate-400 hover:text-white transition-colors text-sm">{{ __('Hizmetlerimiz') }}</a></li>
+                        <li><a href="{{ localized_url('/galeri') }}" class="text-slate-400 hover:text-white transition-colors text-sm">{{ __('Galeri') }}</a></li>
+                        <li><a href="{{ localized_url('/iletisim') }}" class="text-slate-400 hover:text-white transition-colors text-sm">{{ __('İletişim') }}</a></li>
                     </ul>
                 </div>
 
@@ -215,10 +244,10 @@
                 <div>
                     <h4 class="text-white font-bold uppercase tracking-widest text-sm mb-6">{{ __('Hizmetler') }}</h4>
                     <ul class="space-y-3">
-                        <li><a href="/iletisim" class="text-slate-400 hover:text-white transition-colors text-sm">{{ __('Kalıp İmalatı') }}</a></li>
-                        <li><a href="/iletisim" class="text-slate-400 hover:text-white transition-colors text-sm">{{ __('Ürün Geliştirme') }}</a></li>
-                        <li><a href="/iletisim" class="text-slate-400 hover:text-white transition-colors text-sm">{{ __('Bakım & Onarım') }}</a></li>
-                        <li><a href="/teklif-al" class="text-primary hover:text-white transition-colors text-sm font-bold">{{ __('Teklif Alın') }}</a></li>
+                        <li><a href="{{ localized_url('/hizmetler') }}" class="text-slate-400 hover:text-white transition-colors text-sm">{{ __('Kalıp İmalatı') }}</a></li>
+                        <li><a href="{{ localized_url('/hizmetler') }}" class="text-slate-400 hover:text-white transition-colors text-sm">{{ __('Ürün Geliştirme') }}</a></li>
+                        <li><a href="{{ localized_url('/hizmetler') }}" class="text-slate-400 hover:text-white transition-colors text-sm">{{ __('Bakım & Onarım') }}</a></li>
+                        <li><a href="{{ localized_url('/teklif-al') }}" class="text-primary hover:text-white transition-colors text-sm font-bold">{{ __('Teklif Alın') }}</a></li>
                     </ul>
                 </div>
 
@@ -257,7 +286,5 @@
             </div>
         </div>
     </footer>
-</body>
-</html>
 </body>
 </html>

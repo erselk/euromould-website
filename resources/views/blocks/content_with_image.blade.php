@@ -131,7 +131,7 @@
                 </div>
 
                 @if(isset($data['button_text']) && $data['button_text'])
-                    <a href="{{ $data['button_url'] ?? '#' }}" class="inline-block bg-slate-900 text-white px-8 py-4 font-bold uppercase tracking-widest hover:bg-primary transition-colors text-sm">
+                    <a href="{{ localized_url($data['button_url'] ?? '#') }}" class="inline-block bg-slate-900 text-white px-8 py-4 font-bold uppercase tracking-widest hover:bg-primary transition-colors text-sm">
                         {{ __($data['button_text']) }}
                     </a>
                 @endif

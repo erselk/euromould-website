@@ -18,18 +18,46 @@ class PageController extends Controller
 
     public function switchLanguage($locale)
     {
-        if (in_array($locale, ['tr', 'en'])) {
-            session(['locale' => $locale]);
+        if (!in_array($locale, ['tr', 'en'])) {
+            $locale = 'tr';
         }
 
-        return back();
+        session(['visited' => true, 'locale' => $locale]);
+
+        $previousUrl = url()->previous();
+        $path = parse_url($previousUrl, PHP_URL_PATH) ?? '/';
+
+        return redirect(localized_url($path, $locale));
+    }
+
+    public function sitemap()
+    {
+        $pages = Page::where('is_published', true)->get();
+        $services = Service::all();
+
+        return response()->view('sitemap', compact('pages', 'services'))
+            ->header('Content-Type', 'text/xml');
     }
 
     public function show($slug)
     {
-        $page = Page::where('slug', $slug)->where('is_published', true)->firstOrFail();
+        $slugMap = get_slug_map();
+        $targetSlug = $slug;
 
-        return view('page', compact('page'));
+        if (isset($slugMap[$slug])) {
+            $targetSlug = $slugMap[$slug];
+            \Illuminate\Support\Facades\App::setLocale('en');
+            session(['locale' => 'en']);
+        }
+
+        $page = Page::where('slug', $targetSlug)->where('is_published', true)->first();
+
+        if ($page) {
+            return view('page', compact('page'));
+        }
+
+        $service = Service::where('slug', $targetSlug)->firstOrFail();
+        return view('service_detail', compact('service'));
     }
 
     public function offerForm()

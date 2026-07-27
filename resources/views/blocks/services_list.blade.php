@@ -13,7 +13,7 @@
         @if($services->count() > 0)
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             @foreach($services as $service)
-                <a href="{{ url('/iletisim') }}" class="group flex flex-col h-full bg-slate-50 border border-slate-100 hover:border-slate-300 transition-all duration-300">
+                <a href="{{ localized_url('/' . $service->slug) }}" class="group flex flex-col h-full bg-slate-50 border border-slate-100 hover:border-slate-300 transition-all duration-300">
                     <div class="relative h-64 overflow-hidden flex-shrink-0">
                         @if($service->image)
                             <img src="{{ asset($service->image) }}" alt="{{ __($service->title) }}" class="w-full h-full object-cover">
@@ -40,7 +40,7 @@
         </div>
         
         <div class="mt-8 lg:mt-8 flex justify-end">
-            <a href="{{ url('/hizmetler') }}" class="text-slate-900 font-bold border-b-2 border-slate-200 pb-1 hover:border-primary hover:text-primary transition-colors flex items-center gap-2">
+            <a href="{{ localized_url('/hizmetler') }}" class="text-slate-900 font-bold border-b-2 border-slate-200 pb-1 hover:border-primary hover:text-primary transition-colors flex items-center gap-2">
                 {{ __('Tüm Hizmetlerimizi İnceleyin') }} <span class="text-xl">&rarr;</span>
             </a>
         </div>
