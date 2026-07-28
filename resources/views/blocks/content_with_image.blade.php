@@ -64,7 +64,7 @@
                         <!-- Cover Image & Play Button -->
                         <div x-show="!playing" class="absolute inset-0 z-10 pointer-events-none">
                             <!-- Cover Image -->
-                            <img src="{{ asset('images/video_cover.png') }}" alt="Video Cover" class="w-full h-full object-cover opacity-80 group-hover:opacity-70 transition-opacity duration-500">
+                            <img src="{{ asset('images/video_cover.webp') }}" alt="Video Cover" class="w-full h-full object-cover opacity-80 group-hover:opacity-70 transition-opacity duration-500">
                             
                             <!-- Overlay Gradient -->
                             <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>

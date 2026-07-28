@@ -260,7 +260,7 @@
                 <!-- Brand (Full width on mobile) -->
                 <div class="col-span-2 md:col-span-2 lg:col-span-1 flex flex-col items-center md:items-start lg:items-center text-center md:text-left">
                      <div class="mb-6">
-                         <img class="h-24 w-auto" width="897" height="696" src="{{ asset('images/logo.png') }}" alt="EuroMould">
+                         <img class="h-24 w-auto" width="897" height="696" src="{{ asset('images/logo.webp') }}" alt="EuroMould">
                      </div>
                      <p class="text-slate-400 text-sm leading-relaxed mb-6">
                          {{ __('Plastik enjeksiyon kalıp imalatında 15 yıllık tecrübe, ileri teknoloji ve mühendislik tutkusuyla endüstriyel çözümler sunuyoruz.') }}

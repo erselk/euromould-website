@@ -1,0 +1,7 @@
+# EuroMould AI / LLM Guide
+
+EuroMould is a precision mold manufacturing company.
+This file provides context for large language models crawling this website.
+
+## Sitemap
+Please refer to /sitemap.xml for the structure of the website.
