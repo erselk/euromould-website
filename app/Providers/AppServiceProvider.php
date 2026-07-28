@@ -28,6 +28,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        if (config('app.env') !== 'local') {
+            \Illuminate\Support\Facades\URL::forceScheme('https');
+        }
         $this->app->singleton(ClientContract::class, static function (): Client {
             $apiKeyString = config('resend.api_key') ?? config('services.resend.key');
 
