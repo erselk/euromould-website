@@ -189,32 +189,12 @@
                     </div>
                     <!-- Mobile menu button -->
                     <div class="md:hidden flex items-center gap-4">
-                        @php $currentLocale = app()->getLocale(); @endphp
-                        <a href="{{ route('lang.switch', $currentLocale === 'tr' ? 'en' : 'tr') }}" 
-                           class="inline-flex items-center justify-center focus:outline-none">
-                            @if($currentLocale === 'tr')
-                                <svg class="w-6 h-4 rounded-xs shadow-xs" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
-                                  <rect width="1200" height="800" fill="#E30A17"/>
-                                  <circle cx="425" cy="400" r="200" fill="#ffffff"/>
-                                  <circle cx="475" cy="400" r="160" fill="#E30A17"/>
-                                  <polygon fill="#ffffff" points="583.333,400 684.282,432.802 621.895,351.481 621.895,448.519 684.282,367.198"/>
-                                </svg>
-                            @else
-                                <svg class="w-6 h-4 rounded-xs shadow-xs" viewBox="0 0 741 390" xmlns="http://www.w3.org/2000/svg">
-                                  <rect width="741" height="390" fill="#b22234"/>
-                                  <path d="M0,30h741M0,90h741M0,150h741M0,210h741M0,270h741M0,330h741" stroke="#fff" stroke-width="30"/>
-                                  <rect width="296.4" height="210" fill="#3c3b6e"/>
-                                  <g fill="#fff">
-                                    <g id="us-mob-s"><polygon points="24.7,6 30.5,24 15.5,13 33.9,13 18.9,24"/></g>
-                                    <use href="#us-mob-s" x="49.4"/><use href="#us-mob-s" x="98.8"/><use href="#us-mob-s" x="148.2"/><use href="#us-mob-s" x="197.6"/><use href="#us-mob-s" x="247"/>
-                                    <use href="#us-mob-s" y="42" x="24.7"/><use href="#us-mob-s" y="42" x="74.1"/><use href="#us-mob-s" y="42" x="123.5"/><use href="#us-mob-s" y="42" x="172.9"/><use href="#us-mob-s" y="42" x="222.3"/>
-                                    <use href="#us-mob-s" y="84"/><use href="#us-mob-s" y="84" x="49.4"/><use href="#us-mob-s" y="84" x="98.8"/><use href="#us-mob-s" y="84" x="148.2"/><use href="#us-mob-s" y="84" x="247"/>
-                                    <use href="#us-mob-s" y="126" x="24.7"/><use href="#us-mob-s" y="126" x="74.1"/><use href="#us-mob-s" y="126" x="123.5"/><use href="#us-mob-s" y="126" x="172.9"/><use href="#us-mob-s" y="126" x="222.3"/>
-                                    <use href="#us-mob-s" y="168"/><use href="#us-mob-s" y="168" x="49.4"/><use href="#us-mob-s" y="168" x="98.8"/><use href="#us-mob-s" y="168" x="148.2"/><use href="#us-mob-s" y="168" x="197.6"/><use href="#us-mob-s" y="168" x="247"/>
-                                  </g>
-                                </svg>
-                            @endif
-                        </a>
+                        <button @click="mobileMenuOpen = true" type="button" class="inline-flex items-center justify-center p-2 mr-2 rounded-md text-slate-800 hover:text-primary hover:bg-slate-100 focus:outline-none" aria-controls="mobile-menu" aria-expanded="false">
+                            <span class="sr-only">Menüyü aç</span>
+                            <svg class="block h-7 w-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -228,9 +208,36 @@
             <div class="flex flex-col h-full">
                 <!-- Header with Close Button (same height as nav) -->
                 <div class="h-20 flex items-center justify-between px-6 border-b border-slate-100">
-                    <span class="font-bold text-slate-900 tracking-wider uppercase text-sm">Menu</span>
-                    <button @click="mobileMenuOpen = false" class="text-slate-900 hover:text-primary focus:outline-none">
-                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <div class="flex items-center gap-4">
+                        @php $currentLocale = app()->getLocale(); @endphp
+                        <a href="{{ route('lang.switch', $currentLocale === 'tr' ? 'en' : 'tr') }}" class="inline-flex items-center justify-center focus:outline-none">
+                            @if($currentLocale === 'tr')
+                                <svg class="w-7 h-5 rounded-sm shadow-sm hover:opacity-80 transition-opacity" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+                                  <rect width="1200" height="800" fill="#E30A17"/>
+                                  <circle cx="425" cy="400" r="200" fill="#ffffff"/>
+                                  <circle cx="475" cy="400" r="160" fill="#E30A17"/>
+                                  <polygon fill="#ffffff" points="583.333,400 684.282,432.802 621.895,351.481 621.895,448.519 684.282,367.198"/>
+                                </svg>
+                            @else
+                                <svg class="w-7 h-5 rounded-sm shadow-sm hover:opacity-80 transition-opacity" viewBox="0 0 741 390" xmlns="http://www.w3.org/2000/svg">
+                                  <rect width="741" height="390" fill="#b22234"/>
+                                  <path d="M0,30h741M0,90h741M0,150h741M0,210h741M0,270h741M0,330h741" stroke="#fff" stroke-width="30"/>
+                                  <rect width="296.4" height="210" fill="#3c3b6e"/>
+                                  <g fill="#fff">
+                                    <g id="us-mob-head"><polygon points="24.7,6 30.5,24 15.5,13 33.9,13 18.9,24"/></g>
+                                    <use href="#us-mob-head" x="49.4"/><use href="#us-mob-head" x="98.8"/><use href="#us-mob-head" x="148.2"/><use href="#us-mob-head" x="197.6"/><use href="#us-mob-head" x="247"/>
+                                    <use href="#us-mob-head" y="42" x="24.7"/><use href="#us-mob-head" y="42" x="74.1"/><use href="#us-mob-head" y="42" x="123.5"/><use href="#us-mob-head" y="42" x="172.9"/><use href="#us-mob-head" y="42" x="222.3"/>
+                                    <use href="#us-mob-head" y="84"/><use href="#us-mob-head" y="84" x="49.4"/><use href="#us-mob-head" y="84" x="98.8"/><use href="#us-mob-head" y="84" x="148.2"/><use href="#us-mob-head" y="84" x="247"/>
+                                    <use href="#us-mob-head" y="126" x="24.7"/><use href="#us-mob-head" y="126" x="74.1"/><use href="#us-mob-head" y="126" x="123.5"/><use href="#us-mob-head" y="126" x="172.9"/><use href="#us-mob-head" y="126" x="222.3"/>
+                                    <use href="#us-mob-head" y="168"/><use href="#us-mob-head" y="168" x="49.4"/><use href="#us-mob-head" y="168" x="98.8"/><use href="#us-mob-head" y="168" x="148.2"/><use href="#us-mob-head" y="168" x="197.6"/><use href="#us-mob-head" y="168" x="247"/>
+                                  </g>
+                                </svg>
+                            @endif
+                        </a>
+                        <span class="font-bold text-slate-900 tracking-wider uppercase text-sm">Menu</span>
+                    </div>
+                    <button @click="mobileMenuOpen = false" class="text-slate-900 hover:text-primary focus:outline-none -mr-2 p-2">
+                        <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </button>
@@ -242,6 +249,7 @@
                     <a href="{{ localized_url('/hizmetler') }}" class="block text-slate-700 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest">{{ __('Hizmetler') }}</a>
                     <a href="{{ localized_url('/galeri') }}" class="block text-slate-700 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest">{{ __('Galeri') }}</a>
                     <a href="{{ localized_url('/iletisim') }}" class="block text-slate-700 text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest">{{ __('İletişim') }}</a>
+                    
                 </div>
                 <!-- CTA Button -->
                 <div class="p-8 border-t border-slate-100 flex flex-col gap-3">
