@@ -124,7 +124,7 @@
                     <div class="flex-shrink-0 flex items-center">
                         <a href="{{ localized_url('/') }}" class="flex items-center gap-3">
                              @if(isset($settings) && $settings->logo)
-                                <img class="h-12 w-auto" src="{{ asset($settings->logo) }}" alt="EuroMould">
+                                <img class="h-12 w-auto" width="1856" height="438" src="{{ asset($settings->logo) }}" alt="EuroMould">
                             @else
                                 <span class="text-3xl font-black tracking-tighter text-slate-900">EURO<span class="text-primary">MOULD</span></span>
                             @endif
@@ -260,7 +260,7 @@
                 <!-- Brand (Full width on mobile) -->
                 <div class="col-span-2 md:col-span-2 lg:col-span-1 flex flex-col items-center md:items-start lg:items-center text-center md:text-left">
                      <div class="mb-6">
-                         <img class="h-24 w-auto" src="{{ asset('images/logo.png') }}" alt="EuroMould">
+                         <img class="h-24 w-auto" width="897" height="696" src="{{ asset('images/logo.png') }}" alt="EuroMould">
                      </div>
                      <p class="text-slate-400 text-sm leading-relaxed mb-6">
                          {{ __('Plastik enjeksiyon kalıp imalatında 15 yıllık tecrübe, ileri teknoloji ve mühendislik tutkusuyla endüstriyel çözümler sunuyoruz.') }}
@@ -269,7 +269,7 @@
 
                 <!-- Quick Links (Half width on mobile) -->
                 <div class="md:pl-10">
-                    <h4 class="text-white font-bold uppercase tracking-widest text-sm mb-6">{{ __('Kurumsal') }}</h4>
+                    <h3 class="text-white font-bold uppercase tracking-widest text-sm mb-6">{{ __('Kurumsal') }}</h3>
                     <ul class="space-y-3">
                         <li><a href="{{ localized_url('/') }}" class="text-slate-400 hover:text-white transition-colors text-sm">{{ __('Anasayfa') }}</a></li>
                         <li><a href="{{ localized_url('/hakkimizda') }}" class="text-slate-400 hover:text-white transition-colors text-sm">{{ __('Hakkımızda') }}</a></li>
@@ -281,7 +281,7 @@
 
                 <!-- Services (Half width on mobile) -->
                 <div>
-                    <h4 class="text-white font-bold uppercase tracking-widest text-sm mb-6">{{ __('Hizmetler') }}</h4>
+                    <h3 class="text-white font-bold uppercase tracking-widest text-sm mb-6">{{ __('Hizmetler') }}</h3>
                     <ul class="space-y-3">
                         <li><a href="{{ localized_url('/hizmetler') }}" class="text-slate-400 hover:text-white transition-colors text-sm">{{ __('Kalıp İmalatı') }}</a></li>
                         <li><a href="{{ localized_url('/hizmetler') }}" class="text-slate-400 hover:text-white transition-colors text-sm">{{ __('Ürün Geliştirme') }}</a></li>
@@ -292,7 +292,7 @@
 
                 <!-- Contact (Full width on mobile) -->
                 <div class="col-span-2 md:col-span-2 lg:col-span-1">
-                    <h4 class="text-white font-bold uppercase tracking-widest text-sm mb-6">{{ __('Bize Ulaşın') }}</h4>
+                    <h3 class="text-white font-bold uppercase tracking-widest text-sm mb-6">{{ __('Bize Ulaşın') }}</h3>
                     <ul class="space-y-4">
                         <li class="flex items-start gap-3">
                             <span class="w-6 h-6 flex items-center justify-center rounded-full bg-white/5 text-primary flex-shrink-0 mt-0.5">

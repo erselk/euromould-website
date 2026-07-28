@@ -88,10 +88,12 @@
                                 @if(isset($data['video_file']) && $data['video_file'])
                                     <video controls autoplay preload="auto" playsinline class="w-full h-full object-cover">
                                         <source src="{{ route('video.stream', basename($data['video_file'])) }}" type="video/mp4">
+                                        <track kind="captions" label="English" srclang="en" src="" default>
                                     </video>
                                 @elseif(isset($data['video_embed_code']) && str_contains($data['video_embed_code'], '.mp4'))
                                     <video controls autoplay preload="auto" playsinline class="w-full h-full object-cover">
                                         <source src="{{ route('video.stream', basename($data['video_embed_code'])) }}" type="video/mp4">
+                                        <track kind="captions" label="English" srclang="en" src="" default>
                                     </video>
                                 @else
                                     {!! $data['video_embed_code'] !!}

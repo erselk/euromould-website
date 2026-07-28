@@ -3,7 +3,7 @@
     <!-- Background Image -->
     <div class="absolute inset-0 z-0 select-none">
         @if(isset($data['bg_video']))
-            <video autoplay loop muted playsinline class="w-full h-full object-cover opacity-60">
+            <video aria-hidden="true" autoplay loop muted playsinline class="w-full h-full object-cover opacity-60">
                 <source src="{{ asset($data['bg_video']) }}" type="video/mp4">
             </video>
         @elseif(isset($data['bg_image']))
