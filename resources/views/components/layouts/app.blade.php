@@ -20,7 +20,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#0f172a">
     
-    <title>{{ $title ?? ($currentLocale === 'en' ? 'EuroMould - Plastic Injection Moulding Technologies' : 'EuroMould - Plastik Enjeksiyon Kalıp Teknolojileri') }}</title>
+    <title>{{ isset($title) ? $title . ' | EuroMould' : ($currentLocale === 'en' ? 'EuroMould - Plastic Injection Moulding Technologies' : 'EuroMould - Plastik Enjeksiyon Kalıp Teknolojileri') }}</title>
     <meta name="description" content="{{ $metaDescription ?? ($currentLocale === 'en' ? 'EuroMould provides high-precision plastic injection moulding, mould design, maintenance and engineering solutions with 15 years of industry experience.' : 'EuroMould, 15 yıllık tecrübesiyle yüksek hassasiyetli plastik enjeksiyon kalıp imalatı, kalıp tasarımı, bakım ve mühendislik çözümleri sunar.') }}">
     <meta name="keywords" content="{{ $currentLocale === 'en' ? 'plastic injection moulding, mould design, 2k moulding, gas assist injection, iml moulding, reverse engineering, mould manufacturer turkey, istanbul' : 'plastik enjeksiyon kalıbı, kalıp imalatı, kalıp tasarımı, 2k kalıp, gaz enjeksiyon, iml kalıp, tersine mühendislik, beylikdüzü kalıp imalatçısı, istanbul' }}">
     <meta name="author" content="EuroMould">
