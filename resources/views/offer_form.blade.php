@@ -26,7 +26,10 @@
                             </div>
                             <div>
                                 <h3 class="font-bold text-slate-900 mb-1">{{ __('Telefon') }}</h3>
-                                <a href="tel:+902128790016" class="text-slate-600 hover:text-primary transition-colors">(0212) 879 00 16</a>
+                                <div class="flex flex-col gap-1">
+                                    <a href="tel:+902128790016" class="text-slate-600 hover:text-primary transition-colors">(0212) 879 00 16</a>
+                                    <a href="tel:+905499052352" class="text-slate-600 hover:text-primary transition-colors">+90 549 905 23 52</a>
+                                </div>
                             </div>
                         </div>
 
