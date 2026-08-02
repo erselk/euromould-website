@@ -306,11 +306,11 @@
                                 <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
                             </span>
                             <div class="flex flex-col gap-1">
-                                <a href="tel:+905499052352" class="text-slate-400 hover:text-white transition-colors text-sm">+90 549 905 23 52</a>
+                                <a href="tel:+905499052352" class="text-slate-400 hover:text-white transition-colors text-sm">+90 (549) 905 23 52</a>
                                 @if(isset($settings) && $settings->contact_phone)
                                     <a href="tel:{{ preg_replace('/[^0-9+]/', '', $settings->contact_phone) }}" class="text-slate-400 hover:text-white transition-colors text-sm">{{ $settings->contact_phone }}</a>
                                 @else
-                                    <a href="tel:+902128790016" class="text-slate-400 hover:text-white transition-colors text-sm">+90 212 879 00 16</a>
+                                    <a href="tel:+902128790016" class="text-slate-400 hover:text-white transition-colors text-sm">+90 (212) 879 00 16</a>
                                 @endif
                             </div>
                         </li>
