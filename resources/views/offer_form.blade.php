@@ -16,7 +16,7 @@
                             </div>
                             <div>
                                 <h3 class="font-bold text-slate-900 mb-1">{{ __('E-posta') }}</h3>
-                                <a href="mailto:info@euromould.com.tr" class="text-slate-600 hover:text-primary transition-colors">info@euromould.com.tr</a>
+                                <a href="mailto:{{ isset($settings) && $settings->contact_email ? $settings->contact_email : 'info@euromould.com.tr' }}" class="text-slate-600 hover:text-primary transition-colors">{{ isset($settings) && $settings->contact_email ? $settings->contact_email : 'info@euromould.com.tr' }}</a>
                             </div>
                         </div>
 
@@ -27,7 +27,11 @@
                             <div>
                                 <h3 class="font-bold text-slate-900 mb-1">{{ __('Telefon') }}</h3>
                                 <div class="flex flex-col gap-1">
-                                    <a href="tel:+902128790016" class="text-slate-600 hover:text-primary transition-colors">(0212) 879 00 16</a>
+                                    @if(isset($settings) && $settings->contact_phone)
+                                        <a href="tel:{{ preg_replace('/[^0-9+]/', '', $settings->contact_phone) }}" class="text-slate-600 hover:text-primary transition-colors">{{ $settings->contact_phone }}</a>
+                                    @else
+                                        <a href="tel:+902128790016" class="text-slate-600 hover:text-primary transition-colors">(0212) 879 00 16</a>
+                                    @endif
                                     <a href="tel:+905499052352" class="text-slate-600 hover:text-primary transition-colors">+90 549 905 23 52</a>
                                 </div>
                             </div>
@@ -39,8 +43,7 @@
                             </div>
                             <div>
                                 <h3 class="font-bold text-slate-900 mb-1">{{ __('Adresimiz') }}</h3>
-                                @php $settings = \App\Models\GeneralSetting::first(); @endphp
-                                <a href="https://www.google.com/maps/dir//EuroMould,+Beylikd%C3%BCz%C3%BC+OSB" target="_blank" class="text-slate-600 hover:text-primary transition-colors leading-relaxed text-sm">{!! nl2br(e(__($settings->address ?? ''))) !!}</a>
+                                <a href="https://www.google.com/maps/dir//EuroMould,+Beylikd%C3%BCz%C3%BC+OSB" target="_blank" class="text-slate-600 hover:text-primary transition-colors leading-relaxed text-sm">{!! isset($settings) && $settings->address ? nl2br(e(__($settings->address))) : __('Beylikdüzü OSB, 3. Cd. Birlik Sanayi Sitesi No:71 34524 Beylikdüzü/İstanbul') !!}</a>
                             </div>
                         </div>
                     </div>
@@ -59,28 +62,43 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label for="name" class="block text-sm font-bold text-slate-900 mb-2 uppercase tracking-wider">{{ __('Ad Soyad *') }}</label>
-                                <input type="text" name="name" id="name" required class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors rounded-none placeholder-slate-400">
+                                <input type="text" name="name" id="name" value="{{ old('name') }}" required class="w-full px-4 py-3 bg-white border @error('name') border-red-500 @else border-slate-200 @enderror focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors rounded-none placeholder-slate-400">
+                                @error('name')
+                                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                                @enderror
                             </div>
                             <div>
                                 <label for="phone" class="block text-sm font-bold text-slate-900 mb-2 uppercase tracking-wider">{{ __('Telefon') }}</label>
-                                <input type="text" name="phone" id="phone" class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors rounded-none placeholder-slate-400">
+                                <input type="text" name="phone" id="phone" value="{{ old('phone') }}" class="w-full px-4 py-3 bg-white border @error('phone') border-red-500 @else border-slate-200 @enderror focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors rounded-none placeholder-slate-400">
+                                @error('phone')
+                                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label for="email" class="block text-sm font-bold text-slate-900 mb-2 uppercase tracking-wider">{{ __('E-posta *') }}</label>
-                                <input type="email" name="email" id="email" required class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors rounded-none placeholder-slate-400">
+                                <input type="email" name="email" id="email" value="{{ old('email') }}" required class="w-full px-4 py-3 bg-white border @error('email') border-red-500 @else border-slate-200 @enderror focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors rounded-none placeholder-slate-400">
+                                @error('email')
+                                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                                @enderror
                             </div>
                              <div>
                                 <label for="company" class="block text-sm font-bold text-slate-900 mb-2 uppercase tracking-wider">{{ __('Firma Adı') }}</label>
-                                <input type="text" name="company" id="company" class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors rounded-none placeholder-slate-400">
+                                <input type="text" name="company" id="company" value="{{ old('company') }}" class="w-full px-4 py-3 bg-white border @error('company') border-red-500 @else border-slate-200 @enderror focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors rounded-none placeholder-slate-400">
+                                @error('company')
+                                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
 
                         <div>
                             <label for="message" class="block text-sm font-bold text-slate-900 mb-2 uppercase tracking-wider">{{ __('Proje Detayları / Notlarınız') }}</label>
-                            <textarea name="message" id="message" rows="5" class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors rounded-none placeholder-slate-400 resize-none"></textarea>
+                            <textarea name="message" id="message" rows="5" class="w-full px-4 py-3 bg-white border @error('message') border-red-500 @else border-slate-200 @enderror focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors rounded-none placeholder-slate-400 resize-none">{{ old('message') }}</textarea>
+                            @error('message')
+                                <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
 
                         <button type="submit" class="w-full bg-slate-900 text-white font-bold py-4 uppercase tracking-widest hover:bg-primary transition-colors duration-300">

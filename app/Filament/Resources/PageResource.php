@@ -58,10 +58,12 @@ class PageResource extends Resource
                                                 Forms\Components\FileUpload::make('bg_image')
                                                     ->label('Arkaplan Görseli')
                                                     ->image()
+                                                    ->imageEditor()
                                                     ->optimize('webp')
+                                                    ->maxSize(5120)
                                                     ->resize(1920, 1080)
-                                                    ->disk('public')
-                                                    ->directory('heroes'),
+                                                    ->disk('root_public')
+                                                    ->directory('images/heroes'),
                                             ])->label('Ana Hero (Büyük)'),
 
                                         // Sayfa Başlığı (Alt sayfalar için sade)
@@ -72,10 +74,12 @@ class PageResource extends Resource
                                                 Forms\Components\FileUpload::make('bg_image')
                                                     ->label('Arkaplan Görseli (Opsiyonel)')
                                                     ->image()
+                                                    ->imageEditor()
                                                     ->optimize('webp')
+                                                    ->maxSize(5120)
                                                     ->resize(1920, 1080)
-                                                    ->disk('public')
-                                                    ->directory('headers'),
+                                                    ->disk('root_public')
+                                                    ->directory('images/headers'),
                                             ])->label('Sayfa Başlığı (Sade)'),
                                         
                                         Forms\Components\Builder\Block::make('content_with_image')
@@ -85,10 +89,12 @@ class PageResource extends Resource
                                                 Forms\Components\RichEditor::make('content')->label('İçerik'),
                                                 Forms\Components\FileUpload::make('image')
                                                     ->image()
+                                                    ->imageEditor()
                                                     ->optimize('webp')
+                                                    ->maxSize(5120)
                                                     ->resize(1200, 1200)
-                                                    ->disk('public')
-                                                    ->directory('content')
+                                                    ->disk('root_public')
+                                                    ->directory('images/content')
                                                     ->label('Görsel'),
                                                 Forms\Components\Textarea::make('video_embed_code')
                                                     ->label('Video Embed Kodu (Iframe)')
@@ -123,6 +129,7 @@ class PageResource extends Resource
                                                         Forms\Components\Textarea::make('description')->label('Açıklama'),
                                                     ])
                                                     ->label('Özellikler')
+                                                    ->collapsible()
                                             ])->label('Özellikler (İkonlu)'),
 
                                         Forms\Components\Builder\Block::make('stats')
@@ -133,6 +140,7 @@ class PageResource extends Resource
                                                         Forms\Components\TextInput::make('label')->required()->label('Etiket (Örn: Yıllık Tecrübe)'),
                                                     ])
                                                     ->label('İstatistikler')
+                                                    ->collapsible()
                                                     ->grid(4)
                                             ])->label('İstatistik Şeridi'),
 

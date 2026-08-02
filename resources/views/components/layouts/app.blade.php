@@ -20,7 +20,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#0f172a">
     
-    <title>{{ isset($title) ? $title . ' | EuroMould' : ($currentLocale === 'en' ? 'EuroMould - Plastic Injection Moulding Technologies' : 'EuroMould - Plastik Enjeksiyon Kalıp Teknolojileri') }}</title>
+    <title>{{ isset($title) ? $title . ' | ' . ($settings->site_name ?? 'EuroMould') : ($currentLocale === 'en' ? ($settings->site_name ?? 'EuroMould') . ' - Plastic Injection Moulding Technologies' : ($settings->site_name ?? 'EuroMould') . ' - Plastik Enjeksiyon Kalıp Teknolojileri') }}</title>
     <meta name="description" content="{{ $metaDescription ?? ($currentLocale === 'en' ? 'EuroMould provides high-precision plastic injection moulding, mould design, maintenance and engineering solutions with 15 years of industry experience.' : 'EuroMould, 15 yıllık tecrübesiyle yüksek hassasiyetli plastik enjeksiyon kalıp imalatı, kalıp tasarımı, bakım ve mühendislik çözümleri sunar.') }}">
     <meta name="keywords" content="{{ $currentLocale === 'en' ? 'plastic injection moulding, mould design, 2k moulding, gas assist injection, iml moulding, reverse engineering, mould manufacturer turkey, istanbul' : 'plastik enjeksiyon kalıbı, kalıp imalatı, kalıp tasarımı, 2k kalıp, gaz enjeksiyon, iml kalıp, tersine mühendislik, beylikdüzü kalıp imalatçısı, istanbul' }}">
     <meta name="author" content="EuroMould">
@@ -299,22 +299,26 @@
                             <span class="w-6 h-6 flex items-center justify-center rounded-full bg-white/5 text-primary flex-shrink-0 mt-0.5">
                                 <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                             </span>
-                            <a href="https://www.google.com/maps/dir//EuroMould,+Beylikd%C3%BCz%C3%BC+OSB" target="_blank" class="text-slate-400 hover:text-white transition-colors text-sm leading-relaxed">{{ __('Beylikdüzü OSB, 3. Cd. Birlik Sanayi Sitesi No:71 34524 Beylikdüzü/İstanbul') }}</a>
+                            <span class="text-slate-400 text-sm leading-relaxed">{{ isset($settings) && $settings->address ? $settings->address : __('Beylikdüzü OSB, 3. Cd. Birlik Sanayi Sitesi No:71 34524 Beylikdüzü/İstanbul') }}</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <span class="w-6 h-6 flex items-center justify-center rounded-full bg-white/5 text-primary flex-shrink-0">
                                 <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
                             </span>
                             <div class="flex flex-col gap-1">
-                                <a href="tel:02128790016" class="text-slate-400 hover:text-white transition-colors text-sm">(0212) 879 00 16</a>
-                                <a href="tel:+905499052352" class="text-slate-400 hover:text-white transition-colors text-sm">+90 549 905 23 52</a>
+                                @if(isset($settings) && $settings->contact_phone)
+                                    <a href="tel:{{ preg_replace('/[^0-9+]/', '', $settings->contact_phone) }}" class="text-slate-400 hover:text-white transition-colors text-sm">{{ $settings->contact_phone }}</a>
+                                @else
+                                    <a href="tel:02128790016" class="text-slate-400 hover:text-white transition-colors text-sm">(0212) 879 00 16</a>
+                                    <a href="tel:+905499052352" class="text-slate-400 hover:text-white transition-colors text-sm">+90 549 905 23 52</a>
+                                @endif
                             </div>
                         </li>
                         <li class="flex items-center gap-3">
                             <span class="w-6 h-6 flex items-center justify-center rounded-full bg-white/5 text-primary flex-shrink-0">
                                 <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                             </span>
-                            <a href="mailto:info@euromould.com.tr" class="text-slate-400 hover:text-white transition-colors text-sm">info@euromould.com.tr</a>
+                            <a href="mailto:{{ isset($settings) && $settings->contact_email ? $settings->contact_email : 'info@euromould.com.tr' }}" class="text-slate-400 hover:text-white transition-colors text-sm">{{ isset($settings) && $settings->contact_email ? $settings->contact_email : 'info@euromould.com.tr' }}</a>
                         </li>
                     </ul>
                 </div>
@@ -322,10 +326,19 @@
             </div>
 
             <!-- Copyright -->
-            <div class="border-t border-white/10 pt-8">
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
                 <p class="text-slate-500 text-xs">
-                    &copy; {{ date('Y') }} EuroMould
+                    &copy; {{ date('Y') }} {{ isset($settings) && $settings->site_name ? $settings->site_name : 'EuroMould' }}
                 </p>
+                @if(isset($settings) && is_array($settings->social_links))
+                <div class="flex items-center gap-4">
+                    @foreach($settings->social_links as $link)
+                        <a href="{{ $link['url'] }}" target="_blank" class="text-slate-400 hover:text-white transition-colors capitalize text-xs">
+                            {{ $link['platform'] }}
+                        </a>
+                    @endforeach
+                </div>
+                @endif
             </div>
         </div>
     </footer>

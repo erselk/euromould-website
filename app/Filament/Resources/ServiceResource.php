@@ -31,14 +31,14 @@ class ServiceResource extends Resource
                         ->live(onBlur: true)
                         ->afterStateUpdated(fn ($state, Forms\Set $set) => $set('slug', \Illuminate\Support\Str::slug($state)))
                         ->label('Başlık'),
-                    Forms\Components\Textarea::make('description')
+                    Forms\Components\RichEditor::make('description')
                         ->label('Kısa Açıklama')
                         ->columnSpanFull(),
                 ]),
                 Forms\Components\Section::make('Hizmet Detayları (İngilizce)')->schema([
                     Forms\Components\TextInput::make('title_en')
                         ->label('Başlık (İngilizce)'),
-                    Forms\Components\Textarea::make('description_en')
+                    Forms\Components\RichEditor::make('description_en')
                         ->label('Kısa Açıklama (İngilizce)')
                         ->columnSpanFull(),
                 ]),
@@ -48,7 +48,9 @@ class ServiceResource extends Resource
                 Forms\Components\Hidden::make('sort'),
                 Forms\Components\FileUpload::make('image')
                     ->image()
+                    ->imageEditor()
                     ->optimize('webp')
+                    ->maxSize(5120)
                     ->resize(1200, 1200)
                     ->disk('root_public')
                     ->directory('images')

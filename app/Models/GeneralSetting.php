@@ -25,4 +25,15 @@ class GeneralSetting extends Model
     protected $casts = [
         'social_links' => 'array',
     ];
+
+    protected static function booted()
+    {
+        static::saved(function ($model) {
+            \Illuminate\Support\Facades\Cache::forget('general_settings');
+        });
+        
+        static::deleted(function ($model) {
+            \Illuminate\Support\Facades\Cache::forget('general_settings');
+        });
+    }
 }

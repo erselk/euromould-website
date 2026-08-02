@@ -1,4 +1,7 @@
-<x-layouts.app :title="__($service->getTranslated('title'))">
+@php
+    $metaDescription = \Illuminate\Support\Str::limit(strip_tags(__($service->getTranslated('description'))), 150);
+@endphp
+<x-layouts.app :title="__($service->getTranslated('title'))" :metaDescription="$metaDescription">
     <div class="py-20 md:py-32 bg-slate-50">
         <div class="max-w-4xl mx-auto px-6">
             <h1 class="text-4xl md:text-5xl font-black text-slate-900 mb-8">{{ __($service->getTranslated('title')) }}</h1>
@@ -10,7 +13,7 @@
             @endif
 
             <div class="prose prose-lg max-w-none text-slate-700">
-                <p>{{ __($service->getTranslated('description')) }}</p>
+                {!! __($service->getTranslated('description')) !!}
             </div>
             
             <div class="mt-16 flex gap-4">

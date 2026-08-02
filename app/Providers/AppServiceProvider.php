@@ -57,7 +57,9 @@ class AppServiceProvider extends ServiceProvider
 
         try {
             if (Schema::hasTable('general_settings')) {
-                $settings = GeneralSetting::first();
+                $settings = \Illuminate\Support\Facades\Cache::remember('general_settings', 3600, function () {
+                    return GeneralSetting::first();
+                });
                 View::share('settings', $settings);
             }
         } catch (\Exception $e) {

@@ -13,7 +13,7 @@ use Filament\Tables\Table;
 class GalleryItemResource extends Resource
 {
     protected static ?string $model = GalleryItem::class;
-    protected static bool $shouldRegisterNavigation = false;
+    protected static bool $shouldRegisterNavigation = true;
 
     protected static ?string $navigationIcon = 'heroicon-o-photo';
     protected static ?string $navigationLabel = 'Galeri';
@@ -24,7 +24,11 @@ class GalleryItemResource extends Resource
             ->schema([
                 Forms\Components\FileUpload::make('image')
                     ->image()
-                    ->directory('gallery')
+                    ->imageEditor()
+                    ->optimize('webp')
+                    ->maxSize(5120)
+                    ->disk('root_public')
+                    ->directory('images/gallery')
                     ->required()
                     ->label('Görsel'),
                 Forms\Components\TextInput::make('title')
@@ -40,7 +44,9 @@ class GalleryItemResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('image')->label('Görsel'),
+                Tables\Columns\ImageColumn::make('image')
+                    ->disk('root_public')
+                    ->label('Görsel'),
                 Tables\Columns\TextColumn::make('title')->label('Başlık'),
                 Tables\Columns\TextColumn::make('sort')->sortable()->label('Sıra'),
                 Tables\Columns\TextColumn::make('created_at')->dateTime()->sortable()->label('Tarih'),

@@ -14,10 +14,10 @@ class ManageSettings extends Page implements HasForms
 {
     use InteractsWithForms;
 
-    protected static ?string $navigationIcon = 'heroicon-o-photo';
-    protected static ?string $navigationLabel = 'Site Görselleri';
+    protected static ?string $navigationIcon = 'heroicon-o-cog-6-tooth';
+    protected static ?string $navigationLabel = 'Site Ayarları';
     protected static ?string $navigationGroup = 'Site Yönetimi';
-    protected static ?string $title = 'Görselleri Değiştir';
+    protected static ?string $title = 'Site Ayarlarını Düzenle';
     protected static ?int $navigationSort = 3;
     protected static string $view = 'filament.pages.manage-settings';
 
@@ -60,20 +60,70 @@ class ManageSettings extends Page implements HasForms
     {
         return $form
             ->schema([
-                Forms\Components\Section::make('Logo')
-                    ->schema([
-                         Forms\Components\FileUpload::make('logo')->label('Site Logosu')->image()->disk('root_public')->directory('images'),
-                    ])->columns(1),
-                Forms\Components\Section::make('Anasayfa Görselleri')
-                    ->schema([
-                         Forms\Components\FileUpload::make('home_hero_bg')->label('Kapak Arkaplan Resmi')->image()->disk('root_public')->directory('images'),
-                         Forms\Components\FileUpload::make('home_video')->label('Tanıtım Videosu (.mp4)')->acceptedFileTypes(['video/mp4'])->disk('root_public')->directory('images'),
-                    ])->columns(2),
-                Forms\Components\Section::make('Hakkımızda Görselleri')
-                    ->schema([
-                         Forms\Components\FileUpload::make('about_header_bg')->label('Üst Kapak Resmi')->image()->disk('root_public')->directory('images'),
-                         Forms\Components\FileUpload::make('about_image')->label('Tesis Görseli')->image()->disk('root_public')->directory('images'),
-                    ])->columns(2),
+                Forms\Components\Tabs::make('Ayarlar')
+                    ->tabs([
+                        Forms\Components\Tabs\Tab::make('Genel Ayarlar')
+                            ->icon('heroicon-m-cog')
+                            ->schema([
+                                Forms\Components\TextInput::make('site_name')->label('Site Adı')->required()->maxLength(255),
+                                Forms\Components\TextInput::make('contact_email')->label('İletişim E-posta')->email()->required(),
+                                Forms\Components\TextInput::make('contact_phone')->label('İletişim Telefon')->tel()->required(),
+                                Forms\Components\Textarea::make('address')->label('Adres')->rows(3),
+                                Forms\Components\Textarea::make('google_maps')->label('Google Maps iFrame Linki')->rows(3)->columnSpanFull(),
+                                Forms\Components\Repeater::make('social_links')->label('Sosyal Medya Linkleri')
+                                    ->schema([
+                                        Forms\Components\TextInput::make('platform')->label('Platform (örn: facebook, instagram)')->required(),
+                                        Forms\Components\TextInput::make('url')->label('URL')->url()->required(),
+                                    ])->columns(2)->columnSpanFull(),
+                            ])->columns(2),
+                            
+                        Forms\Components\Tabs\Tab::make('Görseller')
+                            ->icon('heroicon-m-photo')
+                            ->schema([
+                                Forms\Components\Section::make('Logo')
+                                    ->schema([
+                                         Forms\Components\FileUpload::make('logo')
+                                             ->label('Site Logosu')
+                                             ->image()
+                                             ->imageEditor()
+                                             ->optimize('webp')
+                                             ->maxSize(5120)
+                                             ->disk('root_public')->directory('images'),
+                                    ])->columns(1),
+                                Forms\Components\Section::make('Anasayfa Görselleri')
+                                    ->schema([
+                                         Forms\Components\FileUpload::make('home_hero_bg')
+                                             ->label('Kapak Arkaplan Resmi')
+                                             ->image()
+                                             ->imageEditor()
+                                             ->optimize('webp')
+                                             ->maxSize(5120)
+                                             ->disk('root_public')->directory('images'),
+                                         Forms\Components\FileUpload::make('home_video')
+                                             ->label('Tanıtım Videosu (.mp4)')
+                                             ->acceptedFileTypes(['video/mp4'])
+                                             ->maxSize(51200) // 50MB
+                                             ->disk('root_public')->directory('images'),
+                                    ])->columns(2),
+                                Forms\Components\Section::make('Hakkımızda Görselleri')
+                                    ->schema([
+                                         Forms\Components\FileUpload::make('about_header_bg')
+                                             ->label('Üst Kapak Resmi')
+                                             ->image()
+                                             ->imageEditor()
+                                             ->optimize('webp')
+                                             ->maxSize(5120)
+                                             ->disk('root_public')->directory('images'),
+                                         Forms\Components\FileUpload::make('about_image')
+                                             ->label('Tesis Görseli')
+                                             ->image()
+                                             ->imageEditor()
+                                             ->optimize('webp')
+                                             ->maxSize(5120)
+                                             ->disk('root_public')->directory('images'),
+                                    ])->columns(2),
+                            ]),
+                    ])->columnSpanFull()
             ])
             ->statePath('data');
     }

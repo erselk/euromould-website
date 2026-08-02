@@ -90,7 +90,7 @@ Sonuç olarak, deneme baskılarında ("try-out") oluşabilecek sürprizleri sıf
             [
                 'title' => 'Kalıp Bakım, Onarım ve Revizyon',
                 'slug' => 'kalip-bakim-ve-revizyon',
-                'description' => 'Üretim hattınızın durmaması için 7/24 acil müdahale, periyodik bakım hizmetleri ve ürün değişikliklerine adaptasyon için hassas revizyon çözümleri sunuyoruz.',
+                'description' => 'Üretim hattınızın durmaması için acil müdahale, periyodik bakım hizmetleri ve ürün değişikliklerine adaptasyon için hassas revizyon çözümleri sunuyoruz.',
                 'long_description' => '
 <p class="mb-6">Plastik enjeksiyon kalıpları, yüksek basınç ve sıcaklık altında çalışan, zamanla aşınan ve yorulan pahalı ekipmanlardır. Bir kalıbın plansız duruşu, üretim hattında ciddi maliyet kayıplarına yol açabilir. Euro Mould Servis Birimi, hem kendi ürettiğimiz kalıplar hem de diğer firmalara ait kalıplar için profesyonel bakım ve onarım hizmeti sunmaktadır.</p>
 
@@ -458,7 +458,7 @@ Elde edilen datalar, doğrudan CNC tezgahına gönderilebilir veya kalıp tasar�
                      'type' => 'content_with_image',
                      'data' => [
                          'title' => 'Montaj ve Alıştırma Bölümü',
-                         'content' => '<p>İşlenen tüm kalıp bileşenleri, tecrübeli kalıp ustalarımız tarafından titizlikle montaj hattına alınır. Mavi macun alıştırması (blue matching) yapılarak kalıp ayırma yüzeylerinin mükemmel öpüşmesi sağlanır. Bu aşama, kalıbın çapaksız baskı yapabilmesi için üretim sürecinin en kritik manuel işlemidir.</p>',
+                         'content' => '<p>İşlenen tüm kalıp bileşenleri, tecrübeli kalıp ustalarımız tarafından titizlikle montaj hattına alınır. Uygun ekipman kullanılarak kalıp ayırma yüzeylerinin mükemmel öpüşmesi sağlanır. Bu aşama, kalıbın çapaksız baskı yapabilmesi için üretim sürecinin en kritik manuel işlemidir.</p>',
                          'image' => 'images/unnamed (3).webp',
                          'image_position' => 'right'
                      ]

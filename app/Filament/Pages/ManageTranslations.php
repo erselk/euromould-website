@@ -58,12 +58,13 @@ class ManageTranslations extends Page implements HasForms
                             ->required(),
                         Forms\Components\Textarea::make('tr')
                             ->label('Türkçe')
-                            ->rows(3),
+                            ->rows(2),
                         Forms\Components\Textarea::make('en')
                             ->label('İngilizce')
-                            ->rows(3),
+                            ->rows(2),
                     ])
                     ->columns(2)
+                    ->collapsible()
                     ->reorderable(false)
                     ->deletable(false)
                     ->addable(false)
