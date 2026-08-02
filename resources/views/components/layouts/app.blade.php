@@ -39,7 +39,7 @@
     <meta property="og:title" content="{{ $title ?? ($currentLocale === 'en' ? 'EuroMould - Plastic Injection Moulding Technologies' : 'EuroMould - Plastik Enjeksiyon Kalıp Teknolojileri') }}">
     <meta property="og:description" content="{{ $metaDescription ?? ($currentLocale === 'en' ? 'EuroMould provides high-precision plastic injection moulding, mould design, maintenance and engineering solutions with 15 years of industry experience.' : 'EuroMould, 15 yıllık tecrübesiyle yüksek hassasiyetli plastik enjeksiyon kalıp imalatı, kalıp tasarımı, bakım ve mühendislik çözümleri sunar.') }}">
     <meta property="og:site_name" content="EuroMould">
-    <meta property="og:image" content="{{ asset('images/logo.png') }}">
+    <meta property="og:image" content="{{ asset('images/logo.png') . "?v=3" }}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
 
@@ -47,7 +47,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ $title ?? 'EuroMould' }}">
     <meta name="twitter:description" content="{{ $metaDescription ?? ($currentLocale === 'en' ? 'High-precision plastic injection moulding & engineering solutions.' : 'Yüksek hassasiyetli plastik enjeksiyon kalıp imalatı ve mühendislik çözümleri.') }}">
-    <meta name="twitter:image" content="{{ asset('images/logo.png') }}">
+    <meta name="twitter:image" content="{{ asset('images/logo.png') . "?v=3" }}">
 
     <!-- Schema.org Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -57,7 +57,7 @@
       "name": "EuroMould",
       "legalName": "EuroMould Plastik Enjeksiyon & Kalıp Teknolojileri",
       "url": "https://euromould.com.tr",
-      "logo": "{{ asset('images/logo.png') }}",
+      "logo": "{{ asset('images/logo.png') . "?v=3" }}",
       "description": "{{ $currentLocale === 'en' ? 'High-precision plastic injection moulding, mould design and engineering solutions.' : 'Yüksek hassasiyetli plastik enjeksiyon kalıp imalatı, kalıp tasarımı ve mühendislik çözümleri.' }}",
       "address": {
         "@type": "PostalAddress",
@@ -125,7 +125,7 @@
                     <div class="flex-shrink-0 flex items-center">
                         <a href="{{ localized_url('/') }}" class="flex items-center gap-3">
                              @if(isset($settings) && $settings->logo)
-                                <img class="h-12 w-auto" width="1856" height="438" src="{{ asset($settings->logo) }}" alt="EuroMould">
+                                <img class="h-12 w-auto" width="1856" height="438" src="{{ asset($settings->logo) . "?v=3" }}" alt="EuroMould">
                             @else
                                 <span class="text-3xl font-black tracking-tighter text-slate-900">EURO<span class="text-primary">MOULD</span></span>
                             @endif
@@ -261,7 +261,7 @@
                 <!-- Brand (Full width on mobile) -->
                 <div class="col-span-2 md:col-span-2 lg:col-span-1 flex flex-col items-center md:items-start lg:items-center text-center md:text-left">
                      <div class="mb-6">
-                         <img class="h-24 w-auto" width="897" height="696" src="{{ asset('images/logo.webp') }}" alt="EuroMould">
+                         <img class="h-24 w-auto" width="897" height="696" src="{{ asset('images/logo.webp') . "?v=3" }}" alt="EuroMould">
                      </div>
                      <p class="text-slate-400 text-sm leading-relaxed mb-6">
                          {{ __('Plastik enjeksiyon kalıp imalatında 15 yıllık tecrübe, ileri teknoloji ve mühendislik tutkusuyla endüstriyel çözümler sunuyoruz.') }}
