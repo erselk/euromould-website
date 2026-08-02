@@ -27,12 +27,12 @@
                             <div>
                                 <h3 class="font-bold text-slate-900 mb-1">{{ __('Telefon') }}</h3>
                                 <div class="flex flex-col gap-1">
+                                    <a href="tel:+905499052352" class="text-slate-600 hover:text-primary transition-colors">+90 (549) 905 23 52</a>
                                     @if(isset($settings) && $settings->contact_phone)
                                         <a href="tel:{{ preg_replace('/[^0-9+]/', '', $settings->contact_phone) }}" class="text-slate-600 hover:text-primary transition-colors">{{ $settings->contact_phone }}</a>
                                     @else
-                                        <a href="tel:+902128790016" class="text-slate-600 hover:text-primary transition-colors">(0212) 879 00 16</a>
+                                        <a href="tel:+902128790016" class="text-slate-600 hover:text-primary transition-colors">+90 (212) 879 00 16</a>
                                     @endif
-                                    <a href="tel:+905499052352" class="text-slate-600 hover:text-primary transition-colors">+90 549 905 23 52</a>
                                 </div>
                             </div>
                         </div>
