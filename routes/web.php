@@ -19,7 +19,10 @@ Route::get('/en', [PageController::class, 'home'])->name('home.en');
 // English Quote Form
 Route::get('/get-quote', [PageController::class, 'offerForm'])->name('offer.form.en');
 
-
+// Handle premature POST submissions to admin login before Livewire initializes
+Route::post('/admin/login', function () {
+    return redirect('/admin/login')->withErrors(['email' => 'Lütfen sayfa tam yüklendikten sonra tekrar giriş yapmayı deneyin.']);
+});
 
 Route::get('/{slug}', [PageController::class, 'show'])->name('page.show');
 
