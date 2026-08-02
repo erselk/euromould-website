@@ -21,6 +21,10 @@ class AppServiceProvider extends ServiceProvider
         if (file_exists(app_path('helpers.php'))) {
             require_once app_path('helpers.php');
         }
+
+        $this->app->extend('files', function ($files, $app) {
+            return new \App\Support\WindowsFilesystem;
+        });
     }
 
     /**
