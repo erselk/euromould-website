@@ -144,34 +144,23 @@
                         </a>
 
                         @php $currentLocale = app()->getLocale(); @endphp
-                        <a href="{{ route('lang.switch', $currentLocale === 'tr' ? 'en' : 'tr') }}" 
-                           title="{{ $currentLocale === 'tr' ? 'Switch to English' : 'Türkçe\'ye Geç' }}"
-                           class="inline-flex items-center justify-center focus:outline-none pl-1">
-                            @if($currentLocale === 'tr')
-                                <!-- Turkey Flag -->
-                                <svg class="w-6 h-4 rounded-xs shadow-xs hover:opacity-90 transition-opacity" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+                        <div class="flex items-center space-x-3 pl-2 border-l border-slate-200 ml-2">
+                            <a href="{{ route('lang.switch', 'tr') }}" 
+                               title="Türkçe"
+                               class="flex items-center focus:outline-none {{ $currentLocale === 'tr' ? 'opacity-100' : 'opacity-40 hover:opacity-100 transition-opacity' }}">
+                                <svg class="w-6 h-4 rounded-xs shadow-xs" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
                                   <rect width="1200" height="800" fill="#E30A17"/>
                                   <circle cx="425" cy="400" r="200" fill="#ffffff"/>
                                   <circle cx="475" cy="400" r="160" fill="#E30A17"/>
                                   <polygon fill="#ffffff" points="583.333,400 684.282,432.802 621.895,351.481 621.895,448.519 684.282,367.198"/>
                                 </svg>
-                            @else
-                                <!-- US Flag -->
-                                <svg class="w-6 h-4 rounded-xs shadow-xs hover:opacity-90 transition-opacity" viewBox="0 0 741 390" xmlns="http://www.w3.org/2000/svg">
-                                  <rect width="741" height="390" fill="#b22234"/>
-                                  <path d="M0,30h741M0,90h741M0,150h741M0,210h741M0,270h741M0,330h741" stroke="#fff" stroke-width="30"/>
-                                  <rect width="296.4" height="210" fill="#3c3b6e"/>
-                                  <g fill="#fff">
-                                    <g id="us-s"><polygon points="24.7,6 30.5,24 15.5,13 33.9,13 18.9,24"/></g>
-                                    <use href="#us-s" x="49.4"/><use href="#us-s" x="98.8"/><use href="#us-s" x="148.2"/><use href="#us-s" x="197.6"/><use href="#us-s" x="247"/>
-                                    <use href="#us-s" y="42" x="24.7"/><use href="#us-s" y="42" x="74.1"/><use href="#us-s" y="42" x="123.5"/><use href="#us-s" y="42" x="172.9"/><use href="#us-s" y="42" x="222.3"/>
-                                    <use href="#us-s" y="84"/><use href="#us-s" y="84" x="49.4"/><use href="#us-s" y="84" x="98.8"/><use href="#us-s" y="84" x="148.2"/><use href="#us-s" y="84" x="247"/>
-                                    <use href="#us-s" y="126" x="24.7"/><use href="#us-s" y="126" x="74.1"/><use href="#us-s" y="126" x="123.5"/><use href="#us-s" y="126" x="172.9"/><use href="#us-s" y="126" x="222.3"/>
-                                    <use href="#us-s" y="168"/><use href="#us-s" y="168" x="49.4"/><use href="#us-s" y="168" x="98.8"/><use href="#us-s" y="168" x="148.2"/><use href="#us-s" y="168" x="197.6"/><use href="#us-s" y="168" x="247"/>
-                                  </g>
-                                </svg>
-                            @endif
-                        </a>
+                            </a>
+                            <a href="{{ route('lang.switch', 'en') }}" 
+                               title="English"
+                               class="flex items-center focus:outline-none font-bold text-xs tracking-widest text-slate-800 {{ $currentLocale === 'en' ? 'opacity-100' : 'opacity-40 hover:opacity-100 transition-opacity' }}">
+                                ENG
+                            </a>
+                        </div>
                     </div>
                     <!-- Mobile menu button -->
                     <div class="md:hidden flex items-center gap-4">
@@ -196,30 +185,19 @@
                 <div class="h-20 flex items-center justify-between px-6 border-b border-slate-100">
                     <div class="flex items-center gap-4">
                         @php $currentLocale = app()->getLocale(); @endphp
-                        <a href="{{ route('lang.switch', $currentLocale === 'tr' ? 'en' : 'tr') }}" class="inline-flex items-center justify-center focus:outline-none">
-                            @if($currentLocale === 'tr')
-                                <svg class="w-7 h-5 rounded-sm shadow-sm hover:opacity-80 transition-opacity" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+                        <div class="flex items-center space-x-4">
+                            <a href="{{ route('lang.switch', 'tr') }}" class="flex items-center focus:outline-none {{ $currentLocale === 'tr' ? 'opacity-100' : 'opacity-40 hover:opacity-100 transition-opacity' }}">
+                                <svg class="w-7 h-5 rounded-sm shadow-sm" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
                                   <rect width="1200" height="800" fill="#E30A17"/>
                                   <circle cx="425" cy="400" r="200" fill="#ffffff"/>
                                   <circle cx="475" cy="400" r="160" fill="#E30A17"/>
                                   <polygon fill="#ffffff" points="583.333,400 684.282,432.802 621.895,351.481 621.895,448.519 684.282,367.198"/>
                                 </svg>
-                            @else
-                                <svg class="w-7 h-5 rounded-sm shadow-sm hover:opacity-80 transition-opacity" viewBox="0 0 741 390" xmlns="http://www.w3.org/2000/svg">
-                                  <rect width="741" height="390" fill="#b22234"/>
-                                  <path d="M0,30h741M0,90h741M0,150h741M0,210h741M0,270h741M0,330h741" stroke="#fff" stroke-width="30"/>
-                                  <rect width="296.4" height="210" fill="#3c3b6e"/>
-                                  <g fill="#fff">
-                                    <g id="us-mob-head"><polygon points="24.7,6 30.5,24 15.5,13 33.9,13 18.9,24"/></g>
-                                    <use href="#us-mob-head" x="49.4"/><use href="#us-mob-head" x="98.8"/><use href="#us-mob-head" x="148.2"/><use href="#us-mob-head" x="197.6"/><use href="#us-mob-head" x="247"/>
-                                    <use href="#us-mob-head" y="42" x="24.7"/><use href="#us-mob-head" y="42" x="74.1"/><use href="#us-mob-head" y="42" x="123.5"/><use href="#us-mob-head" y="42" x="172.9"/><use href="#us-mob-head" y="42" x="222.3"/>
-                                    <use href="#us-mob-head" y="84"/><use href="#us-mob-head" y="84" x="49.4"/><use href="#us-mob-head" y="84" x="98.8"/><use href="#us-mob-head" y="84" x="148.2"/><use href="#us-mob-head" y="84" x="247"/>
-                                    <use href="#us-mob-head" y="126" x="24.7"/><use href="#us-mob-head" y="126" x="74.1"/><use href="#us-mob-head" y="126" x="123.5"/><use href="#us-mob-head" y="126" x="172.9"/><use href="#us-mob-head" y="126" x="222.3"/>
-                                    <use href="#us-mob-head" y="168"/><use href="#us-mob-head" y="168" x="49.4"/><use href="#us-mob-head" y="168" x="98.8"/><use href="#us-mob-head" y="168" x="148.2"/><use href="#us-mob-head" y="168" x="197.6"/><use href="#us-mob-head" y="168" x="247"/>
-                                  </g>
-                                </svg>
-                            @endif
-                        </a>
+                            </a>
+                            <a href="{{ route('lang.switch', 'en') }}" class="flex items-center focus:outline-none font-bold text-sm tracking-widest text-slate-800 {{ $currentLocale === 'en' ? 'opacity-100' : 'opacity-40 hover:opacity-100 transition-opacity' }}">
+                                ENG
+                            </a>
+                        </div>
                         <span class="font-bold text-slate-900 tracking-wider uppercase text-sm">Menu</span>
                     </div>
                     <button @click="mobileMenuOpen = false" class="text-slate-900 hover:text-primary focus:outline-none -mr-2 p-2">
