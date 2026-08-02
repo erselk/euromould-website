@@ -61,7 +61,7 @@
                         @csrf
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <label for="name" class="block text-sm font-bold text-slate-900 mb-2 uppercase tracking-wider">{{ __('Ad Soyad *') }}</label>
+                                <label for="name" class="block text-sm font-bold text-slate-900 mb-2 uppercase tracking-wider">{{ __('Ad Soyad') }} *</label>
                                 <input type="text" name="name" id="name" value="{{ old('name') }}" required class="w-full px-4 py-3 bg-white border @error('name') border-red-500 @else border-slate-200 @enderror focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors rounded-none placeholder-slate-400">
                                 @error('name')
                                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -78,7 +78,7 @@
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <label for="email" class="block text-sm font-bold text-slate-900 mb-2 uppercase tracking-wider">{{ __('E-posta *') }}</label>
+                                <label for="email" class="block text-sm font-bold text-slate-900 mb-2 uppercase tracking-wider">{{ __('E-posta') }} *</label>
                                 <input type="email" name="email" id="email" value="{{ old('email') }}" required class="w-full px-4 py-3 bg-white border @error('email') border-red-500 @else border-slate-200 @enderror focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors rounded-none placeholder-slate-400">
                                 @error('email')
                                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
