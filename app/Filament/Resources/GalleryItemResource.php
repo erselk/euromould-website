@@ -25,7 +25,11 @@ class GalleryItemResource extends Resource
                 Forms\Components\FileUpload::make('image')
                     ->image()
                     ->imageEditor()
-                    ->maxSize(5120)
+                    ->maxSize(102400) // 100MB
+                    ->getUploadedFileNameForStorageUsing(
+                        fn (\Livewire\Features\SupportFileUploads\TemporaryUploadedFile $file): string => 
+                            md5(uniqid()) . '.' . $file->getClientOriginalExtension()
+                    )
                     ->disk('root_public')
                     ->directory('images/gallery')
                     ->required()

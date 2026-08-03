@@ -59,9 +59,11 @@ class PageResource extends Resource
                                                     ->label('Arkaplan Görseli')
                                                     ->image()
                                                     ->imageEditor()
-                                                    ->maxSize(5120)
-                                                    ->imageResizeTargetWidth(1920)
-                                                    ->imageResizeTargetHeight(1080)
+                                                    ->maxSize(102400) // 100MB
+                                                    ->getUploadedFileNameForStorageUsing(
+                                                        fn (\Livewire\Features\SupportFileUploads\TemporaryUploadedFile $file): string => 
+                                                            md5(uniqid()) . '.' . $file->getClientOriginalExtension()
+                                                    )
                                                     ->disk('root_public')
                                                     ->directory('images/heroes'),
                                             ])->label('Ana Hero (Büyük)'),
@@ -75,9 +77,11 @@ class PageResource extends Resource
                                                     ->label('Arkaplan Görseli (Opsiyonel)')
                                                     ->image()
                                                     ->imageEditor()
-                                                    ->maxSize(5120)
-                                                    ->imageResizeTargetWidth(1920)
-                                                    ->imageResizeTargetHeight(1080)
+                                                    ->maxSize(102400) // 100MB
+                                                    ->getUploadedFileNameForStorageUsing(
+                                                        fn (\Livewire\Features\SupportFileUploads\TemporaryUploadedFile $file): string => 
+                                                            md5(uniqid()) . '.' . $file->getClientOriginalExtension()
+                                                    )
                                                     ->disk('root_public')
                                                     ->directory('images/headers'),
                                             ])->label('Sayfa Başlığı (Sade)'),
@@ -90,9 +94,11 @@ class PageResource extends Resource
                                                 Forms\Components\FileUpload::make('image')
                                                     ->image()
                                                     ->imageEditor()
-                                                    ->maxSize(5120)
-                                                    ->imageResizeTargetWidth(1200)
-                                                    ->imageResizeTargetHeight(1200)
+                                                    ->maxSize(102400) // 100MB
+                                                    ->getUploadedFileNameForStorageUsing(
+                                                        fn (\Livewire\Features\SupportFileUploads\TemporaryUploadedFile $file): string => 
+                                                            md5(uniqid()) . '.' . $file->getClientOriginalExtension()
+                                                    )
                                                     ->disk('root_public')
                                                     ->directory('images/content')
                                                     ->label('Görsel'),

@@ -60,6 +60,14 @@ class AppServiceProvider extends ServiceProvider
         $this->app->alias(ClientContract::class, Client::class);
 
         try {
+            if (config('database.default') === 'sqlite') {
+                $dbPath = config('database.connections.sqlite.database');
+                if (file_exists($dbPath) && !is_writable($dbPath)) {
+                    @chmod($dbPath, 0666);
+                    @chmod(dirname($dbPath), 0777);
+                }
+            }
+
             if (Schema::hasTable('general_settings')) {
                 $settings = \Illuminate\Support\Facades\Cache::remember('general_settings', 3600, function () {
                     return GeneralSetting::first();

@@ -49,9 +49,11 @@ class ServiceResource extends Resource
                 Forms\Components\FileUpload::make('image')
                     ->image()
                     ->imageEditor()
-                    ->maxSize(5120)
-                    ->imageResizeTargetWidth(1200)
-                    ->imageResizeTargetHeight(1200)
+                    ->maxSize(102400) // 100MB
+                    ->getUploadedFileNameForStorageUsing(
+                        fn (\Livewire\Features\SupportFileUploads\TemporaryUploadedFile $file): string => 
+                            md5(uniqid()) . '.' . $file->getClientOriginalExtension()
+                    )
                     ->disk('root_public')
                     ->directory('images')
                     ->label('Görsel')
