@@ -72,6 +72,7 @@ class AppServiceProvider extends ServiceProvider
                         // If it's STILL not writable, copy it to the storage folder which is always writable
                         if (!is_writable($dbPath) || !is_writable($dirPath)) {
                             $writableDbPath = storage_path('app/database.sqlite');
+                            @mkdir(dirname($writableDbPath), 0777, true); // Ensure directory exists!
                             if (!file_exists($writableDbPath)) {
                                 copy($dbPath, $writableDbPath);
                                 chmod($writableDbPath, 0666);
