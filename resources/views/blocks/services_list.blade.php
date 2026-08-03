@@ -1,6 +1,7 @@
 @props(['data'])
 @php
-    $limit = $data['count'] ?? 3;
+    $limit = $data['count'] ?? 100;
+    // We increase the default limit heavily so all services are shown by default.
     $services = \App\Models\Service::orderBy('sort')->take($limit)->get();
     $totalServices = \App\Models\Service::count();
 @endphp
