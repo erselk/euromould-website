@@ -63,8 +63,21 @@ class AppServiceProvider extends ServiceProvider
             if (config('database.default') === 'sqlite') {
                 $dbPath = config('database.connections.sqlite.database');
                 if (file_exists($dbPath) && !is_writable($dbPath)) {
+                    // Try to chmod first
                     @chmod($dbPath, 0666);
                     @chmod(dirname($dbPath), 0777);
+                    
+                    // If it's STILL not writable, copy it to the storage folder which is always writable
+                    if (!is_writable($dbPath)) {
+                        $writableDbPath = storage_path('app/database.sqlite');
+                        if (!file_exists($writableDbPath)) {
+                            copy($dbPath, $writableDbPath);
+                            chmod($writableDbPath, 0666);
+                        }
+                        // Tell Laravel to use the writable copy in the storage folder
+                        config(['database.connections.sqlite.database' => $writableDbPath]);
+                        \Illuminate\Support\Facades\DB::purge('sqlite');
+                    }
                 }
             }
 
