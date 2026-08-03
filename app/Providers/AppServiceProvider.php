@@ -32,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        if (config('app.env') !== 'local') {
+        if (!in_array(request()->getHost(), ['localhost', '127.0.0.1', '::1'])) {
             \Illuminate\Support\Facades\URL::forceScheme('https');
         }
         $this->app->singleton(ClientContract::class, static function (): Client {
