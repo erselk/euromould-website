@@ -59,9 +59,9 @@ class PageResource extends Resource
                                                     ->label('Arkaplan Görseli')
                                                     ->image()
                                                     ->imageEditor()
-                                                    ->optimize('webp')
                                                     ->maxSize(5120)
-                                                    ->resize(1920, 1080)
+                                                    ->imageResizeTargetWidth(1920)
+                                                    ->imageResizeTargetHeight(1080)
                                                     ->disk('root_public')
                                                     ->directory('images/heroes'),
                                             ])->label('Ana Hero (Büyük)'),
@@ -75,9 +75,9 @@ class PageResource extends Resource
                                                     ->label('Arkaplan Görseli (Opsiyonel)')
                                                     ->image()
                                                     ->imageEditor()
-                                                    ->optimize('webp')
                                                     ->maxSize(5120)
-                                                    ->resize(1920, 1080)
+                                                    ->imageResizeTargetWidth(1920)
+                                                    ->imageResizeTargetHeight(1080)
                                                     ->disk('root_public')
                                                     ->directory('images/headers'),
                                             ])->label('Sayfa Başlığı (Sade)'),
@@ -90,9 +90,9 @@ class PageResource extends Resource
                                                 Forms\Components\FileUpload::make('image')
                                                     ->image()
                                                     ->imageEditor()
-                                                    ->optimize('webp')
                                                     ->maxSize(5120)
-                                                    ->resize(1200, 1200)
+                                                    ->imageResizeTargetWidth(1200)
+                                                    ->imageResizeTargetHeight(1200)
                                                     ->disk('root_public')
                                                     ->directory('images/content')
                                                     ->label('Görsel'),

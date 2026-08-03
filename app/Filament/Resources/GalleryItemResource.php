@@ -25,7 +25,6 @@ class GalleryItemResource extends Resource
                 Forms\Components\FileUpload::make('image')
                     ->image()
                     ->imageEditor()
-                    ->optimize('webp')
                     ->maxSize(5120)
                     ->disk('root_public')
                     ->directory('images/gallery')
