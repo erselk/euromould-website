@@ -1,4 +1,20 @@
 <IfModule mod_rewrite.c>
+    <IfModule mod_php.c>
+        php_value upload_max_filesize 100M
+        php_value post_max_size 100M
+    </IfModule>
+    <IfModule mod_php7.c>
+        php_value upload_max_filesize 100M
+        php_value post_max_size 100M
+    </IfModule>
+    <IfModule mod_php8.c>
+        php_value upload_max_filesize 100M
+        php_value post_max_size 100M
+    </IfModule>
+    <IfModule sapi_apache2.c>
+        php_value upload_max_filesize 100M
+        php_value post_max_size 100M
+    </IfModule>
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes
     </IfModule>
