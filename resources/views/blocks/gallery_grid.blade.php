@@ -13,7 +13,7 @@
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
             @foreach($items as $item)
                 <div class="relative aspect-square group overflow-hidden rounded-2xl cursor-pointer shadow-lg shadow-slate-200/50">
-                    <img src="/{{ $item->image }}?v=3" alt="{{ __($item->title ?? '') }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ease-in-out">
+                    <img src="/{{ $item->image }}?v=4" alt="{{ __($item->title ?? '') }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ease-in-out">
                     <div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6 backdrop-blur-sm">
                         @if($item->title)
                             <h3 class="text-white font-bold text-center translate-y-4 group-hover:translate-y-0 transition-transform duration-300 text-lg">{{ __($item->title) }}</h3>

@@ -3,7 +3,7 @@
     <!-- Background -->
     @if(isset($data['bg_image']))
         <div class="absolute inset-0 z-0">
-            <img src="/{{ $data['bg_image'] }}?v=3" alt="{{ $data['title'] ?? '' }}" class="w-full h-full object-cover opacity-30">
+            <img src="/{{ $data['bg_image'] }}?v=4" alt="{{ $data['title'] ?? '' }}" class="w-full h-full object-cover opacity-30">
         </div>
     @endif
     <!-- Gradient & Overlay -->

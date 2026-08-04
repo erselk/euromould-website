@@ -64,7 +64,7 @@
                         <!-- Cover Image & Play Button -->
                         <div x-show="!playing" class="absolute inset-0 z-10 pointer-events-none">
                             <!-- Cover Image -->
-                            <img src="/images/video_cover.webp?v=3" alt="Video Cover" class="w-full h-full object-cover opacity-80 group-hover:opacity-70 transition-opacity duration-500">
+                            <img src="/images/video_cover.webp?v=4" alt="Video Cover" class="w-full h-full object-cover opacity-80 group-hover:opacity-70 transition-opacity duration-500">
                             
                             <!-- Overlay Gradient -->
                             <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
@@ -106,7 +106,7 @@
                     <!-- Standard Image Mode -->
                     <div class="relative h-[300px] md:h-[500px] w-full shadow-lg border border-slate-100 rounded-lg overflow-hidden">
                         @if(isset($data['image']))
-                            <img src="/{{ $data['image'] }}?v=3" alt="{{ __($data['title'] ?? '') }}" class="w-full h-full object-cover">
+                            <img src="/{{ $data['image'] }}?v=4" alt="{{ __($data['title'] ?? '') }}" class="w-full h-full object-cover">
                         @else
                             <div class="w-full h-full bg-slate-200 flex items-center justify-center text-slate-400">
                                 <svg class="w-16 h-16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>

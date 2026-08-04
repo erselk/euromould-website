@@ -8,7 +8,7 @@
             
             @if($service->image)
                 <div class="mb-12 rounded-xl overflow-hidden shadow-lg">
-                    <img src="/{{ $service->image }}?v=3" alt="{{ __($service->getTranslated('title')) }}" class="w-full h-auto">
+                    <img src="/{{ $service->image }}?v=4" alt="{{ __($service->getTranslated('title')) }}" class="w-full h-auto">
                 </div>
             @endif
 
