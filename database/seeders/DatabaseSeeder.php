@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
             'site_name' => 'EuroMould',
             'contact_email' => 'info@euromould.com.tr',
             'logo' => 'images/logoyatay.png',
-            'contact_phone' => '+90 212 879 00 16',
+            'contact_phone' => '+90 (212) 879 00 16',
             'address' => "Beylikdüzü OSB, 3. Cd. Birlik Sanayi Sitesi No:71\n34524 Beylikdüzü/İstanbul",
             'google_maps' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3011.0814740080796!2d28.659471099999998!3d41.0015899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b55f9b6e737abd%3A0x6e9cb191a35a758b!2sEuroMould!5e0!3m2!1str!2str!4v1766611042380!5m2!1str!2str" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>',
         ]);
@@ -440,7 +440,7 @@ Elde edilen datalar, doğrudan CNC tezgahına gönderilebilir veya kalıp tasar�
                      'type' => 'content_with_image',
                      'data' => [
                          'title' => 'CNC İşleme Hattı',
-                         'content' => '<p>Firmamız bünyesindeki son teknoloji CNC işleme merkezleri, 7/24 kesintisiz üretim kapasitesine sahiptir. Operatör hatalarını minimize eden otomasyon sistemleri ve hassas takım ölçme problarıyla donatılmış tezgahlarımızda, kalıp çekirdekleri ve hamilleri, tek bağlamada bitmiş yüzey kalitesine ulaştırılmaktadır.</p>',
+                         'content' => '<p>Firmamız bünyesindeki son teknoloji CNC işleme merkezleri, 7/24 kesintisiz üretim kapasitesine sahiptir. Operatör hatalarını minimize eden otomasyon sistemleri ve hassas takım ölçme problarıyla donatılmış tezgahlarımızda, kalıp çekirdekleri ve hamilleri, hassas bir şekilde işlenir.</p>',
                          'image' => 'images/unnamed.webp',
                          'image_position' => 'right'
                      ]
@@ -458,7 +458,7 @@ Elde edilen datalar, doğrudan CNC tezgahına gönderilebilir veya kalıp tasar�
                      'type' => 'content_with_image',
                      'data' => [
                          'title' => 'Montaj ve Alıştırma Bölümü',
-                         'content' => '<p>İşlenen tüm kalıp bileşenleri, tecrübeli kalıp ustalarımız tarafından titizlikle montaj hattına alınır. Uygun ekipman kullanılarak kalıp ayırma yüzeylerinin mükemmel öpüşmesi sağlanır. Bu aşama, kalıbın çapaksız baskı yapabilmesi için üretim sürecinin en kritik manuel işlemidir.</p>',
+                         'content' => '<p>İşlenen tüm kalıp bileşenleri, tecrübeli kalıp ustalarımız tarafından titizlikle montaj hattına alınır. Uygun ekipman kullanılarak kalıp ayırma yüzeylerinin alıştırılması sağlanır. Bu aşama, kalıbın çapaksız baskı yapabilmesi için üretim sürecinin en kritik manuel işlemidir.</p>',
                          'image' => 'images/unnamed (3).webp',
                          'image_position' => 'right'
                      ]
