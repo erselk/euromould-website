@@ -243,6 +243,24 @@ Elde edilen datalar, doğrudan CNC tezgahına gönderilebilir veya kalıp tasar�
                 'image' => 'images/service_3d_scanning.png',
                 'sort' => 10
             ],
+            [
+                'title' => 'Plastik Enjeksiyon Baskı',
+                'slug' => 'plastik-enjeksiyon-baski',
+                'description' => 'Geniş makine parkurumuzla, yüksek kalitede ve seri olarak plastik enjeksiyon baskı hizmeti sunuyoruz. Her sektöre uygun çözümlerle yanınızdayız.',
+                'long_description' => '
+<p class="mb-6">Kalıp üretiminin yanı sıra, son teknoloji enjeksiyon makinelerimizle seri baskı hizmeti de veriyoruz. Müşterilerimizin yüksek adetli üretim taleplerini, kalite standartlarından ödün vermeden zamanında teslim ediyoruz.</p>
+
+<h3 class="text-2xl font-bold mb-4 text-slate-800">Geniş Makine Parkuru</h3>
+<p class="mb-6">Farklı tonajlardaki enjeksiyon makinelerimiz ile küçükten büyüğe her türlü plastik parçanın baskısını gerçekleştirebiliyoruz. Makinelerimiz, enerji verimliliği yüksek ve hassas kontrol sistemleri ile donatılmıştır.</p>
+
+<h3 class="text-2xl font-bold mb-4 text-slate-800">Kalite Kontrol ve İzlenebilirlik</h3>
+<p class="mb-6">Üretilen her parça, titiz bir kalite kontrol sürecinden geçer. İlk baskıdan son baskıya kadar tüm aşamalar kayıt altına alınır ve izlenebilirlik sağlanır. Bu sayede, hatalı ürün çıkma ihtimali en aza indirgenir.</p>
+
+<h3 class="text-2xl font-bold mb-4 text-slate-800">Hammadde Uzmanlığı</h3>
+<p>PP, PE, ABS, PC, PA gibi çeşitli plastik hammaddelerle çalışma konusunda uzmanız. Ürününüzün kullanım yeri ve şartlarına en uygun hammaddeyi seçerek, uzun ömürlü ve dayanıklı parçalar üretiyoruz.</p>',
+                'image' => 'images/service_plastic_molding.png',
+                'sort' => 11
+            ],
         ];
 
         foreach ($services as $service) {
@@ -386,7 +404,7 @@ Elde edilen datalar, doğrudan CNC tezgahına gönderilebilir veya kalıp tasar�
                     'data' => [
                         'title' => 'Tüm Hizmetlerimiz',
                         'subtitle' => 'NELER SUNUYORUZ?',
-                        'count' => 10
+                        'count' => 100
                     ]
                 ],
                 [
